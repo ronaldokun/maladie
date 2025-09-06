@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Markers Evolution Analysis</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.26.0/plotly.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #333;
+            border-bottom: 2px solid #007acc;
+            padding-bottom: 10px;
+        }
+        .chart-container {
+            margin: 30px 0;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .controls {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .dropdown-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+            font-size: 14px;
+            min-width: 250px;
+        }
+        .download-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .download-btn {
+            padding: 8px 16px;
+            background: #007acc;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        .download-btn:hover {
+            background: #005999;
+        }
+        .altered {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Blood Markers Evolution Analysis</h1>
+        <p><strong>Patient:</strong> [ANONYMIZED] (ID: [REDACTED])</p>
+        <p><strong>Period:</strong> 06/08/2025 to 05/09/2025 (31 days)</p>
+        
+        <div class="controls">
+            <div class="dropdown-container">
+                <label for="analyteSelect"><strong>Select Analyte:</strong></label>
+                <select id="analyteSelect" onchange="updateChart()">
+                </select>
+            </div>
+            <div class="download-buttons">
+                <button class="download-btn" onclick="downloadPivotCSV()">Download Pivot Table CSV</button>
+                <button class="download-btn" onclick="downloadTidyCSV()">Download Tidy Data CSV</button>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <h2>Interactive Evolution Chart - 31 Day Analysis</h2>
+            <div id="plotlyChart" style="height: 600px;"></div>
+        </div>
+    </div>
+
+    <script>
+        // Raw data extracted from all documents (Complete 31-day period: Aug 6 - Sep 5, 2025)
+        const rawData = [
+            {analyte: "Proteína C reativa", values: [2.10, 3.20, 4.50, 5.50, 7.20, 8.80, "Inferior a 0.5", "Inferior a 0.5", "Inferior a 0.5", 0.70, 1.40, 2.40, "----", 4.10, "----", 4.40], unit: "mg/dL", reference: "Até 1"},
+            {analyte: "Basófilos", values: [0.1, 0.0, 0.0, 0.0, 0.0, 1.0, 0.3, 0.9, 0.7, 0.7, 0.8, 0.5, "----", 0.0, "----", 0.5], unit: "%", reference: ""},
+            {analyte: "Bastões", values: ["----", "----", "----", "----", 3.0, "----", "----", "----", "----", "----", "----", "----", "----", "----", "----", "----"], unit: "%", reference: ""},
+            {analyte: "Eosinófilos", values: [0.3, 0.2, 1.0, 1.0, 0.0, 0.0, 11.2, 10.6, 10.8, 13.0, 9.6, 6.6, "----", 5.0, "----", 0.6], unit: "%", reference: ""},
+            {analyte: "Hematócrito", values: [42.1, 39.9, 42.2, 45.8, 42.1, 47.4, 44.0, 43.5, 40.5, 42.4, 46.9, 38.8, "----", 36.8, "----", 41.1], unit: "%", reference: "De 40 até 54"},
+            {analyte: "Hemácias", values: [4.83, 4.61, 4.78, 5.26, 4.78, 5.52, 4.84, 4.85, 4.57, 4.72, 5.16, 4.33, "----", 4.12, "----", 4.61], unit: "milhões/mm³", reference: "De 4.52 até 6"},
+            {analyte: "Hemoglobina", values: [14.6, 13.9, 14.5, 16.2, 15.0, 16.8, 14.7, 15.3, 14.3, 14.4, 15.4, 13.2, "----", 13.0, "----", 14.3], unit: "g/dL", reference: "De 13 até 18"},
+            {analyte: "Linfócitos", values: [16.6, 7.5, 19.0, 15.0, 5.0, 18.0, 33.1, 35.3, 38.2, 39.6, 38.8, 40.6, "----", 50.0, "----", 19.0], unit: "%", reference: ""},
+            {analyte: "Monócitos", values: [7.5, 4.7, 6.0, 10.0, 7.0, 17.0, 7.1, 5.8, 5.9, 7.1, 7.8, 9.3, "----", 10.0, "----", 12.0], unit: "%", reference: ""},
+            {analyte: "Neutrófilos", values: [75.5, 87.6, 74.0, 73.0, 88.0, 64.0, 48.3, 47.4, 44.4, 39.6, 43.0, 43.0, "----", 35.0, "----", 67.9], unit: "%", reference: ""},
+            {analyte: "Plaquetas", values: [353, 307, 298, 329, 279, 296, 333, 326, 294, 280, 299, 232, "----", 205, "----", 223], unit: "mil/mm³", reference: "De 150 até 450"},
+            {analyte: "RDW", values: [13.1, 13.0, 13.1, 12.9, 12.8, 12.8, 13.1, 12.9, 12.3, 12.9, 12.8, 12.9, "----", 13.1, "----", 12.9], unit: "%", reference: "De 11.6 até 15"},
+            {analyte: "Leucócitos", values: [15700, 16900, 21300, 23400, 19000, 19600, 7300, 7800, 7000, 5700, 5200, 5200, "----", 6100, "----", 7300], unit: "/mm³", reference: "De 4000 até 11300"},
+            {analyte: "Creatinina", values: [0.80, 0.60, 0.90, 0.80, 0.80, 0.80, 0.90, 1.00, 0.90, 0.90, 0.90, 0.90, "----", 0.90, "----", 1.00], unit: "mg/dL", reference: "De 0.66 ate 1.25"},
+            {analyte: "Ureia", values: [14.0, 13.0, 12.0, 12.0, 13.0, 22.0, 20.0, 21.0, 14.0, 17.0, 13.0, 11.0, "----", 15.0, "----", 19.0], unit: "mg/dL", reference: "De 19.26 até 42.8"},
+            {analyte: "TGO", values: [25.0, 24.0, 23.0, 24.0, 25.0, 30.0, 53.0, 66.0, 68.0, 69.0, 81.0, 51.0, "----", 65.0, "----", 135.0], unit: "U/L", reference: "De 17 até 59"},
+            {analyte: "Sódio", values: [138, 134, 136, 136, 135, 130, 141, 140, 140, 140, 144, 139, "----", 139, "----", 136], unit: "mmol/L", reference: "De 137 até 145"},
+            {analyte: "Potássio", values: [3.2, 3.7, 3.4, 3.7, 3.7, 3.9, 4.5, 4.6, 4.0, 4.3, 3.7, 3.7, "----", 3.8, "----", 3.9], unit: "mmol/L", reference: "De 3.5 até 5.1"},
+            {analyte: "Gama GT", values: [139, 131, 125, 149, 143, 183, 225, 244, 252, 249, 275, 240, "----", 245, "----", 276], unit: "U/L", reference: "De 15 até 73"},
+            {analyte: "Calcio Iônico", values: [1.09, 1.06, 1.13, 1.06, 1.08, "----", 1.20, 1.14, 1.16, 1.17, 1.21, 1.14, "----", 1.16, "----", "----"], unit: "mmol/L", reference: "De 1.1 até 1.4"},
+            {analyte: "Relação", values: [1.32, 1.00, 1.19, 1.18, 1.26, 1.32, 1.43, 1.45, 1.44, 1.42, 1.54, 1.55, "----", 1.63, "----", 1.97], unit: "", reference: "De 0.86 a 1.19"},
+            {analyte: "TTPA", values: [37.7, 28.4, 33.9, 33.5, 36.0, 37.5, 40.7, 41.2, 40.9, 40.6, 43.8, 44.2, "----", 46.5, "----", 56.2], unit: "segundos", reference: "De 30 até 43"},
+            {analyte: "Magnesio", values: [2.10, 2.10, 2.10, 2.10, 2.10, "----", 2.10, 2.10, 2.00, 1.90, 2.20, 1.90, "----", 2.00, "----", "----"], unit: "mg/dL", reference: "De 1.6 até 2.3"},
+            {analyte: "Fosfatase alcalina", values: [152.0, 110.0, 152.0, 172.0, 167.0, 184.0, 148.0, 164.0, 181.0, 176.0, 200.0, 205.0, "----", 184.0, "----", 213.0], unit: "U/L", reference: "De 40 até 129"},
+            {analyte: "TGP", values: [26.0, 25.0, 27.0, 32.0, 31.0, 41.0, 99.0, 120.0, 122.0, 116.0, 141.0, 116.0, "----", 139.0, "----", 199.0], unit: "U/L", reference: "Até 50"},
+            {analyte: "RNI", values: [1.10, 1.17, 1.08, 1.13, 1.09, 1.03, 1.03, 0.98, 1.03, 1.03, 0.98, 1.04, "----", 1.10, "----", 1.14], unit: "", reference: "De 0.9 até 1.1"},
+            {analyte: "TAP", values: [12.8, 13.6, 12.6, 13.2, 12.7, 12.0, 12.0, 11.5, 12.0, 12.1, 11.5, 12.2, "----", 12.8, "----", 13.3], unit: "seg", reference: "De 12.7 até 15.2"},
+            {analyte: "CPK", values: ["----", "----", "----", "----", "----", "----", 80, 88, 83, 89, 173, 212, 263, "----", 523, "----"], unit: "U/L", reference: "De 55 até 170"}
+        ];
+
+        const dateTimes = [
+            "05/09/2025 00:24",
+            "04/09/2025 00:30",
+            "02/09/2025 23:11", 
+            "01/09/2025 21:34",
+            "01/09/2025 03:29",
+            "31/08/2025 08:52",
+            "14/08/2025 08:03",
+            "13/08/2025 08:44",
+            "12/08/2025 08:19",
+            "11/08/2025 09:27",
+            "10/08/2025 11:28",
+            "09/08/2025 00:05",
+            "07/08/2025 23:27",
+            "07/08/2025 23:27",
+            "06/08/2025 17:21",
+            "06/08/2025 17:40"
+        ];
+
+        // Function to parse reference ranges
+        function parseReference(refString) {
+            if (!refString || refString === "") return {min: null, max: null};
+            
+            const patterns = [
+                /De\s+([\d.]+)\s+até\s+([\d.]+)/i,
+                /De\s+([\d.]+)\s+a\s+([\d.]+)/i,
+                /Até\s+([\d.]+)/i
+            ];
+            
+            for (let pattern of patterns) {
+                const match = refString.match(pattern);
+                if (match) {
+                    if (match[2]) {
+                        return {min: parseFloat(match[1]), max: parseFloat(match[2])};
+                    } else {
+                        return {min: null, max: parseFloat(match[1])};
+                    }
+                }
+            }
+            
+            return {min: null, max: null};
+        }
+
+        // Function to check if value is within reference range
+        function isWithinRange(value, reference) {
+            if (value === "----" || value === null || value === "Inferior a 0.5") return null;
+            const ref = parseReference(reference);
+            if (ref.min === null && ref.max === null) return null;
+            
+            const numValue = parseFloat(value);
+            if (isNaN(numValue)) return null;
+            
+            if (ref.min !== null && ref.max !== null) {
+                return numValue >= ref.min && numValue <= ref.max;
+            } else if (ref.max !== null) {
+                return numValue <= ref.max;
+            }
+            return null;
+        }
+
+        // Create dropdown options
+        function createDropdown() {
+            const select = document.getElementById('analyteSelect');
+            rawData.forEach(row => {
+                const option = document.createElement('option');
+                option.value = row.analyte;
+                option.textContent = row.analyte;
+                select.appendChild(option);
+            });
+            // Select first analyte by default
+            if (rawData.length > 0) {
+                select.value = rawData[0].analyte;
+            }
+        }
+
+        // Create plotly chart for selected analyte
+        function updateChart() {
+            const selectedAnalyte = document.getElementById('analyteSelect').value;
+            const analyte = rawData.find(a => a.analyte === selectedAnalyte);
+            if (!analyte) return;
+            
+            // Reverse the order for chronological display (left to right)
+            const reversedDates = [...dateTimes].reverse();
+            const reversedValues = [...analyte.values].reverse();
+            
+            // Filter out invalid values and get corresponding dates
+            const validData = reversedValues.map((value, idx) => ({
+                value: value,
+                date: reversedDates[idx],
+                originalValue: value
+            })).filter(item => item.value !== "----");
+            
+            if (validData.length === 0) return;
+            
+            const validDates = validData.map(item => item.date);
+            const validValues = validData.map(item => {
+                // Handle "Inferior a 0.5" values
+                if (item.value === "Inferior a 0.5") return 0.25;
+                return parseFloat(item.value);
+            });
+            
+            // Create trace
+            const trace = {
+                x: validDates,
+                y: validValues,
+                name: analyte.analyte,
+                mode: 'lines+markers+text',
+                text: validData.map(item => item.originalValue === "Inferior a 0.5" ? "<0.5" : `${item.originalValue}`),
+                textposition: 'top center',
+                textfont: {size: 12},
+                hovertemplate: `<b>${analyte.analyte}</b><br>` +
+                               `DateTime: %{x}<br>` +
+                               `Value: %{text} ${analyte.unit}<br>` +
+                               `Reference: ${analyte.reference} ${analyte.unit}<br>` +
+                               `<extra></extra>`,
+                line: {width: 3, color: '#007acc'},
+                marker: {size: 8, color: '#007acc'}
+            };
+            
+            const traces = [trace];
+            const shapes = [];
+            
+            // Add reference range lines if available
+            const ref = parseReference(analyte.reference);
+            if (ref.min !== null || ref.max !== null) {
+                if (ref.min !== null) {
+                    shapes.push({
+                        type: 'line',
+                        x0: validDates[0],
+                        x1: validDates[validDates.length - 1],
+                        y0: ref.min,
+                        y1: ref.min,
+                        line: {
+                            color: 'rgba(255, 0, 0, 0.6)',
+                            width: 2,
+                            dash: 'dash'
+                        }
+                    });
+                }
+                if (ref.max !== null) {
+                    shapes.push({
+                        type: 'line',
+                        x0: validDates[0],
+                        x1: validDates[validDates.length - 1],
+                        y0: ref.max,
+                        y1: ref.max,
+                        line: {
+                            color: 'rgba(255, 0, 0, 0.6)',
+                            width: 2,
+                            dash: 'dash'
+                        }
+                    });
+                }
+                
+                // Add invisible trace for reference line legend
+                traces.push({
+                    x: [null],
+                    y: [null],
+                    mode: 'lines',
+                    name: 'Reference Range',
+                    line: {
+                        color: 'rgba(255, 0, 0, 0.6)',
+                        width: 2,
+                        dash: 'dash'
+                    },
+                    showlegend: true
+                });
+            }
+            
+            const layout = {
+                title: {
+                    text: `${analyte.analyte} Evolution Over Time`,
+                    font: {size: 18}
+                },
+                xaxis: {
+                    title: 'Date/Time',
+                    tickangle: -45,
+                    type: 'category'
+                },
+                yaxis: {
+                    title: `Value (${analyte.unit})`
+                },
+                hovermode: 'closest',
+                showlegend: true,
+                shapes: shapes,
+                margin: {r: 50, b: 100, t: 80, l: 80}
+            };
+            
+            const config = {
+                responsive: true,
+                displayModeBar: true,
+                modeBarButtonsToRemove: ['lasso2d', 'select2d']
+            };
+            
+            Plotly.newPlot('plotlyChart', traces, layout, config);
+        }
+
+        // Download functions
+        function downloadPivotCSV() {
+            let csv = 'ANALITOS,';
+            csv += dateTimes.join(',') + ',VALORES DE REFERENCIA\n';
+            
+            rawData.forEach(row => {
+                csv += row.analyte + ',';
+                csv += row.values.join(',') + ',';
+                csv += '"' + row.reference + ' ' + row.unit + '"\n';
+            });
+            
+            downloadCSV(csv, 'blood_markers_pivot.csv');
+        }
+
+        function downloadTidyCSV() {
+            let csv = 'Analyte,DateTime,Value,Unit,Reference Range,Within Range\n';
+            
+            rawData.forEach(row => {
+                row.values.forEach((value, index) => {
+                    if (value !== "----") {
+                        const withinRange = isWithinRange(value, row.reference);
+                        const withinRangeText = withinRange === null ? 'N/A' : (withinRange ? 'Yes' : 'No');
+                        csv += `"${row.analyte}","${dateTimes[index]}","${value}","${row.unit}","${row.reference}","${withinRangeText}"\n`;
+                    }
+                });
+            });
+            
+            downloadCSV(csv, 'blood_markers_tidy.csv');
+        }
+
+        function downloadCSV(content, filename) {
+            const blob = new Blob([content], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', filename);
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', function() {
+            createDropdown();
+            updateChart();
+        });
+    </script>
+</body>
+</html>
