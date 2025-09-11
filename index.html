@@ -125,6 +125,27 @@
             font-size: 16px;
             color: #dc3545;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .direction-arrow {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 4px;
+            min-width: 24px;
+            text-align: center;
+        }
+        .arrow-up {
+            color: #dc3545;
+            background: rgba(220, 53, 69, 0.1);
+            border: 1px solid rgba(220, 53, 69, 0.3);
+        }
+        .arrow-down {
+            color: #fd7e14;
+            background: rgba(253, 126, 20, 0.1);
+            border: 1px solid rgba(253, 126, 20, 0.3);
         }
         .focus-item-reference {
             font-size: 12px;
@@ -260,6 +281,33 @@
             return {min: null, max: null};
         }
 
+        // Function to calculate median of valid numeric values
+        function calculateMedian(values) {
+            // Filter out invalid values and convert to numbers
+            const numericValues = values.filter(val => {
+                if (val === "----" || val === null || val === "Inferior a 0.5" || val === "Raras") return false;
+                const num = parseFloat(val);
+                return !isNaN(num);
+            }).map(val => {
+                if (val === "Inferior a 0.5") return 0.25;
+                if (val === "Raras") return 0;
+                return parseFloat(val);
+            });
+            
+            if (numericValues.length === 0) return null;
+            
+            // Sort values
+            numericValues.sort((a, b) => a - b);
+            
+            const mid = Math.floor(numericValues.length / 2);
+            
+            if (numericValues.length % 2 === 0) {
+                return (numericValues[mid - 1] + numericValues[mid]) / 2;
+            } else {
+                return numericValues[mid];
+            }
+        }
+
         // Function to check if value is within reference range
         function isWithinRange(value, reference) {
             if (value === "----" || value === null || value === "Inferior a 0.5" || value === "Raras") return null;
@@ -277,6 +325,29 @@
             return null;
         }
 
+        // Function to determine direction of out-of-range value
+        function getOutOfRangeDirection(value, reference) {
+            const ref = parseReference(reference);
+            const numValue = parseFloat(value);
+            
+            if (isNaN(numValue) || (ref.min === null && ref.max === null)) {
+                return null;
+            }
+            
+            if (ref.min !== null && ref.max !== null) {
+                // Both min and max defined
+                if (numValue < ref.min) return 'down';
+                if (numValue > ref.max) return 'up';
+                return null;
+            } else if (ref.max !== null) {
+                // Only max defined
+                if (numValue > ref.max) return 'up';
+                return null;
+            }
+            
+            return null;
+        }
+
         // Function to get out-of-range values for the latest data point
         function getLatestOutOfRangeValues() {
             const outOfRange = [];
@@ -290,12 +361,16 @@
                     let displayValue = latestValue;
                     if (latestValue === "Inferior a 0.5") displayValue = "<0.5";
                     
+                    // Determine direction
+                    const direction = getOutOfRangeDirection(latestValue, analyte.reference);
+                    
                     outOfRange.push({
                         name: analyte.analyte,
                         value: displayValue,
                         unit: analyte.unit,
                         reference: analyte.reference,
-                        rawValue: latestValue
+                        rawValue: latestValue,
+                        direction: direction
                     });
                 }
             });
@@ -317,10 +392,18 @@
             } else {
                 let contentHtml = '';
                 outOfRange.forEach(item => {
+                    // Create arrow indicator based on direction
+                    let arrowHtml = '';
+                    if (item.direction === 'up') {
+                        arrowHtml = '<span class="direction-arrow arrow-up">↑</span>';
+                    } else if (item.direction === 'down') {
+                        arrowHtml = '<span class="direction-arrow arrow-down">↓</span>';
+                    }
+                    
                     contentHtml += `
                         <div class="focus-item">
                             <div class="focus-item-name">${item.name}</div>
-                            <div class="focus-item-value">${item.value} ${item.unit}</div>
+                            <div class="focus-item-value">${arrowHtml}${item.value} ${item.unit}</div>
                             <div class="focus-item-reference">Reference: ${item.reference} ${item.unit}</div>
                         </div>
                     `;
@@ -402,8 +485,43 @@
                 textangle: 0
             };
             
+            // Calculate median for trend analysis
+            const medianValue = calculateMedian(analyte.values);
+            
             const traces = [trace];
             const shapes = [];
+            
+            // Add median line if available
+            if (medianValue !== null) {
+                shapes.push({
+                    type: 'line',
+                    x0: 0,
+                    x1: 1,
+                    xref: 'paper',
+                    y0: medianValue,
+                    y1: medianValue,
+                    line: {
+                        color: 'rgba(255, 165, 0, 0.8)', // Orange color
+                        width: 2,
+                        dash: 'dot'
+                    },
+                    layer: 'above'
+                });
+                
+                // Add median trace for legend
+                traces.push({
+                    x: [null],
+                    y: [null],
+                    mode: 'lines',
+                    name: `Median Trend (${medianValue.toFixed(2)} ${analyte.unit})`,
+                    line: {
+                        color: 'rgba(255, 165, 0, 0.8)',
+                        width: 2,
+                        dash: 'dot'
+                    },
+                    showlegend: true
+                });
+            }
             
             // Add reference range as filled area if available
             const ref = parseReference(analyte.reference);
