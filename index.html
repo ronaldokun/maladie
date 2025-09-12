@@ -167,7 +167,7 @@
 <div class="container">
 <h1>Blood Markers Evolution Analysis</h1>
 <p><strong>Patient:</strong> [ANONYMIZED] (ID: [REDACTED])</p>
-<p><strong>Period:</strong> 05/08/2025 to 10/09/2025 (38 days)</p>
+<p id="periodText"><strong>Period:</strong> Loading...</p>
 <div class="controls">
 <div class="dropdown-container">
 <label for="groupSelect"><strong>Select Group:</strong></label>
@@ -185,11 +185,15 @@
 </div>
 </div>
 <div class="chart-container">
-<h2>Interactive Evolution Chart - 38 Day Analysis</h2>
+<h2>Interactive Evolution Chart</h2>
 <div class="info-box" style="margin-bottom: 10px; padding: 8px; background-color: #f8f9fa; border-radius: 5px; font-size: 14px;">
   <p style="margin: 0;"><strong>Navigation tips:</strong> Use the range slider below the chart to zoom and pan. You can also use the toolbar buttons to zoom in/out and drag to pan the view.</p>
 </div>
 <div id="plotlyChart" style="height: 700px;"></div>
+<div id="fileLoader" style="display:none; margin-top: 12px; padding: 10px; background:#fff3cd; border:1px solid #ffeeba; border-radius:6px;">
+  <p style="margin:0 0 8px 0;">Could not load blood_markers_pivot.csv automatically. If you opened this file directly from your disk (file://), please choose the CSV located in the same folder as this HTML:</p>
+  <input type="file" id="csvInput" accept=".csv" />
+</div>
 <div id="focusBox" class="focus-box">
   <h3>Latest Results - Attention Required</h3>
   <div id="focusBoxContent" class="focus-box-content">
@@ -199,62 +203,152 @@
 </div>
 </div>
 <script>
-        // Raw data extracted from all documents (Complete 35-day period: Aug 5 - Sep 7, 2025)
-        const rawData = [
-{analyte: "Proteína C reativa", values: [3.80, 4.70, 8.20, 2.80, 1.10, 1.20, 2.10, 3.20, 4.50, 5.50, 7.20, 8.80, "Inferior a 0.5", "Inferior a 0.5", "Inferior a 0.5", 0.70, 1.40, 2.40, "----", 4.10, "----", 4.40, 2.50], unit: "mg/dL", reference: "Até 1"},
-{analyte: "Hemoglobina", values: [14.5, 14.6, 15.4, 14.4, 13.9, 15.5, 14.6, 13.9, 14.5, 16.2, 15.0, 16.8, 14.7, 15.3, 14.3, 14.4, 15.4, 13.2, "----", 13.0, "----", 14.3, 15.1], unit: "g/dL", reference: "De 13 até 18"},
-{analyte: "Hemácias", values: [4.81, 4.68, 4.87, 4.75, 4.56, 5.08, 4.83, 4.61, 4.78, 5.26, 4.78, 5.52, 4.84, 4.85, 4.57, 4.72, 5.16, 4.33, "----", 4.12, "----", 4.61, 4.97], unit: "milhões/mm³", reference: "De 4.52 até 6"},
-{analyte: "Hematócrito", values: [44.0, 41.3, 43.2, 41.8, 39.6, 43.8, 42.1, 39.9, 42.2, 45.8, 42.1, 47.4, 44.0, 43.5, 40.5, 42.4, 46.9, 38.8, "----", 36.8, "----", 41.1, 44.8], unit: "%", reference: "De 40 até 54"},
-{analyte: "RDW", values: [13.5, 13.0, 13.1, 13.2, 12.9, 12.8, 13.1, 13.0, 13.1, 12.9, 12.8, 12.8, 13.1, 12.9, 12.3, 12.9, 12.8, 12.9, "----", 13.1, "----", 12.9, 12.7], unit: "%", reference: "De 11.6 até 15"},
-{analyte: "Leucócitos", values: [15300, 16700, 17500, 19100, 16300, 21100, 15700, 16900, 21300, 23400, 19000, 19600, 7300, 7800, 7000, 5700, 5200, 5200, "----", 6100, "----", 7300, 12800], unit: "/mm³", reference: "De 4000 até 11300"},
-{analyte: "Plaquetas", values: [408, 410, 352, 353, 340, 374, 353, 307, 298, 329, 279, 296, 333, 326, 294, 280, 299, 232, "----", 205, "----", 223, 267], unit: "mil/mm³", reference: "De 150 até 450"},
-{analyte: "Linfócitos", values: [11.9, 12.0, 7.7, 12.0, 20.4, 14.0, 16.6, 7.5, 19.0, 15.0, 5.0, 18.0, 33.1, 35.3, 38.2, 39.6, 38.8, 40.6, "----", 50.0, "----", 19.0, 18.0], unit: "%", reference: ""},
-{analyte: "Neutrófilos", values: [77.5, 79.5, 85.6, 81.0, 71.2, 76.0, 75.5, 87.6, 74.0, 73.0, 88.0, 64.0, 48.3, 47.4, 44.4, 39.6, 43.0, 43.0, "----", 35.0, "----", 67.9, 75.0], unit: "%", reference: ""},
-{analyte: "Monócitos", values: [7.4, 5.1, 4.7, 5.0, 7.5, 5.0, 7.5, 4.7, 6.0, 10.0, 7.0, 17.0, 7.1, 5.8, 5.9, 7.1, 7.8, 9.3, "----", 10.0, "----", 12.0, 7.0], unit: "%", reference: ""},
-{analyte: "Eosinófilos", values: [3.1, 3.2, 1.8, 1.0, 0.7, 5.0, 0.3, 0.2, 1.0, 1.0, 0.0, 0.0, 11.2, 10.6, 10.8, 13.0, 9.6, 6.6, "----", 5.0, "----", 0.6, 0.0], unit: "%", reference: ""},
-{analyte: "Basófilos", values: [0.1, 0.2, 0.2, 1.0, 0.2, 0.0, 0.1, 0.0, 0.0, 0.0, 0.0, 1.0, 0.3, 0.9, 0.7, 0.7, 0.8, 0.5, "----", 0.0, "----", 0.5, 0.0], unit: "%", reference: ""},
-{analyte: "Bastões", values: ["----", "----", "----", "----", 1.0, "----", "----", "----", "----", 3.0, "----", "----", "----", "----", "----", "----", "----", "----", "----", "----", "----", "----"], unit: "%", reference: ""},
-{analyte: "Creatinina", values: [1.10, 1.10, 1.10, 0.80, 0.80, 0.70, 0.80, 0.60, 0.90, 0.80, 0.80, 0.80, 0.90, 1.00, 0.90, 0.90, 0.90, 0.90, "----", 0.90, "----", 1.00, 1.20], unit: "mg/dL", reference: "De 0.66 até 1.25"},
-{analyte: "Ureia", values: [18.0, 18.0, 20.0, 10.0, 15.0, 16.0, 14.0, 13.0, 12.0, 12.0, 13.0, 22.0, 20.0, 21.0, 14.0, 17.0, 13.0, 11.0, "----", 15.0, "----", 19.0, 34.0], unit: "mg/dL", reference: "De 19.26 até 42.8"},
-{analyte: "TGO", values: [27.0, 23.0, 27.0, 23.0, 20.0, 23.0, 25.0, 24.0, 23.0, 24.0, 25.0, 30.0, 53.0, 66.0, 68.0, 69.0, 81.0, 51.0, "----", 65.0, "----", 135.0, 183.0], unit: "U/L", reference: "De 17 até 59"},
-{analyte: "TGP", values: [21.0, 18.0, 21.0, 20.0, 18.0, 23.0, 26.0, 25.0, 27.0, 32.0, 31.0, 41.0, 99.0, 120.0, 122.0, 116.0, 141.0, 116.0, "----", 139.0, "----", 199.0, 200.0], unit: "U/L", reference: "Até 50"},
-{analyte: "Gama GT", values: [161, 137, 151, 114, 114, 140, 139, 131, 125, 149, 143, 183, 225, 244, 252, 249, 275, 240, "----", 245, "----", 276, 290], unit: "U/L", reference: "De 15 até 73"},
-{analyte: "Fosfatase alcalina", values: [145.0, 123.0, 136.0, 101.0, 102.0, 125.0, 152.0, 110.0, 152.0, 172.0, 167.0, 184.0, 148.0, 164.0, 181.0, 176.0, 200.0, 205.0, "----", 184.0, "----", 213.0, 242.0], unit: "U/L", reference: "De 40 até 129"},
-{analyte: "Sódio", values: [139, 133, 137, 137, 136, 137, 138, 134, 136, 136, 135, 130, 141, 140, 140, 140, 144, 139, "----", 139, "----", 136, 135], unit: "mmol/L", reference: "De 137 até 145"},
-{analyte: "Potássio", values: [4.0, 3.5, 3.3, 3.4, 3.4, 3.5, 3.2, 3.7, 3.4, 3.7, 3.7, 3.9, 4.5, 4.6, 4.0, 4.3, 3.7, 3.7, "----", 3.8, "----", 3.9, 4.0], unit: "mmol/L", reference: "De 3.5 até 5.1"},
-{analyte: "Calcio Iônico", values: [1.09, 1.06, 1.03, 1.06, 1.06, 1.06, 1.09, 1.06, 1.13, 1.06, 1.08, "----", 1.20, 1.14, 1.16, 1.17, 1.21, 1.14, "----", 1.16, "----", "----", "----"], unit: "mmol/L", reference: "De 1.1 até 1.4"},
-{analyte: "Magnesio", values: [2.10, 2.00, 2.00, 1.90, 2.10, 2.00, 2.10, 2.10, 2.10, 2.10, 2.10, "----", 2.10, 2.10, 2.00, 1.90, 2.20, 1.90, "----", 2.00, "----", "----", "----"], unit: "mg/dL", reference: "De 1.6 até 2.3"},
-{analyte: "RNI", values: [1.04, 1.15, 1.18, 1.22, 1.22, 1.19, 1.10, 1.17, 1.08, 1.13, 1.09, 1.03, 1.03, 0.98, 1.03, 1.03, 0.98, 1.04, "----", 1.10, "----", 1.14, 1.06], unit: "", reference: "De 0.9 até 1.1"},
-{analyte: "TAP", values: [12.2, 13.4, 13.7, 14.2, 14.2, 13.9, 12.8, 13.6, 12.6, 13.2, 12.7, 12.0, 12.0, 11.5, 12.0, 12.1, 11.5, 12.2, "----", 12.8, "----", 13.3, 12.4], unit: "seg", reference: "De 12.7 até 15.2"},
-{analyte: "TTPA", values: [38.3, 38.0, 36.2, 31.9, 37.0, 35.3, 37.7, 28.4, 33.9, 33.5, 36.0, 37.5, 40.7, 41.2, 40.9, 40.6, 43.8, 44.2, "----", 46.5, "----", 56.2, 46.1], unit: "segundos", reference: "De 30 até 43"},
-{analyte: "Relação", values: [1.34, 1.33, 1.27, 1.12, 1.30, 1.24, 1.32, 1.00, 1.19, 1.18, 1.26, 1.32, 1.43, 1.45, 1.44, 1.42, 1.54, 1.55, "----", 1.63, "----", 1.97, 1.62], unit: "", reference: "De 0.86 a 1.19"}
-];
+        // Global variables for data - will be populated from CSV
+        let rawData = [];
+        let dateTimes = [];
+        let isDataLoaded = false;
 
-        const dateTimes = [
-            "10/09/2025 11:17",
-            "09/09/2025 10:08",
-            "08/09/2025 09:47",
-            "07/09/2025 08:00",
-            "06/09/2025 17:56",
-            "05/09/2025 22:52",
-            "05/09/2025 00:24",
-            "04/09/2025 00:30",
-            "02/09/2025 23:11", 
-            "01/09/2025 21:34",
-            "01/09/2025 03:29",
-            "31/08/2025 08:52",
-            "14/08/2025 08:03",
-            "13/08/2025 08:44",
-            "12/08/2025 08:19",
-            "11/08/2025 09:27",
-            "10/08/2025 11:28",
-            "09/08/2025 00:05",
-            "07/08/2025 23:27",
-            "07/08/2025 23:27",
-            "06/08/2025 17:21",
-            "06/08/2025 17:40",
-            "05/08/2025 18:52"
-        ];
+        // Function to load and parse CSV data
+        async function loadCSVData() {
+            try {
+                // Always expect CSV in the same folder as index.html
+                const csvUrl = new URL('blood_markers_pivot.csv', window.location.href).href;
+                const response = await fetch(csvUrl);
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const csvText = await response.text();
+                parseCSVText(csvText);
+                isDataLoaded = true;
+                updatePeriodDisplay();
+                console.log(`Loaded ${rawData.length} analytes with ${dateTimes.length} time points`);
+            } catch (error) {
+                console.warn('Automatic CSV load failed (likely due to file:// restrictions). Enabling manual file picker...', error);
+                // Show file picker fallback for local file access
+                enableManualCSVPicker();
+                isDataLoaded = false;
+            }
+        }
+
+        // Parse CSV text into rawData/dateTimes
+        function parseCSVText(csvText) {
+            const lines = csvText.trim().split('\n');
+            if (lines.length < 2) {
+                throw new Error('Invalid CSV format');
+            }
+            // Parse header row to get dates
+            const headers = parseCSVLine(lines[0]);
+            dateTimes = headers.slice(1, -1); // Remove first (ANALITOS) and last (VALORES DE REFERENCIA) columns
+            // Parse data rows
+            rawData = [];
+            for (let i = 1; i < lines.length; i++) {
+                const row = parseCSVLine(lines[i]);
+                if (row.length < 3) continue; // Skip incomplete rows
+                const analyteName = row[0];
+                const values = row.slice(1, -1); // Remove first and last columns
+                const referenceWithUnit = row[row.length - 1] || '';
+                // Parse unit and reference from the last column
+                const unitMatch = referenceWithUnit.match(/([^\s]+)$/);
+                const unit = unitMatch ? unitMatch[1] : '';
+                const reference = referenceWithUnit.replace(new RegExp('\\s*' + unit.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$'), '').trim();
+                // Convert numeric values, keep strings as-is
+                const processedValues = values.map(val => {
+                    if (val === '----' || val === 'Inferior a 0.5' || val === 'Raras' || val === '---') {
+                        return val;
+                    }
+                    const num = parseFloat(val);
+                    return isNaN(num) ? val : num;
+                });
+                rawData.push({ analyte: analyteName, values: processedValues, unit: unit, reference: reference });
+            }
+        }
+
+        // Show manual CSV picker and wire up parsing
+        function enableManualCSVPicker() {
+            const picker = document.getElementById('fileLoader');
+            const input = document.getElementById('csvInput');
+            if (!picker || !input) return;
+            picker.style.display = 'block';
+            input.addEventListener('change', function(ev) {
+                const file = ev.target.files && ev.target.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        parseCSVText(e.target.result);
+                        isDataLoaded = true;
+                        picker.style.display = 'none';
+                        populateGroups();
+                        updateChart();
+                        updatePeriodDisplay();
+                    } catch (err) {
+                        alert('Failed to parse CSV: ' + err.message);
+                    }
+                };
+                reader.readAsText(file, 'utf-8');
+            }, { once: true });
+        }
+        
+        // Function to parse CSV line handling quoted values
+        function parseCSVLine(line) {
+            const result = [];
+            let current = '';
+            let inQuotes = false;
+            
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+                
+                if (char === '"') {
+                    inQuotes = !inQuotes;
+                } else if (char === ',' && !inQuotes) {
+                    result.push(current.trim());
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            
+            result.push(current.trim());
+            return result;
+        }
+        
+        // Function to update period display based on loaded data
+        function updatePeriodDisplay() {
+            if (!isDataLoaded || dateTimes.length === 0) return;
+            
+            // Find earliest and latest dates
+            const dates = dateTimes.map(dateStr => {
+                // Convert from DD/MM/YYYY format to Date object
+                const parts = dateStr.split(/[\s/]/);
+                if (parts.length >= 3) {
+                    const day = parseInt(parts[0]);
+                    const month = parseInt(parts[1]) - 1; // Month is 0-indexed
+                    const year = parseInt(parts[2]);
+                    return new Date(year, month, day);
+                }
+                return new Date(dateStr);
+            }).filter(date => !isNaN(date.getTime()));
+            
+            if (dates.length === 0) return;
+            
+            dates.sort((a, b) => a - b);
+            const earliestDate = dates[0];
+            const latestDate = dates[dates.length - 1];
+            
+            const diffTime = Math.abs(latestDate - earliestDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            
+            const formatDate = (date) => {
+                const day = date.getDate().toString().padStart(2, '0');
+                const month = (date.getMonth() + 1).toString().padStart(2, '0');
+                const year = date.getFullYear();
+                return `${day}/${month}/${year}`;
+            };
+            
+            // Update the period display in the DOM
+            const periodElement = document.getElementById('periodText');
+            if (periodElement) {
+                periodElement.innerHTML = `<strong>Period:</strong> ${formatDate(earliestDate)} to ${formatDate(latestDate)} (${diffDays} days)`;
+            }
+        }
 
         // Function to parse reference ranges
         function parseReference(refString) {
@@ -655,46 +749,52 @@
         }
 
         // Initialize everything
-        document.addEventListener('DOMContentLoaded', function() {
-            createDropdown();
-            updateChart();
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Show loading message
+            const chartContainer = document.getElementById('plotlyChart');
+            chartContainer.innerHTML = '<div style="display: flex; justify-content: center; align-items: center; height: 400px; font-size: 18px; color: #666;">Loading data...</div>';
+            
+            // Load CSV data first
+            await loadCSVData();
+            
+            if (isDataLoaded) {
+                populateGroups();
+                updateChart();
+            } else {
+                chartContainer.innerHTML = '<div style="display: flex; justify-content: center; align-items: center; height: 400px; font-size: 18px; color: #d32f2f;">Error: Could not load data from CSV file</div>';
+            }
         });
     
-const groups = {"Inflammatory": ["Proteína C reativa"], "Hematology": ["Hemoglobina", "Hemácias", "Hematócrito", "RDW", "Leucócitos", "Plaquetas", "Linfócitos", "Neutrófilos", "Monócitos", "Eosinófilos", "Basófilos", "Bastões"], "Kidney": ["Creatinina", "Ureia"], "Liver": ["TGO", "TGP", "Gama GT", "Fosfatase alcalina"], "Electrolytes / Minerals": ["Sódio", "Potássio", "Calcio Iônico", "Magnesio"], "Coagulation": ["RNI", "TAP", "TTPA", "Relação"]};
+        const groups = {"Inflammatory": ["Proteína C reativa"], "Hematology": ["Hemoglobina", "Hemácias", "Hematócrito", "RDW", "Leucócitos", "Plaquetas", "Linfócitos", "Neutrófilos", "Monócitos", "Eosinófilos", "Basófilos", "Bastões"], "Kidney": ["Creatinina", "Ureia"], "Liver": ["TGO", "TGP", "Gama GT", "Fosfatase alcalina"], "Electrolytes / Minerals": ["Sódio", "Potássio", "Calcio Iônico", "Magnesio"], "Coagulation": ["RNI", "TAP", "TTPA", "Relação"]};
 
-// Populate group dropdown
-function populateGroups() {
-    const groupSelect = document.getElementById("groupSelect");
-    Object.keys(groups).forEach(g => {
-        let option = document.createElement("option");
-        option.value = g;
-        option.text = g;
-        groupSelect.add(option);
-    });
-    updateAnalytesForGroup();
-}
-
-// Update analytes when group changes
-function updateAnalytesForGroup() {
-    const groupSelect = document.getElementById("groupSelect");
-    const analyteSelect = document.getElementById("analyteSelect");
-    analyteSelect.innerHTML = "";
-    let selectedGroup = groups[groupSelect.value];
-    selectedGroup.forEach(a => {
-        if (rawData.find(d => d.analyte === a)) {
-            let option = document.createElement("option");
-            option.value = a;
-            option.text = a;
-            analyteSelect.add(option);
+        // Populate group dropdown
+        function populateGroups() {
+            const groupSelect = document.getElementById("groupSelect");
+            Object.keys(groups).forEach(g => {
+                let option = document.createElement("option");
+                option.value = g;
+                option.text = g;
+                groupSelect.add(option);
+            });
+            updateAnalytesForGroup();
         }
-    });
-    updateChart();
-}
 
-// Override existing window.onload
-window.onload = function() {
-    populateGroups();
-};
+        // Update analytes when group changes
+        function updateAnalytesForGroup() {
+            const groupSelect = document.getElementById("groupSelect");
+            const analyteSelect = document.getElementById("analyteSelect");
+            analyteSelect.innerHTML = "";
+            let selectedGroup = groups[groupSelect.value];
+            selectedGroup.forEach(a => {
+                if (rawData.find(d => d.analyte === a)) {
+                    let option = document.createElement("option");
+                    option.value = a;
+                    option.text = a;
+                    analyteSelect.add(option);
+                }
+            });
+            updateChart();
+        }
 </script>
 </body>
 </html>
