@@ -1,2 +1,2 @@
 # maladie
-Some charts to see time series of health data
+Some charts to see trends in my blood markers
