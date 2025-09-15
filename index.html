@@ -771,7 +771,20 @@
             }
         });
     
-        const groups = {"Inflammatory": ["Proteína C reativa"], "Hematology": ["Hemoglobina", "Hemácias", "Hematócrito", "RDW", "Leucócitos", "Plaquetas", "Linfócitos", "Neutrófilos", "Monócitos", "Eosinófilos", "Basófilos", "Bastões"], "Kidney": ["Creatinina", "Ureia"], "Liver": ["TGO", "TGP", "Gama GT", "Fosfatase alcalina"], "Electrolytes / Minerals": ["Sódio", "Potássio", "Calcio Iônico", "Magnesio"], "Coagulation": ["RNI", "TAP", "TTPA", "Relação"]};
+const groups = {
+            "Inflammatory": ["Proteína C reativa"],
+            "Hematology": ["Hemoglobina", "Hemácias", "Hematócrito", "RDW", "Leucócitos", "Plaquetas", "Linfócitos", "Neutrófilos", "Monócitos", "Eosinófilos", "Basófilos", "Bastões", "VCM", "HCM", "CHCM", "VPM"],
+            "Kidney": ["Creatinina", "Ureia"],
+            "Liver": ["TGO", "TGP", "Gama GT", "Fosfatase alcalina", "Bilirrubina Total", "Bilirrubina Direta", "Bilirrubina Indireta"],
+            "Electrolytes / Minerals": ["Sódio", "Potássio", "Calcio Iônico", "Magnesio", "Cálcio Total", "Fósforo", "Ferro"],
+            "Coagulation": ["RNI", "TAP", "TTPA", "Relação"],
+            "Lipids": ["Colesterol", "HDL - Colesterol", "Não - HDL - Colesterol", "VLDL - Colesterol", "LDL - Colesterol", "Triglicérides"],
+            "Metabolism": ["Glicose", "Hemoglobina Glicada"],
+            "Enzymes": ["Creatino fosfoquinase", "Amilase", "Lipase"],
+            "Proteins": ["Proteínas Totais", "Albumina", "Globulinas", "Transferrina"],
+            "Hormones": ["Hormonio Foliculo-Estimulante (FSH)", "Hormonio Luteinizante (LH)", "Triiodotironina (T3)", "Tiroxina (T4)", "Testosterona Livre", "Globulina Ligadora dos Hormonios Sexuais (SHBG)", "Testosterona Total"],
+            "Tumor Markers": ["CA19.9"]
+        };
 
         // Populate group dropdown
         function populateGroups() {
