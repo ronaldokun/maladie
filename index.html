@@ -448,30 +448,46 @@
             return null;
         }
 
-        // Function to get out-of-range values for the latest data point
+        // Function to get out-of-range values for the latest non-null data point of each analyte
         function getLatestOutOfRangeValues() {
             const outOfRange = [];
             
             rawData.forEach(analyte => {
-                const latestValue = analyte.values[0]; // First value is the latest
-                const withinRange = isWithinRange(latestValue, analyte.reference);
+                // Find the latest non-null value for this analyte
+                let latestValue = null;
+                let latestValueDate = null;
                 
-                if (withinRange === false && analyte.reference && analyte.reference.trim() !== "") {
-                    // Handle special values for display
-                    let displayValue = latestValue;
-                    if (latestValue === "Inferior a 0.5") displayValue = "<0.5";
+                for (let i = 0; i < analyte.values.length; i++) {
+                    const value = analyte.values[i];
+                    if (value !== "----" && value !== null && value !== "" && value !== undefined) {
+                        latestValue = value;
+                        latestValueDate = dateTimes[i];
+                        break; // Since values are ordered from most recent to oldest
+                    }
+                }
+                
+                // If we found a valid latest value, check if it's out of range
+                if (latestValue !== null) {
+                    const withinRange = isWithinRange(latestValue, analyte.reference);
                     
-                    // Determine direction
-                    const direction = getOutOfRangeDirection(latestValue, analyte.reference);
-                    
-                    outOfRange.push({
-                        name: analyte.analyte,
-                        value: displayValue,
-                        unit: analyte.unit,
-                        reference: analyte.reference,
-                        rawValue: latestValue,
-                        direction: direction
-                    });
+                    if (withinRange === false && analyte.reference && analyte.reference.trim() !== "") {
+                        // Handle special values for display
+                        let displayValue = latestValue;
+                        if (latestValue === "Inferior a 0.5") displayValue = "<0.5";
+                        
+                        // Determine direction
+                        const direction = getOutOfRangeDirection(latestValue, analyte.reference);
+                        
+                        outOfRange.push({
+                            name: analyte.analyte,
+                            value: displayValue,
+                            unit: analyte.unit,
+                            reference: analyte.reference,
+                            rawValue: latestValue,
+                            direction: direction,
+                            date: latestValueDate
+                        });
+                    }
                 }
             });
             
@@ -505,6 +521,7 @@
                             <div class="focus-item-name">${item.name}</div>
                             <div class="focus-item-value">${arrowHtml}${item.value} ${item.unit}</div>
                             <div class="focus-item-reference">Reference: ${item.reference} ${item.unit}</div>
+                            <div class="focus-item-reference">Date: ${item.date || 'N/A'}</div>
                         </div>
                     `;
                 });
