@@ -1,37 +1,43 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Blood Markers Evolution Analysis</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.26.0/plotly.min.js"></script>
-<style>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Blood Markers Evolution Analysis</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.26.0/plotly.min.js"></script>
+    <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
             background: #f5f5f5;
         }
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
             background: white;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-        h1, h2 {
+
+        h1,
+        h2 {
             color: #333;
             border-bottom: 2px solid #007acc;
             padding-bottom: 10px;
         }
+
         .chart-container {
             margin: 30px 0;
             background: white;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
+
         .controls {
             margin: 20px 0;
             padding: 15px;
@@ -42,11 +48,13 @@
             gap: 20px;
             flex-wrap: wrap;
         }
+
         .dropdown-container {
             display: flex;
             align-items: center;
             gap: 10px;
         }
+
         select {
             padding: 8px 12px;
             border: 1px solid #ddd;
@@ -55,10 +63,12 @@
             font-size: 14px;
             min-width: 250px;
         }
+
         .download-buttons {
             display: flex;
             gap: 10px;
         }
+
         .download-btn {
             padding: 8px 16px;
             background: #007acc;
@@ -69,13 +79,16 @@
             font-size: 14px;
             transition: background 0.3s;
         }
+
         .download-btn:hover {
             background: #005999;
         }
+
         .altered {
             color: red;
             font-weight: bold;
         }
+
         .focus-box {
             margin: 20px 0;
             padding: 15px;
@@ -85,14 +98,24 @@
             box-shadow: 0 4px 8px rgba(220, 53, 69, 0.2);
             display: none;
         }
+
         .focus-box.visible {
             display: block;
             animation: fadeIn 0.5s ease-in;
         }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
         .focus-box h3 {
             margin: 0 0 15px 0;
             color: #721c24;
@@ -101,26 +124,31 @@
             align-items: center;
             gap: 10px;
         }
+
         .focus-box h3:before {
             content: "⚠️";
             font-size: 20px;
         }
+
         .focus-box-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 15px;
         }
+
         .focus-item {
             background: rgba(255, 255, 255, 0.8);
             padding: 10px;
             border-radius: 5px;
             border-left: 4px solid #dc3545;
         }
+
         .focus-item-name {
             font-weight: bold;
             color: #721c24;
             margin-bottom: 5px;
         }
+
         .focus-item-value {
             font-size: 16px;
             color: #dc3545;
@@ -129,6 +157,7 @@
             align-items: center;
             gap: 8px;
         }
+
         .direction-arrow {
             font-size: 18px;
             font-weight: bold;
@@ -137,21 +166,25 @@
             min-width: 24px;
             text-align: center;
         }
+
         .arrow-up {
             color: #dc3545;
             background: rgba(220, 53, 69, 0.1);
             border: 1px solid rgba(220, 53, 69, 0.3);
         }
+
         .arrow-down {
             color: #fd7e14;
             background: rgba(253, 126, 20, 0.1);
             border: 1px solid rgba(253, 126, 20, 0.3);
         }
+
         .focus-item-reference {
             font-size: 12px;
             color: #666;
             margin-top: 5px;
         }
+
         .focus-box-empty {
             text-align: center;
             color: #28a745;
@@ -163,46 +196,52 @@
         }
     </style>
 </head>
-<body>
-<div class="container">
-<h1>Blood Markers Evolution Analysis</h1>
-<p><strong>Patient:</strong> [ANONYMIZED] (ID: [REDACTED])</p>
-<p id="periodText"><strong>Period:</strong> Loading...</p>
-<div class="controls">
-<div class="dropdown-container">
-<label for="groupSelect"><strong>Select Group:</strong></label>
-<select id="groupSelect" onchange="updateAnalytesForGroup()"></select>
-</div>
 
-<div class="dropdown-container">
-<label for="analyteSelect"><strong>Select Analyte:</strong></label>
-<select id="analyteSelect" onchange="updateChart()">
-</select>
-</div>
-<div class="download-buttons">
-<button class="download-btn" onclick="downloadPivotCSV()">Download Pivot Table CSV</button>
-<button class="download-btn" onclick="downloadTidyCSV()">Download Tidy Data CSV</button>
-</div>
-</div>
-<div class="chart-container">
-<h2>Interactive Evolution Chart</h2>
-<div class="info-box" style="margin-bottom: 10px; padding: 8px; background-color: #f8f9fa; border-radius: 5px; font-size: 14px;">
-  <p style="margin: 0;"><strong>Navigation tips:</strong> Use the range slider below the chart to zoom and pan. You can also use the toolbar buttons to zoom in/out and drag to pan the view.</p>
-</div>
-<div id="plotlyChart" style="height: 700px;"></div>
-<div id="fileLoader" style="display:none; margin-top: 12px; padding: 10px; background:#fff3cd; border:1px solid #ffeeba; border-radius:6px;">
-  <p style="margin:0 0 8px 0;">Could not load blood_markers_pivot.csv automatically. If you opened this file directly from your disk (file://), please choose the CSV located in the same folder as this HTML:</p>
-  <input type="file" id="csvInput" accept=".csv" />
-</div>
-<div id="focusBox" class="focus-box">
-  <h3>Latest Results - Attention Required</h3>
-  <div id="focusBoxContent" class="focus-box-content">
-    <!-- Content will be dynamically generated -->
-  </div>
-</div>
-</div>
-</div>
-<script>
+<body>
+    <div class="container">
+        <h1>Blood Markers Evolution Analysis</h1>
+        <p><strong>Patient:</strong> [ANONYMIZED] (ID: [REDACTED])</p>
+        <p id="periodText"><strong>Period:</strong> Loading...</p>
+        <div class="controls">
+            <div class="dropdown-container">
+                <label for="groupSelect"><strong>Select Group:</strong></label>
+                <select id="groupSelect" onchange="updateAnalytesForGroup()"></select>
+            </div>
+
+            <div class="dropdown-container">
+                <label for="analyteSelect"><strong>Select Analyte:</strong></label>
+                <select id="analyteSelect" onchange="updateChart()">
+                </select>
+            </div>
+            <div class="download-buttons">
+                <button class="download-btn" onclick="downloadPivotCSV()">Download Pivot Table CSV</button>
+                <button class="download-btn" onclick="downloadTidyCSV()">Download Tidy Data CSV</button>
+            </div>
+        </div>
+        <div class="chart-container">
+            <h2>Interactive Evolution Chart</h2>
+            <div class="info-box"
+                style="margin-bottom: 10px; padding: 8px; background-color: #f8f9fa; border-radius: 5px; font-size: 14px;">
+                <p style="margin: 0;"><strong>Navigation tips:</strong> Use the range slider below the chart to zoom and
+                    pan. You can also use the toolbar buttons to zoom in/out and drag to pan the view.</p>
+            </div>
+            <div id="plotlyChart" style="height: 700px;"></div>
+            <div id="fileLoader"
+                style="display:none; margin-top: 12px; padding: 10px; background:#fff3cd; border:1px solid #ffeeba; border-radius:6px;">
+                <p style="margin:0 0 8px 0;">Could not load blood_markers_pivot.csv automatically. If you opened this
+                    file directly from your disk (file://), please choose the CSV located in the same folder as this
+                    HTML:</p>
+                <input type="file" id="csvInput" accept=".csv" />
+            </div>
+            <div id="focusBox" class="focus-box">
+                <h3>Latest Results - Attention Required</h3>
+                <div id="focusBoxContent" class="focus-box-content">
+                    <!-- Content will be dynamically generated -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
         // Global variables for data - will be populated from CSV
         let rawData = [];
         let dateTimes = [];
@@ -267,11 +306,11 @@
             const input = document.getElementById('csvInput');
             if (!picker || !input) return;
             picker.style.display = 'block';
-            input.addEventListener('change', function(ev) {
+            input.addEventListener('change', function (ev) {
                 const file = ev.target.files && ev.target.files[0];
                 if (!file) return;
                 const reader = new FileReader();
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     try {
                         parseCSVText(e.target.result);
                         isDataLoaded = true;
@@ -286,16 +325,16 @@
                 reader.readAsText(file, 'utf-8');
             }, { once: true });
         }
-        
+
         // Function to parse CSV line handling quoted values
         function parseCSVLine(line) {
             const result = [];
             let current = '';
             let inQuotes = false;
-            
+
             for (let i = 0; i < line.length; i++) {
                 const char = line[i];
-                
+
                 if (char === '"') {
                     inQuotes = !inQuotes;
                 } else if (char === ',' && !inQuotes) {
@@ -305,15 +344,15 @@
                     current += char;
                 }
             }
-            
+
             result.push(current.trim());
             return result;
         }
-        
+
         // Function to update period display based on loaded data
         function updatePeriodDisplay() {
             if (!isDataLoaded || dateTimes.length === 0) return;
-            
+
             // Find earliest and latest dates
             const dates = dateTimes.map(dateStr => {
                 // Convert from DD/MM/YY or DD/MM/YYYY format to Date object
@@ -322,33 +361,33 @@
                     const day = parseInt(parts[0]);
                     const month = parseInt(parts[1]) - 1; // Month is 0-indexed
                     let year = parseInt(parts[2]);
-                    
+
                     // Handle 2-digit years: assume 21st century (20xx) if year < 100
                     if (year < 100) {
                         year += 2000;
                     }
-                    
+
                     return new Date(year, month, day);
                 }
                 return new Date(dateStr);
             }).filter(date => !isNaN(date.getTime()));
-            
+
             if (dates.length === 0) return;
-            
+
             dates.sort((a, b) => a - b);
             const earliestDate = dates[0];
             const latestDate = dates[dates.length - 1];
-            
+
             const diffTime = Math.abs(latestDate - earliestDate);
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            
+
             const formatDate = (date) => {
                 const day = date.getDate().toString().padStart(2, '0');
                 const month = (date.getMonth() + 1).toString().padStart(2, '0');
                 const year = date.getFullYear().toString().slice(-2); // Use last 2 digits
                 return `${day}/${month}/${year}`;
             };
-            
+
             // Update the period display in the DOM
             const periodElement = document.getElementById('periodText');
             if (periodElement) {
@@ -358,27 +397,27 @@
 
         // Function to parse reference ranges
         function parseReference(refString) {
-            if (!refString || refString === "") return {min: null, max: null};
-            
+            if (!refString || refString === "") return { min: null, max: null };
+
             const patterns = [
                 /De\s+([\d.-]+)\s+até\s+([\d.]+)/i,
                 /De\s+([\d.-]+)\s+a\s+([\d.]+)/i,
                 /Até\s+([\d.]+)/i,
                 /até\s+([\d.]+)/i
             ];
-            
+
             for (let pattern of patterns) {
                 const match = refString.match(pattern);
                 if (match) {
                     if (match[2]) {
-                        return {min: parseFloat(match[1]), max: parseFloat(match[2])};
+                        return { min: parseFloat(match[1]), max: parseFloat(match[2]) };
                     } else {
-                        return {min: null, max: parseFloat(match[1])};
+                        return { min: null, max: parseFloat(match[1]) };
                     }
                 }
             }
-            
-            return {min: null, max: null};
+
+            return { min: null, max: null };
         }
 
         // Function to calculate median of valid numeric values
@@ -393,14 +432,14 @@
                 if (val === "Raras") return 0;
                 return parseFloat(val);
             });
-            
+
             if (numericValues.length === 0) return null;
-            
+
             // Sort values
             numericValues.sort((a, b) => a - b);
-            
+
             const mid = Math.floor(numericValues.length / 2);
-            
+
             if (numericValues.length % 2 === 0) {
                 return (numericValues[mid - 1] + numericValues[mid]) / 2;
             } else {
@@ -413,10 +452,10 @@
             if (value === "----" || value === null || value === "Inferior a 0.5" || value === "Raras") return null;
             const ref = parseReference(reference);
             if (ref.min === null && ref.max === null) return null;
-            
+
             const numValue = parseFloat(value);
             if (isNaN(numValue)) return null;
-            
+
             if (ref.min !== null && ref.max !== null) {
                 return numValue >= ref.min && numValue <= ref.max;
             } else if (ref.max !== null) {
@@ -429,11 +468,11 @@
         function getOutOfRangeDirection(value, reference) {
             const ref = parseReference(reference);
             const numValue = parseFloat(value);
-            
+
             if (isNaN(numValue) || (ref.min === null && ref.max === null)) {
                 return null;
             }
-            
+
             if (ref.min !== null && ref.max !== null) {
                 // Both min and max defined
                 if (numValue < ref.min) return 'down';
@@ -444,19 +483,19 @@
                 if (numValue > ref.max) return 'up';
                 return null;
             }
-            
+
             return null;
         }
 
         // Function to get out-of-range values for the latest non-null data point of each analyte
         function getLatestOutOfRangeValues() {
             const outOfRange = [];
-            
+
             rawData.forEach(analyte => {
                 // Find the latest non-null value for this analyte
                 let latestValue = null;
                 let latestValueDate = null;
-                
+
                 for (let i = 0; i < analyte.values.length; i++) {
                     const value = analyte.values[i];
                     if (value !== "----" && value !== null && value !== "" && value !== undefined) {
@@ -465,19 +504,19 @@
                         break; // Since values are ordered from most recent to oldest
                     }
                 }
-                
+
                 // If we found a valid latest value, check if it's out of range
                 if (latestValue !== null) {
                     const withinRange = isWithinRange(latestValue, analyte.reference);
-                    
+
                     if (withinRange === false && analyte.reference && analyte.reference.trim() !== "") {
                         // Handle special values for display
                         let displayValue = latestValue;
                         if (latestValue === "Inferior a 0.5") displayValue = "<0.5";
-                        
+
                         // Determine direction
                         const direction = getOutOfRangeDirection(latestValue, analyte.reference);
-                        
+
                         outOfRange.push({
                             name: analyte.analyte,
                             value: displayValue,
@@ -490,7 +529,7 @@
                     }
                 }
             });
-            
+
             return outOfRange;
         }
 
@@ -499,7 +538,7 @@
             const outOfRange = getLatestOutOfRangeValues();
             const focusBox = document.getElementById('focusBox');
             const focusBoxContent = document.getElementById('focusBoxContent');
-            
+
             if (outOfRange.length === 0) {
                 focusBoxContent.innerHTML = '<div class="focus-box-empty">✅ All latest measurements are within reference ranges</div>';
                 focusBox.className = 'focus-box visible';
@@ -515,7 +554,7 @@
                     } else if (item.direction === 'down') {
                         arrowHtml = '<span class="direction-arrow arrow-down">↓</span>';
                     }
-                    
+
                     contentHtml += `
                         <div class="focus-item">
                             <div class="focus-item-name">${item.name}</div>
@@ -529,7 +568,7 @@
                 focusBox.className = 'focus-box visible';
                 focusBox.style.background = 'linear-gradient(135deg, #fff3cd 0%, #f8d7da 100%)';
                 focusBox.style.borderColor = '#dc3545';
-                
+
                 // Update the title to show count
                 const titleElement = focusBox.querySelector('h3');
                 titleElement.textContent = `Latest Results - ${outOfRange.length} Measurement${outOfRange.length > 1 ? 's' : ''} Outside Reference Range`;
@@ -556,20 +595,20 @@
             const selectedAnalyte = document.getElementById('analyteSelect').value;
             const analyte = rawData.find(a => a.analyte === selectedAnalyte);
             if (!analyte) return;
-            
+
             // Reverse the order for chronological display (left to right)
             const reversedDates = [...dateTimes].reverse();
             const reversedValues = [...analyte.values].reverse();
-            
+
             // Filter out invalid values and get corresponding dates
             const validData = reversedValues.map((value, idx) => ({
                 value: value,
                 date: reversedDates[idx],
                 originalValue: value
             })).filter(item => item.value !== "----");
-            
+
             if (validData.length === 0) return;
-            
+
             const validDates = validData.map(item => item.date);
             const validValues = validData.map(item => {
                 // Handle special values
@@ -577,7 +616,7 @@
                 if (item.value === "Raras") return 0;
                 return parseFloat(item.value);
             });
-            
+
             // Create trace
             const trace = {
                 x: validDates,
@@ -591,23 +630,23 @@
                     return `${item.originalValue}`;
                 }),
                 textposition: 'top center',
-                textfont: {size: 12},
+                textfont: { size: 12 },
                 hovertemplate: `<b>${analyte.analyte}</b><br>` +
-                               `DateTime: %{x}<br>` +
-                               `Value: %{text} ${analyte.unit}<br>` +
-                               `Reference: ${analyte.reference} ${analyte.unit}<br>` +
-                               `<extra></extra>`,
-                line: {width: 3, color: '#007acc'},
-                marker: {size: 8, color: '#007acc'},
+                    `DateTime: %{x}<br>` +
+                    `Value: %{text} ${analyte.unit}<br>` +
+                    `Reference: ${analyte.reference} ${analyte.unit}<br>` +
+                    `<extra></extra>`,
+                line: { width: 3, color: '#007acc' },
+                marker: { size: 8, color: '#007acc' },
                 textangle: 0
             };
-            
+
             // Calculate median for trend analysis
             const medianValue = calculateMedian(analyte.values);
-            
+
             const traces = [trace];
             const shapes = [];
-            
+
             // Add median line if available
             if (medianValue !== null) {
                 shapes.push({
@@ -624,7 +663,7 @@
                     },
                     layer: 'above'
                 });
-                
+
                 // Add median trace for legend
                 traces.push({
                     x: [null],
@@ -639,7 +678,7 @@
                     showlegend: true
                 });
             }
-            
+
             // Add reference range as filled area if available
             const ref = parseReference(analyte.reference);
             if (ref.min !== null || ref.max !== null) {
@@ -676,7 +715,7 @@
                         layer: 'below'
                     });
                 }
-                
+
                 // Add invisible trace for reference range legend
                 traces.push({
                     x: [null],
@@ -691,11 +730,11 @@
                     showlegend: true
                 });
             }
-            
+
             const layout = {
                 title: {
                     text: `${analyte.analyte} Evolution Over Time`,
-                    font: {size: 18}
+                    font: { size: 18 }
                 },
                 xaxis: {
                     title: 'Date/Time',
@@ -712,9 +751,9 @@
                 hovermode: 'closest',
                 showlegend: true,
                 shapes: shapes,
-                margin: {r: 50, b: 120, t: 80, l: 80}
+                margin: { r: 50, b: 120, t: 80, l: 80 }
             };
-            
+
             const config = {
                 responsive: true,
                 displayModeBar: true,
@@ -722,9 +761,9 @@
                 modeBarButtonsToAdd: ['scrollZoom', 'pan2d', 'zoomIn2d', 'zoomOut2d', 'resetScale2d'],
                 modeBarButtonsToRemove: ['lasso2d', 'select2d']
             };
-            
+
             Plotly.newPlot('plotlyChart', traces, layout, config);
-            
+
             // Update the focus box with latest out-of-range values
             updateFocusBox();
         }
@@ -733,19 +772,19 @@
         function downloadPivotCSV() {
             let csv = 'ANALITOS,';
             csv += dateTimes.join(',') + ',VALORES DE REFERENCIA\n';
-            
+
             rawData.forEach(row => {
                 csv += row.analyte + ',';
                 csv += row.values.join(',') + ',';
                 csv += '"' + row.reference + ' ' + row.unit + '"\n';
             });
-            
+
             downloadCSV(csv, 'blood_markers_pivot.csv');
         }
 
         function downloadTidyCSV() {
             let csv = 'Analyte,DateTime,Value,Unit,Reference Range,Within Range\n';
-            
+
             rawData.forEach(row => {
                 row.values.forEach((value, index) => {
                     if (value !== "----") {
@@ -755,7 +794,7 @@
                     }
                 });
             });
-            
+
             downloadCSV(csv, 'blood_markers_tidy.csv');
         }
 
@@ -772,14 +811,14 @@
         }
 
         // Initialize everything
-        document.addEventListener('DOMContentLoaded', async function() {
+        document.addEventListener('DOMContentLoaded', async function () {
             // Show loading message
             const chartContainer = document.getElementById('plotlyChart');
             chartContainer.innerHTML = '<div style="display: flex; justify-content: center; align-items: center; height: 400px; font-size: 18px; color: #666;">Loading data...</div>';
-            
+
             // Load CSV data first
             await loadCSVData();
-            
+
             if (isDataLoaded) {
                 populateGroups();
                 updateChart();
@@ -787,9 +826,9 @@
                 chartContainer.innerHTML = '<div style="display: flex; justify-content: center; align-items: center; height: 400px; font-size: 18px; color: #d32f2f;">Error: Could not load data from CSV file</div>';
             }
         });
-    
-const groups = {
-            "Inflammatory": ["Proteína C reativa"],
+
+        const groups = {
+            "Inflammatory": ["Proteína C reativa", "Calprotectina"],
             "Hematology": ["Hemoglobina", "Hemácias", "Hematócrito", "RDW", "Leucócitos", "Plaquetas", "Linfócitos", "Neutrófilos", "Monócitos", "Eosinófilos", "Basófilos", "Bastões", "VCM", "HCM", "CHCM", "VPM"],
             "Kidney": ["Creatinina", "Ureia"],
             "Liver": ["TGO", "TGP", "Gama GT", "Fosfatase alcalina", "Bilirrubina Total", "Bilirrubina Direta", "Bilirrubina Indireta"],
@@ -832,6 +871,7 @@ const groups = {
             });
             updateChart();
         }
-</script>
+    </script>
 </body>
+
 </html>
