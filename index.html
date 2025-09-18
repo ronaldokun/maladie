@@ -797,7 +797,12 @@
                     type: 'category',
                     rangeslider: { visible: true },
                     automargin: true,
-                    rangemode: 'normal'
+                    rangemode: 'normal',
+                    // Set range to only include dates with valid data for this analyte
+                    range: validDates.length > 1 ? [validDates[0], validDates[validDates.length - 1]] : undefined,
+                    // Show only the relevant date categories
+                    categoryorder: 'array',
+                    categoryarray: validDates
                 },
                 yaxis: {
                     title: `Value (${analyte.unit})`,
