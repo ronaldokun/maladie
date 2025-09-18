@@ -194,6 +194,17 @@
             border-radius: 5px;
             border: 1px solid #28a745;
         }
+
+        .percentage-deviation {
+            font-size: 14px;
+            font-weight: bold;
+            color: #6c757d;
+            background: rgba(108, 117, 125, 0.1);
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin-left: 5px;
+            border: 1px solid rgba(108, 117, 125, 0.2);
+        }
     </style>
 </head>
 
@@ -487,6 +498,39 @@
             return null;
         }
 
+        // Function to calculate percentage deviation from reference range
+        function calculatePercentageDeviation(value, reference) {
+            const ref = parseReference(reference);
+            const numValue = parseFloat(value);
+
+            if (isNaN(numValue) || (ref.min === null && ref.max === null)) {
+                return null;
+            }
+
+            if (ref.min !== null && ref.max !== null) {
+                // Both min and max defined
+                if (numValue < ref.min) {
+                    // Below minimum: calculate percentage below min
+                    const deviation = ((ref.min - numValue) / ref.min) * 100;
+                    return `-${deviation.toFixed(1)}%`;
+                } else if (numValue > ref.max) {
+                    // Above maximum: calculate percentage above max
+                    const deviation = ((numValue - ref.max) / ref.max) * 100;
+                    return `+${deviation.toFixed(1)}%`;
+                }
+                return null;
+            } else if (ref.max !== null) {
+                // Only max defined
+                if (numValue > ref.max) {
+                    const deviation = ((numValue - ref.max) / ref.max) * 100;
+                    return `+${deviation.toFixed(1)}%`;
+                }
+                return null;
+            }
+
+            return null;
+        }
+
         // Function to get out-of-range values for the latest non-null data point of each analyte
         function getLatestOutOfRangeValues() {
             const outOfRange = [];
@@ -516,6 +560,9 @@
 
                         // Determine direction
                         const direction = getOutOfRangeDirection(latestValue, analyte.reference);
+                        
+                        // Calculate percentage deviation
+                        const percentageDeviation = calculatePercentageDeviation(latestValue, analyte.reference);
 
                         outOfRange.push({
                             name: analyte.analyte,
@@ -524,7 +571,8 @@
                             reference: analyte.reference,
                             rawValue: latestValue,
                             direction: direction,
-                            date: latestValueDate
+                            date: latestValueDate,
+                            percentage: percentageDeviation
                         });
                     }
                 }
@@ -549,16 +597,23 @@
                 outOfRange.forEach(item => {
                     // Create arrow indicator based on direction
                     let arrowHtml = '';
+                    let percentageHtml = '';
+                    
                     if (item.direction === 'up') {
                         arrowHtml = '<span class="direction-arrow arrow-up">↑</span>';
                     } else if (item.direction === 'down') {
                         arrowHtml = '<span class="direction-arrow arrow-down">↓</span>';
                     }
+                    
+                    // Add percentage if available
+                    if (item.percentage) {
+                        percentageHtml = ` <span class="percentage-deviation">(${item.percentage})</span>`;
+                    }
 
                     contentHtml += `
                         <div class="focus-item">
                             <div class="focus-item-name">${item.name}</div>
-                            <div class="focus-item-value">${arrowHtml}${item.value} ${item.unit}</div>
+                            <div class="focus-item-value">${arrowHtml}${item.value} ${item.unit}${percentageHtml}</div>
                             <div class="focus-item-reference">Reference: ${item.reference} ${item.unit}</div>
                             <div class="focus-item-reference">Date: ${item.date || 'N/A'}</div>
                         </div>
