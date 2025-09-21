@@ -718,17 +718,88 @@
                     },
                     layer: 'above'
                 });
+            }
 
-                // Add median trace for legend
+            // Calculate historical min and max values
+            const numericValues = validValues.filter(val => !isNaN(val) && val !== null);
+            let historicalMin = null;
+            let historicalMax = null;
+            
+            if (numericValues.length > 0) {
+                historicalMin = Math.min(...numericValues);
+                historicalMax = Math.max(...numericValues);
+                
+                // Add historical minimum line
+                shapes.push({
+                    type: 'line',
+                    x0: 0,
+                    x1: 1,
+                    xref: 'paper',
+                    y0: historicalMin,
+                    y1: historicalMin,
+                    line: {
+                        color: 'rgba(255, 99, 132, 0.7)', // Red color for minimum
+                        width: 2,
+                        dash: 'dashdot'
+                    },
+                    layer: 'above'
+                });
+                
+                // Add historical maximum line
+                shapes.push({
+                    type: 'line',
+                    x0: 0,
+                    x1: 1,
+                    xref: 'paper',
+                    y0: historicalMax,
+                    y1: historicalMax,
+                    line: {
+                        color: 'rgba(54, 162, 235, 0.7)', // Blue color for maximum
+                        width: 2,
+                        dash: 'dashdot'
+                    },
+                    layer: 'above'
+                });
+                
+                // Add legend traces in order: Historical Min, Median, Historical Max
                 traces.push({
                     x: [null],
                     y: [null],
                     mode: 'lines',
-                    name: `Median Trend (${medianValue.toFixed(2)} ${analyte.unit})`,
+                    name: `Historical Min (${historicalMin.toFixed(2)} ${analyte.unit})`,
                     line: {
-                        color: 'rgba(255, 165, 0, 0.8)',
+                        color: 'rgba(255, 99, 132, 0.7)',
                         width: 2,
-                        dash: 'dot'
+                        dash: 'dashdot'
+                    },
+                    showlegend: true
+                });
+                
+                // Add median trace for legend (if available)
+                if (medianValue !== null) {
+                    traces.push({
+                        x: [null],
+                        y: [null],
+                        mode: 'lines',
+                        name: `Median Trend (${medianValue.toFixed(2)} ${analyte.unit})`,
+                        line: {
+                            color: 'rgba(255, 165, 0, 0.8)',
+                            width: 2,
+                            dash: 'dot'
+                        },
+                        showlegend: true
+                    });
+                }
+                
+                traces.push({
+                    x: [null],
+                    y: [null],
+                    mode: 'lines',
+                    name: `Historical Max (${historicalMax.toFixed(2)} ${analyte.unit})`,
+                    line: {
+                        color: 'rgba(54, 162, 235, 0.7)',
+                        width: 2,
+                        dash: 'dashdot'
                     },
                     showlegend: true
                 });
