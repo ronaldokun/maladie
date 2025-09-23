@@ -7,6 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Blood Markers Evolution Analysis</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.26.0/plotly.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -250,6 +251,21 @@
                     <!-- Content will be dynamically generated -->
                 </div>
             </div>
+        </div>
+        <div class="chart-container">
+            <h2>Imaging Reports</h2>
+            <div id="reportsTimeline" style="height: 400px;"></div>
+        </div>
+
+        <!-- Modal for focused report view -->
+        <div id="reportModal" style="display:none; position:fixed; inset:5%; background:#fff; border-radius:8px; padding:16px; box-shadow:0 8px 32px rgba(0,0,0,0.3); overflow:auto; z-index: 1000;">
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
+                <h3 id="reportTitle" style="margin:0;"></h3>
+                <button onclick="document.getElementById('reportModal').style.display='none'">Close</button>
+            </div>
+            <div id="reportMeta" style="color:#666; margin-top:4px;"></div>
+            <div id="reportLinks" style="margin:8px 0; display:flex; gap:12px; flex-wrap:wrap;"></div>
+            <div id="reportBody" style="margin-top:12px;"></div>
         </div>
     </div>
     <script>
@@ -857,6 +873,14 @@
                 });
             }
 
+            // Add report markers aligned with visible dates for this analyte
+            if (Array.isArray(reports) && reports.length) {
+                const reportMarkers = getReportMarkerShapes(validDates);
+                if (reportMarkers.length) {
+                    shapes.push(...reportMarkers);
+                }
+            }
+
             const layout = {
                 title: {
                     text: `${analyte.analyte} Evolution Over Time`,
@@ -1002,6 +1026,138 @@
             });
             updateChart();
         }
+        // ---------------- Reports Timeline & Modal ----------------
+        let reports = [];
+
+        async function loadReports() {
+            try {
+                const url = new URL('reports.json', window.location.href).href;
+                const res = await fetch(url);
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const data = await res.json();
+                reports = Array.isArray(data) ? data : [];
+            } catch (e) {
+                console.warn('Could not load reports.json automatically.', e);
+                reports = [];
+            }
+        }
+
+        function renderReportsTimeline() {
+            if (!reports.length) return;
+
+            const modalities = [...new Set(reports.map(r => r.modality))];
+            const traces = modalities.map(mod => {
+                const items = reports.filter(r => r.modality === mod);
+                return {
+                    x: items.map(r => r.datetime),
+                    y: items.map(() => mod),
+                    text: items.map(r => r.title),
+                    customdata: items.map(r => r.id),
+                    mode: 'markers',
+                    name: mod,
+                    type: 'scatter',
+                    marker: { size: 10 }
+                };
+            });
+
+            const layout = {
+                title: 'Imaging Reports Timeline',
+                xaxis: { title: 'Date/Time', type: 'category', tickangle: -45, rangeslider: { visible: true } },
+                yaxis: { title: 'Modality', type: 'category' },
+                hovermode: 'closest',
+                margin: { r: 50, b: 120, t: 60, l: 80 }
+            };
+
+            Plotly.newPlot('reportsTimeline', traces, layout, { responsive: true });
+
+            const el = document.getElementById('reportsTimeline');
+            if (el && typeof el.on === 'function') {
+                el.on('plotly_click', (data) => {
+                    const id = data?.points?.[0]?.customdata;
+                    if (id) openReport(id);
+                });
+            }
+        }
+
+        function openReport(id) {
+            const r = reports.find(x => x.id === id);
+            if (!r) return;
+            document.getElementById('reportTitle').textContent = `${r.modality} — ${r.title}`;
+            const metaParts = [r.datetime];
+            if (Array.isArray(r.tags) && r.tags.length) metaParts.push(r.tags.join(', '));
+            document.getElementById('reportMeta').textContent = metaParts.filter(Boolean).join(' • ');
+            const bodyEl = document.getElementById('reportBody');
+            const md = r.body_md || r.summary || '';
+            bodyEl.innerHTML = (window.marked ? marked.parse(md) : md);
+            const linksEl = document.getElementById('reportLinks');
+            const links = (r.attachments || []).map(a => `<a href="${a.href}" target="_blank" rel="noopener">${(a.type || 'file').toUpperCase()}</a>`);
+            linksEl.innerHTML = links.join(' · ');
+            document.getElementById('reportModal').style.display = 'block';
+            try { history.replaceState(null, '', `#report=${encodeURIComponent(id)}`); } catch (e) {}
+        }
+
+        function maybeOpenReportFromHash() {
+            const m = location.hash.match(/#report=([^&]+)/);
+            if (m) openReport(decodeURIComponent(m[1]));
+        }
+
+        // Normalize a Date to CSV header category format: DD/MM/YY HH:MM
+        function formatToCsvCategory(date) {
+            const pad = (n) => String(n).padStart(2, '0');
+            const dd = pad(date.getDate());
+            const mm = pad(date.getMonth() + 1);
+            const yy = String(date.getFullYear()).slice(-2);
+            const HH = pad(date.getHours());
+            const MM = pad(date.getMinutes());
+            return `${dd}/${mm}/${yy} ${HH}:${MM}`;
+        }
+
+        // Try to normalize report datetime strings to the CSV category format
+        function normalizeReportDatetimeStr(s) {
+            if (!s) return s;
+            // Common case: "YYYY-MM-DD HH:MM" (sample data)
+            const m = s.match(/^(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2})/);
+            if (m) {
+                const [_, Y, M, D, h, mnt] = m;
+                const d = new Date(Number(Y), Number(M) - 1, Number(D), Number(h), Number(mnt));
+                if (!isNaN(d.getTime())) return formatToCsvCategory(d);
+            }
+            // Fallback: Date parse and format
+            const d2 = new Date(s);
+            if (!isNaN(d2.getTime())) return formatToCsvCategory(d2);
+            return s; // As-is; may not match categories
+        }
+
+        // Produce vertical line shapes for reports that match current valid date categories
+        function getReportMarkerShapes(validDates) {
+            if (!Array.isArray(validDates) || !validDates.length) return [];
+            const validSet = new Set(validDates);
+            const shapes = [];
+            (reports || []).forEach(r => {
+                const cat = normalizeReportDatetimeStr(r.datetime);
+                if (validSet.has(cat)) {
+                    shapes.push({
+                        type: 'line',
+                        xref: 'x',
+                        yref: 'paper',
+                        x0: cat,
+                        x1: cat,
+                        y0: 0,
+                        y1: 1,
+                        line: { color: 'rgba(0,0,0,0.25)', width: 1, dash: 'dot' }
+                    });
+                }
+            });
+            return shapes;
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadReports();
+            renderReportsTimeline();
+            // If labs are already loaded, refresh the chart so markers appear
+            try { if (typeof isDataLoaded !== 'undefined' && isDataLoaded) updateChart(); } catch (_) {}
+            maybeOpenReportFromHash();
+        });
     </script>
 </body>
 
