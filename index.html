@@ -253,8 +253,11 @@
             </div>
         </div>
         <div class="chart-container">
-            <h2>Imaging Reports</h2>
-            <div id="reportsTimeline" style="height: 400px;"></div>
+            <h2>Imaging Reports Timeline</h2>
+            <div class="info-box" style="margin-bottom: 10px; padding: 8px; background-color: #fff3cd; border-radius: 5px; font-size: 14px; border: 1px solid #ffc107;">
+                <p style="margin: 0;"><strong>📍 Visual Correlation:</strong> Pink dotted lines and triangle markers in the blood markers chart above indicate when imaging studies were performed. Click on any report marker below for details.</p>
+            </div>
+            <div id="reportsTimeline" style="height: 250px;"></div>
         </div>
 
         <!-- Modal for focused report view -->
@@ -873,11 +876,14 @@
                 });
             }
 
-            // Add report markers aligned with visible dates for this analyte
+        // Add report markers aligned with visible dates for this analyte
             if (Array.isArray(reports) && reports.length) {
-                const reportMarkers = getReportMarkerShapes(validDates);
-                if (reportMarkers.length) {
-                    shapes.push(...reportMarkers);
+                const reportData = getReportMarkersAndTraces(validDates, validValues);
+                if (reportData.shapes.length) {
+                    shapes.push(...reportData.shapes);
+                }
+                if (reportData.trace) {
+                    traces.push(reportData.trace);
                 }
             }
 
@@ -1043,32 +1049,124 @@
         }
 
         function renderReportsTimeline() {
-            if (!reports.length) return;
+            if (!reports.length) {
+                // Hide the timeline if no reports
+                const container = document.querySelector('.chart-container:has(#reportsTimeline)');
+                if (container) container.style.display = 'none';
+                return;
+            }
 
-            const modalities = [...new Set(reports.map(r => r.modality))];
-            const traces = modalities.map(mod => {
-                const items = reports.filter(r => r.modality === mod);
-                return {
-                    x: items.map(r => r.datetime),
-                    y: items.map(() => mod),
-                    text: items.map(r => r.title),
-                    customdata: items.map(r => r.id),
-                    mode: 'markers',
-                    name: mod,
-                    type: 'scatter',
-                    marker: { size: 10 }
-                };
+            // Create a more compact timeline visualization
+            const sortedReports = [...reports].sort((a, b) => {
+                const dateA = parseDateString(a.datetime);
+                const dateB = parseDateString(b.datetime);
+                return dateA - dateB;
             });
 
-            const layout = {
-                title: 'Imaging Reports Timeline',
-                xaxis: { title: 'Date/Time', type: 'category', tickangle: -45, rangeslider: { visible: true } },
-                yaxis: { title: 'Modality', type: 'category' },
-                hovermode: 'closest',
-                margin: { r: 50, b: 120, t: 60, l: 80 }
+            // Group by modality for color coding
+            const modalities = [...new Set(reports.map(r => r.modality))];
+            const modalityColors = {
+                'Colonoscopia': '#ff6b6b',
+                'CT': '#4ecdc4',
+                'MRI': '#45b7d1',
+                'Ultrasound': '#96ceb4',
+                'X-Ray': '#feca57'
             };
 
-            Plotly.newPlot('reportsTimeline', traces, layout, { responsive: true });
+            const traces = [];
+            
+            // Create a single timeline trace with different colors per modality
+            modalities.forEach((mod, idx) => {
+                const items = sortedReports.filter(r => r.modality === mod);
+                const yPosition = idx * 0.15; // Stagger positions slightly
+                
+                traces.push({
+                    x: items.map(r => r.datetime),
+                    y: items.map(() => yPosition),
+                    text: items.map(r => `<b>${r.modality}</b><br>${r.title}<br>${r.summary || ''}`),
+                    customdata: items.map(r => r.id),
+                    mode: 'markers+text',
+                    name: mod,
+                    type: 'scatter',
+                    textposition: 'top center',
+                    textfont: { size: 10 },
+                    marker: { 
+                        size: 15,
+                        color: modalityColors[mod] || '#95a5a6',
+                        symbol: 'diamond',
+                        line: {
+                            color: 'white',
+                            width: 2
+                        }
+                    },
+                    hovertemplate: '%{text}<extra></extra>'
+                });
+            });
+
+            // Add connection lines between sequential reports
+            if (sortedReports.length > 1) {
+                const connectionX = sortedReports.map(r => r.datetime);
+                const connectionY = sortedReports.map((r, idx) => {
+                    const modIdx = modalities.indexOf(r.modality);
+                    return modIdx * 0.15;
+                });
+                
+                traces.unshift({
+                    x: connectionX,
+                    y: connectionY,
+                    mode: 'lines',
+                    name: 'Timeline',
+                    line: {
+                        color: 'rgba(150, 150, 150, 0.3)',
+                        width: 1,
+                        dash: 'dot'
+                    },
+                    hoverinfo: 'skip',
+                    showlegend: false
+                });
+            }
+
+            const layout = {
+                title: {
+                    text: 'Imaging Reports Timeline',
+                    font: { size: 16 }
+                },
+                xaxis: { 
+                    title: 'Date/Time', 
+                    type: 'category', 
+                    tickangle: -45,
+                    showgrid: true,
+                    gridcolor: 'rgba(200, 200, 200, 0.3)',
+                    rangeslider: { 
+                        visible: true,
+                        thickness: 0.05
+                    }
+                },
+                yaxis: { 
+                    visible: false,
+                    range: [-0.1, modalities.length * 0.15 + 0.2]
+                },
+                hovermode: 'closest',
+                height: 250, // More compact height
+                margin: { r: 50, b: 100, t: 40, l: 50 },
+                paper_bgcolor: 'rgba(248, 249, 250, 0.5)',
+                plot_bgcolor: 'white',
+                showlegend: true,
+                legend: {
+                    orientation: 'h',
+                    y: 1.15,
+                    x: 0.5,
+                    xanchor: 'center'
+                }
+            };
+
+            const config = {
+                responsive: true,
+                displayModeBar: true,
+                modeBarButtonsToRemove: ['lasso2d', 'select2d', 'zoom2d']
+            };
+
+            Plotly.newPlot('reportsTimeline', traces, layout, config);
 
             const el = document.getElementById('reportsTimeline');
             if (el && typeof el.on === 'function') {
@@ -1112,43 +1210,97 @@
             return `${dd}/${mm}/${yy} ${HH}:${MM}`;
         }
 
-        // Try to normalize report datetime strings to the CSV category format
-        function normalizeReportDatetimeStr(s) {
-            if (!s) return s;
-            // Common case: "YYYY-MM-DD HH:MM" (sample data)
-            const m = s.match(/^(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2})/);
-            if (m) {
-                const [_, Y, M, D, h, mnt] = m;
-                const d = new Date(Number(Y), Number(M) - 1, Number(D), Number(h), Number(mnt));
-                if (!isNaN(d.getTime())) return formatToCsvCategory(d);
+        // Helper function to parse date strings in DD/MM/YY HH:MM format
+        function parseDateString(dateStr) {
+            const parts = dateStr.split(/[\s\/:]/);
+            if (parts.length >= 5) {
+                const day = parseInt(parts[0]);
+                const month = parseInt(parts[1]) - 1;
+                let year = parseInt(parts[2]);
+                if (year < 100) year += 2000;
+                const hour = parseInt(parts[3]);
+                const minute = parseInt(parts[4]);
+                return new Date(year, month, day, hour, minute);
             }
-            // Fallback: Date parse and format
-            const d2 = new Date(s);
-            if (!isNaN(d2.getTime())) return formatToCsvCategory(d2);
-            return s; // As-is; may not match categories
+            return new Date(dateStr);
         }
 
-        // Produce vertical line shapes for reports that match current valid date categories
-        function getReportMarkerShapes(validDates) {
-            if (!Array.isArray(validDates) || !validDates.length) return [];
+        // Produce enhanced report markers with better visibility
+        function getReportMarkersAndTraces(validDates, validValues) {
+            const result = { shapes: [], trace: null };
+            if (!Array.isArray(validDates) || !validDates.length) return result;
+            
             const validSet = new Set(validDates);
-            const shapes = [];
+            const matchingReports = [];
+            const reportDates = [];
+            const reportLabels = [];
+            
+            // Find matching reports
             (reports || []).forEach(r => {
-                const cat = normalizeReportDatetimeStr(r.datetime);
-                if (validSet.has(cat)) {
-                    shapes.push({
+                // Direct match since date formats are now aligned
+                if (validSet.has(r.datetime)) {
+                    matchingReports.push(r);
+                    reportDates.push(r.datetime);
+                    reportLabels.push(`${r.modality}: ${r.title}`);
+                    
+                    // Create enhanced vertical line with gradient and label
+                    result.shapes.push({
                         type: 'line',
                         xref: 'x',
                         yref: 'paper',
-                        x0: cat,
-                        x1: cat,
+                        x0: r.datetime,
+                        x1: r.datetime,
                         y0: 0,
                         y1: 1,
-                        line: { color: 'rgba(0,0,0,0.25)', width: 1, dash: 'dot' }
+                        line: { 
+                            color: 'rgba(255, 0, 128, 0.4)', // More visible pink/red color
+                            width: 2, 
+                            dash: 'dot' 
+                        },
+                        layer: 'below'
+                    });
+                    
+                    // Add a small triangle marker at the top
+                    result.shapes.push({
+                        type: 'path',
+                        xref: 'x',
+                        yref: 'paper',
+                        path: `M ${r.datetime},0.98 L ${r.datetime},1 L ${r.datetime},0.98 Z`,
+                        fillcolor: 'rgba(255, 0, 128, 0.6)',
+                        line: { color: 'transparent' }
                     });
                 }
             });
-            return shapes;
+            
+            // Create a trace for the legend if we have matching reports
+            if (matchingReports.length > 0) {
+                // Find Y values for the report dates
+                const yValues = reportDates.map(date => {
+                    const idx = validDates.indexOf(date);
+                    return idx >= 0 && idx < validValues.length ? validValues[idx] : null;
+                });
+                
+                result.trace = {
+                    x: reportDates,
+                    y: yValues,
+                    mode: 'markers',
+                    name: 'Imaging Reports',
+                    marker: {
+                        size: 12,
+                        color: 'rgba(255, 0, 128, 0.6)',
+                        symbol: 'triangle-up',
+                        line: {
+                            color: 'rgba(255, 0, 128, 1)',
+                            width: 2
+                        }
+                    },
+                    text: reportLabels,
+                    hovertemplate: '%{text}<br>Date: %{x}<extra></extra>',
+                    showlegend: true
+                };
+            }
+            
+            return result;
         }
 
         document.addEventListener('DOMContentLoaded', async () => {

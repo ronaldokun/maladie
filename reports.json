@@ -1,7 +1,7 @@
 [
   {
     "id": "20250918_Biópsia_Cólon",
-    "datetime": "2024-09-18 19:40",
+    "datetime": "18/09/25 10:09",
     "modality": "Colonoscopia",
     "title": "Biópsia de Cólon",
     "summary": "Pancolite enantematosa, com erosões pontuais",
@@ -15,6 +15,32 @@
         "href": "reports/20250918_Biópsia_Cólon.pdf"
       }
     ],
-    "body_md": "# Conclusão\n## SPA25-164481A - Biópsia de íleo terminal\n> **Mucosa ileal com arquitetura preservada.**\n* Não foram detectados granulomas, parasitas, criptite, microabscessos de criptas e/ou displasia.\n## SPA25-164481B - Biópsia de cólon direito\n> ⚠️ **Colite ativa focal.**\n* Mucosa colônica com discretos microabscessos de cripta focais.\n* Não foram detectados granulomas, parasitas, criptite e/ou displasia.\n## SPA25-164481C - Biópsia de cólon esquerdo\n> ⚠️**Colite crônica leve.**\n* Mucosa colônica com discreta distorção de criptas, criptite e microabscessos de criptas.\n* Não foram detectados granulomas, parasitas e/ou displasia.\n## SPA25-164481D - Biópsia de reto\n> ⚠️**Retite crônica leve.**\n* Mucosa retal com discreta distorção de criptas, criptite e microabscessos de criptas.\n* Não foram detectados granulomas, parasitas e/ou displasia.\n\n**Nota: É necessária correlação com dados clínicos, laboratoriais e colonoscópicos.**"
+    "body_md": "# Conclusão\n## SPA25-164481A - Biópsia de íleo terminal\n> **Mucosa ileal com arquitetura preservada.**\n* Não foram detectados granulomas, parasitas, criptite, microabscessos de criptas e/ou displasia.\n## SPA25-164481B - Biópsia de cólon direito\n> ⚠️ **Colite ativa focal.**\n* Mucosa colônica com discretos microabscessos de cripta focais.\n* Não foram detectados granulomas, parasitas, criptite e/ou displasia.\n## SPA25-164481C - Biópsia de cólon esquerdo\n> ⚠️**Colite crônica leve.**\n* Mucosa colônica com discreta distorção de criptas, criptite e microabscessos de criptas.\n* Não foram detectados granulomas, parasitas e/ou displasia.\n## SPA25-164481D - Biópsia de reto\n> ⚠️**Retite crônica leve.**\n* Mucosa retal com discreta distorção de criptas, criptite e microabscessos de criptas.\n* Não foram detectados granulomas, parasitas e/ou displasia.\n\n**Nota: É necessária correlação com dados clínicos, laboratoriais e colonoscópicos."
+  },
+  {
+    "id": "20250810_CT_Abdome",
+    "datetime": "10/08/25 11:28",
+    "modality": "CT",
+    "title": "TC de Abdome e Pelve",
+    "summary": "Espessamento parietal no cólon transverso",
+    "tags": [
+      "tomografia",
+      "abdome"
+    ],
+    "attachments": [],
+    "body_md": "# Achados\n* Espessamento parietal segmentar do cólon transverso\n* Linfonodos mesentéricos reativos\n* Fígado com dimensões normais\n* Sem evidências de coleções ou abscessos"
+  },
+  {
+    "id": "20250905_US_Abdome",
+    "datetime": "05/09/25 22:52",
+    "modality": "Ultrasound",
+    "title": "US de Abdome Total",
+    "summary": "Espessamento de alças intestinais",
+    "tags": [
+      "ultrassom",
+      "abdome"
+    ],
+    "attachments": [],
+    "body_md": "# Impressão Diagnóstica\n* Espessamento parietal de alças do cólon\n* Aumento da vascularização local\n* Líquido livre em pequena quantidade na pelve"
   }
 ]
