@@ -254,14 +254,18 @@
         </div>
         <div class="chart-container">
             <h2>Imaging Reports Timeline</h2>
-            <div class="info-box" style="margin-bottom: 10px; padding: 8px; background-color: #fff3cd; border-radius: 5px; font-size: 14px; border: 1px solid #ffc107;">
-                <p style="margin: 0;"><strong>📍 Visual Correlation:</strong> Pink dotted lines and triangle markers in the blood markers chart above indicate when imaging studies were performed. Click on any report marker below for details.</p>
+            <div class="info-box"
+                style="margin-bottom: 10px; padding: 8px; background-color: #fff3cd; border-radius: 5px; font-size: 14px; border: 1px solid #ffc107;">
+                <p style="margin: 0;"><strong>📍 Visual Correlation:</strong> Pink dotted lines and triangle markers in
+                    the blood markers chart above indicate when imaging studies were performed. Click on any report
+                    marker below for details.</p>
             </div>
             <div id="reportsTimeline" style="height: 250px;"></div>
         </div>
 
         <!-- Modal for focused report view -->
-        <div id="reportModal" style="display:none; position:fixed; inset:5%; background:#fff; border-radius:8px; padding:16px; box-shadow:0 8px 32px rgba(0,0,0,0.3); overflow:auto; z-index: 1000;">
+        <div id="reportModal"
+            style="display:none; position:fixed; inset:5%; background:#fff; border-radius:8px; padding:16px; box-shadow:0 8px 32px rgba(0,0,0,0.3); overflow:auto; z-index: 1000;">
             <div style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
                 <h3 id="reportTitle" style="margin:0;"></h3>
                 <button onclick="document.getElementById('reportModal').style.display='none'">Close</button>
@@ -579,7 +583,7 @@
 
                         // Determine direction
                         const direction = getOutOfRangeDirection(latestValue, analyte.reference);
-                        
+
                         // Calculate percentage deviation
                         const percentageDeviation = calculatePercentageDeviation(latestValue, analyte.reference);
 
@@ -617,13 +621,13 @@
                     // Create arrow indicator based on direction
                     let arrowHtml = '';
                     let percentageHtml = '';
-                    
+
                     if (item.direction === 'up') {
                         arrowHtml = '<span class="direction-arrow arrow-up">↑</span>';
                     } else if (item.direction === 'down') {
                         arrowHtml = '<span class="direction-arrow arrow-down">↓</span>';
                     }
-                    
+
                     // Add percentage if available
                     if (item.percentage) {
                         percentageHtml = ` <span class="percentage-deviation">(${item.percentage})</span>`;
@@ -743,11 +747,11 @@
             const numericValues = validValues.filter(val => !isNaN(val) && val !== null);
             let historicalMin = null;
             let historicalMax = null;
-            
+
             if (numericValues.length > 0) {
                 historicalMin = Math.min(...numericValues);
                 historicalMax = Math.max(...numericValues);
-                
+
                 // Add historical minimum line
                 shapes.push({
                     type: 'line',
@@ -763,7 +767,7 @@
                     },
                     layer: 'above'
                 });
-                
+
                 // Add historical maximum line
                 shapes.push({
                     type: 'line',
@@ -779,7 +783,7 @@
                     },
                     layer: 'above'
                 });
-                
+
                 // Add legend traces in order: Historical Min, Median, Historical Max
                 traces.push({
                     x: [null],
@@ -793,7 +797,7 @@
                     },
                     showlegend: true
                 });
-                
+
                 // Add median trace for legend (if available)
                 if (medianValue !== null) {
                     traces.push({
@@ -809,7 +813,7 @@
                         showlegend: true
                     });
                 }
-                
+
                 traces.push({
                     x: [null],
                     y: [null],
@@ -876,7 +880,7 @@
                 });
             }
 
-        // Add report markers aligned with visible dates for this analyte
+            // Add report markers aligned with visible dates for this analyte
             if (Array.isArray(reports) && reports.length) {
                 const reportData = getReportMarkersAndTraces(validDates, validValues);
                 if (reportData.shapes.length) {
@@ -1074,12 +1078,12 @@
             };
 
             const traces = [];
-            
+
             // Create a single timeline trace with different colors per modality
             modalities.forEach((mod, idx) => {
                 const items = sortedReports.filter(r => r.modality === mod);
                 const yPosition = idx * 0.15; // Stagger positions slightly
-                
+
                 traces.push({
                     x: items.map(r => r.datetime),
                     y: items.map(() => yPosition),
@@ -1090,7 +1094,7 @@
                     type: 'scatter',
                     textposition: 'top center',
                     textfont: { size: 10 },
-                    marker: { 
+                    marker: {
                         size: 15,
                         color: modalityColors[mod] || '#95a5a6',
                         symbol: 'diamond',
@@ -1110,7 +1114,7 @@
                     const modIdx = modalities.indexOf(r.modality);
                     return modIdx * 0.15;
                 });
-                
+
                 traces.unshift({
                     x: connectionX,
                     y: connectionY,
@@ -1127,27 +1131,24 @@
             }
 
             const layout = {
-                title: {
-                    text: 'Imaging Reports Timeline',
-                    font: { size: 16 }
-                },
-                xaxis: { 
-                    title: 'Date/Time', 
-                    type: 'category', 
+
+                xaxis: {
+                    title: 'Date/Time',
+                    type: 'category',
                     tickangle: -45,
                     showgrid: true,
                     gridcolor: 'rgba(200, 200, 200, 0.3)',
-                    rangeslider: { 
+                    rangeslider: {
                         visible: true,
                         thickness: 0.05
                     }
                 },
-                yaxis: { 
+                yaxis: {
                     visible: false,
                     range: [-0.1, modalities.length * 0.15 + 0.2]
                 },
                 hovermode: 'closest',
-                height: 250, // More compact height
+                height: 400, // More compact height
                 margin: { r: 50, b: 100, t: 40, l: 50 },
                 paper_bgcolor: 'rgba(248, 249, 250, 0.5)',
                 plot_bgcolor: 'white',
@@ -1191,7 +1192,7 @@
             const links = (r.attachments || []).map(a => `<a href="${a.href}" target="_blank" rel="noopener">${(a.type || 'file').toUpperCase()}</a>`);
             linksEl.innerHTML = links.join(' · ');
             document.getElementById('reportModal').style.display = 'block';
-            try { history.replaceState(null, '', `#report=${encodeURIComponent(id)}`); } catch (e) {}
+            try { history.replaceState(null, '', `#report=${encodeURIComponent(id)}`); } catch (e) { }
         }
 
         function maybeOpenReportFromHash() {
@@ -1229,12 +1230,12 @@
         function getReportMarkersAndTraces(validDates, validValues) {
             const result = { shapes: [], trace: null };
             if (!Array.isArray(validDates) || !validDates.length) return result;
-            
+
             const validSet = new Set(validDates);
             const matchingReports = [];
             const reportDates = [];
             const reportLabels = [];
-            
+
             // Find matching reports
             (reports || []).forEach(r => {
                 // Direct match since date formats are now aligned
@@ -1242,7 +1243,7 @@
                     matchingReports.push(r);
                     reportDates.push(r.datetime);
                     reportLabels.push(`${r.modality}: ${r.title}`);
-                    
+
                     // Create enhanced vertical line with gradient and label
                     result.shapes.push({
                         type: 'line',
@@ -1252,14 +1253,14 @@
                         x1: r.datetime,
                         y0: 0,
                         y1: 1,
-                        line: { 
+                        line: {
                             color: 'rgba(255, 0, 128, 0.4)', // More visible pink/red color
-                            width: 2, 
-                            dash: 'dot' 
+                            width: 2,
+                            dash: 'dot'
                         },
                         layer: 'below'
                     });
-                    
+
                     // Add a small triangle marker at the top
                     result.shapes.push({
                         type: 'path',
@@ -1271,7 +1272,7 @@
                     });
                 }
             });
-            
+
             // Create a trace for the legend if we have matching reports
             if (matchingReports.length > 0) {
                 // Find Y values for the report dates
@@ -1279,7 +1280,7 @@
                     const idx = validDates.indexOf(date);
                     return idx >= 0 && idx < validValues.length ? validValues[idx] : null;
                 });
-                
+
                 result.trace = {
                     x: reportDates,
                     y: yValues,
@@ -1299,7 +1300,7 @@
                     showlegend: true
                 };
             }
-            
+
             return result;
         }
 
@@ -1307,7 +1308,7 @@
             await loadReports();
             renderReportsTimeline();
             // If labs are already loaded, refresh the chart so markers appear
-            try { if (typeof isDataLoaded !== 'undefined' && isDataLoaded) updateChart(); } catch (_) {}
+            try { if (typeof isDataLoaded !== 'undefined' && isDataLoaded) updateChart(); } catch (_) { }
             maybeOpenReportFromHash();
         });
     </script>
