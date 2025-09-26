@@ -245,12 +245,6 @@
                     HTML:</p>
                 <input type="file" id="csvInput" accept=".csv" />
             </div>
-            <div id="focusBox" class="focus-box">
-                <h3>Latest Results - Attention Required</h3>
-                <div id="focusBoxContent" class="focus-box-content">
-                    <!-- Content will be dynamically generated -->
-                </div>
-            </div>
         </div>
         <div class="chart-container">
             <h2>Imaging Reports Timeline</h2>
@@ -260,7 +254,15 @@
                     the blood markers chart above indicate when imaging studies were performed. Click on any report
                     marker below for details.</p>
             </div>
-            <div id="reportsTimeline" style="height: 250px;"></div>
+            <div id="reportsTimeline" style="height: 350px;"></div>
+        </div>
+        <div class="chart-container">
+            <div id="focusBox" class="focus-box">
+                <h3>Latest Results - Attention Required</h3>
+                <div id="focusBoxContent" class="focus-box-content">
+                    <!-- Content will be dynamically generated -->
+                </div>
+            </div>
         </div>
 
         <!-- Modal for focused report view -->
@@ -1092,8 +1094,8 @@
                     mode: 'markers+text',
                     name: mod,
                     type: 'scatter',
-                    textposition: 'top center',
-                    textfont: { size: 10 },
+                    textposition: 'bottom center', // Changed to bottom to prevent top cutoff
+                    textfont: { size: 9 }, // Slightly smaller font to fit better
                     marker: {
                         size: 15,
                         color: modalityColors[mod] || '#95a5a6',
@@ -1145,17 +1147,17 @@
                 },
                 yaxis: {
                     visible: false,
-                    range: [-0.1, modalities.length * 0.15 + 0.2]
+                    range: [-0.3, modalities.length * 0.15 + 0.4] // Increased range to prevent cutoff
                 },
                 hovermode: 'closest',
-                height: 400, // More compact height
-                margin: { r: 50, b: 100, t: 40, l: 50 },
+                height: 350, // Match container height
+                margin: { r: 50, b: 100, t: 80, l: 50 }, // Increased top margin to prevent title cutoff
                 paper_bgcolor: 'rgba(248, 249, 250, 0.5)',
                 plot_bgcolor: 'white',
                 showlegend: true,
                 legend: {
                     orientation: 'h',
-                    y: 1.15,
+                    y: 1.1, // Adjusted legend position
                     x: 0.5,
                     xanchor: 'center'
                 }
