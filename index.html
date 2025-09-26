@@ -234,8 +234,9 @@
             <h2>Interactive Evolution Chart</h2>
             <div class="info-box"
                 style="margin-bottom: 10px; padding: 8px; background-color: #f8f9fa; border-radius: 5px; font-size: 14px;">
-                <p style="margin: 0;"><strong>Navigation tips:</strong> Use the range slider below the chart to zoom and
-                    pan. You can also use the toolbar buttons to zoom in/out and drag to pan the view.</p>
+                <p style="margin: 0;"><strong>Navigation tips:</strong> Use the range slider below to zoom and pan. 
+                <strong>📍 Imaging Reports:</strong> <span style="color: #ff1493;">Pink</span> markers show exact date matches, <span style="color: #ff8c00;">orange</span> markers show approximate positions for reports without corresponding blood data. 
+                Click triangle markers to view report details.</p>
             </div>
             <div id="plotlyChart" style="height: 700px;"></div>
             <div id="fileLoader"
@@ -245,16 +246,6 @@
                     HTML:</p>
                 <input type="file" id="csvInput" accept=".csv" />
             </div>
-        </div>
-        <div class="chart-container">
-            <h2>Imaging Reports Timeline</h2>
-            <div class="info-box"
-                style="margin-bottom: 10px; padding: 8px; background-color: #fff3cd; border-radius: 5px; font-size: 14px; border: 1px solid #ffc107;">
-                <p style="margin: 0;"><strong>📍 Visual Correlation:</strong> Pink dotted lines and triangle markers in
-                    the blood markers chart above indicate when imaging studies were performed. Click on any report
-                    marker below for details.</p>
-            </div>
-            <div id="reportsTimeline" style="height: 350px;"></div>
         </div>
         <div class="chart-container">
             <div id="focusBox" class="focus-box">
@@ -931,6 +922,18 @@
 
             Plotly.newPlot('plotlyChart', traces, layout, config);
 
+            // Add click event handler for report markers
+            const chartEl = document.getElementById('plotlyChart');
+            if (chartEl && typeof chartEl.on === 'function') {
+                chartEl.on('plotly_click', (data) => {
+                    const point = data?.points?.[0];
+                    if (point && point.customdata) {
+                        // This is a report marker click
+                        openReport(point.customdata);
+                    }
+                });
+            }
+
             // Update the focus box with latest out-of-range values
             updateFocusBox();
         }
@@ -1054,131 +1057,6 @@
             }
         }
 
-        function renderReportsTimeline() {
-            if (!reports.length) {
-                // Hide the timeline if no reports
-                const container = document.querySelector('.chart-container:has(#reportsTimeline)');
-                if (container) container.style.display = 'none';
-                return;
-            }
-
-            // Create a more compact timeline visualization
-            const sortedReports = [...reports].sort((a, b) => {
-                const dateA = parseDateString(a.datetime);
-                const dateB = parseDateString(b.datetime);
-                return dateA - dateB;
-            });
-
-            // Group by modality for color coding
-            const modalities = [...new Set(reports.map(r => r.modality))];
-            const modalityColors = {
-                'Colonoscopia': '#ff6b6b',
-                'CT': '#4ecdc4',
-                'MRI': '#45b7d1',
-                'Ultrasound': '#96ceb4',
-                'X-Ray': '#feca57'
-            };
-
-            const traces = [];
-
-            // Create a single timeline trace with different colors per modality
-            modalities.forEach((mod, idx) => {
-                const items = sortedReports.filter(r => r.modality === mod);
-                const yPosition = idx * 0.15; // Stagger positions slightly
-
-                traces.push({
-                    x: items.map(r => r.datetime),
-                    y: items.map(() => yPosition),
-                    text: items.map(r => `<b>${r.modality}</b><br>${r.title}<br>${r.summary || ''}`),
-                    customdata: items.map(r => r.id),
-                    mode: 'markers+text',
-                    name: mod,
-                    type: 'scatter',
-                    textposition: 'bottom center', // Changed to bottom to prevent top cutoff
-                    textfont: { size: 9 }, // Slightly smaller font to fit better
-                    marker: {
-                        size: 15,
-                        color: modalityColors[mod] || '#95a5a6',
-                        symbol: 'diamond',
-                        line: {
-                            color: 'white',
-                            width: 2
-                        }
-                    },
-                    hovertemplate: '%{text}<extra></extra>'
-                });
-            });
-
-            // Add connection lines between sequential reports
-            if (sortedReports.length > 1) {
-                const connectionX = sortedReports.map(r => r.datetime);
-                const connectionY = sortedReports.map((r, idx) => {
-                    const modIdx = modalities.indexOf(r.modality);
-                    return modIdx * 0.15;
-                });
-
-                traces.unshift({
-                    x: connectionX,
-                    y: connectionY,
-                    mode: 'lines',
-                    name: 'Timeline',
-                    line: {
-                        color: 'rgba(150, 150, 150, 0.3)',
-                        width: 1,
-                        dash: 'dot'
-                    },
-                    hoverinfo: 'skip',
-                    showlegend: false
-                });
-            }
-
-            const layout = {
-
-                xaxis: {
-                    title: 'Date/Time',
-                    type: 'category',
-                    tickangle: -45,
-                    showgrid: true,
-                    gridcolor: 'rgba(200, 200, 200, 0.3)',
-                    rangeslider: {
-                        visible: true,
-                        thickness: 0.05
-                    }
-                },
-                yaxis: {
-                    visible: false,
-                    range: [-0.3, modalities.length * 0.15 + 0.4] // Increased range to prevent cutoff
-                },
-                hovermode: 'closest',
-                height: 350, // Match container height
-                margin: { r: 50, b: 100, t: 80, l: 50 }, // Increased top margin to prevent title cutoff
-                paper_bgcolor: 'rgba(248, 249, 250, 0.5)',
-                plot_bgcolor: 'white',
-                showlegend: true,
-                legend: {
-                    orientation: 'h',
-                    y: 1.1, // Adjusted legend position
-                    x: 0.5,
-                    xanchor: 'center'
-                }
-            };
-
-            const config = {
-                responsive: true,
-                displayModeBar: true,
-                modeBarButtonsToRemove: ['lasso2d', 'select2d', 'zoom2d']
-            };
-
-            Plotly.newPlot('reportsTimeline', traces, layout, config);
-
-            const el = document.getElementById('reportsTimeline');
-            if (el && typeof el.on === 'function') {
-                el.on('plotly_click', (data) => {
-                    const id = data?.points?.[0]?.customdata;
-                    if (id) openReport(id);
-                });
-            }
-        }
 
         function openReport(id) {
             const r = reports.find(x => x.id === id);
@@ -1228,77 +1106,203 @@
             return new Date(dateStr);
         }
 
-        // Produce enhanced report markers with better visibility
-        function getReportMarkersAndTraces(validDates, validValues) {
-            const result = { shapes: [], trace: null };
-            if (!Array.isArray(validDates) || !validDates.length) return result;
+        // Helper function to parse date strings to Date objects for comparison
+        function parseReportDate(dateStr) {
+            const parts = dateStr.split('/');
+            if (parts.length === 3) {
+                const day = parseInt(parts[0]);
+                const month = parseInt(parts[1]) - 1; // Month is 0-indexed
+                let year = parseInt(parts[2]);
+                if (year < 100) year += 2000; // Handle 2-digit years
+                return new Date(year, month, day);
+            }
+            return new Date(dateStr);
+        }
 
-            const validSet = new Set(validDates);
-            const matchingReports = [];
-            const reportDates = [];
-            const reportLabels = [];
-
-            // Find matching reports
-            (reports || []).forEach(r => {
-                // Direct match since date formats are now aligned
-                if (validSet.has(r.datetime)) {
-                    matchingReports.push(r);
-                    reportDates.push(r.datetime);
-                    reportLabels.push(`${r.modality}: ${r.title}`);
-
-                    // Create enhanced vertical line with gradient and label
-                    result.shapes.push({
-                        type: 'line',
-                        xref: 'x',
-                        yref: 'paper',
-                        x0: r.datetime,
-                        x1: r.datetime,
-                        y0: 0,
-                        y1: 1,
-                        line: {
-                            color: 'rgba(255, 0, 128, 0.4)', // More visible pink/red color
-                            width: 2,
-                            dash: 'dot'
-                        },
-                        layer: 'below'
-                    });
-
-                    // Add a small triangle marker at the top
-                    result.shapes.push({
-                        type: 'path',
-                        xref: 'x',
-                        yref: 'paper',
-                        path: `M ${r.datetime},0.98 L ${r.datetime},1 L ${r.datetime},0.98 Z`,
-                        fillcolor: 'rgba(255, 0, 128, 0.6)',
-                        line: { color: 'transparent' }
-                    });
+        // Helper function to find the closest date position for non-matching reports
+        function findClosestDatePosition(reportDate, validDates) {
+            const reportDateObj = parseReportDate(reportDate);
+            const validDateObjs = validDates.map(d => parseReportDate(d));
+            
+            // Find the closest dates before and after
+            let closestBefore = null;
+            let closestAfter = null;
+            let minDistanceBefore = Infinity;
+            let minDistanceAfter = Infinity;
+            
+            validDateObjs.forEach((dateObj, idx) => {
+                const distance = Math.abs(reportDateObj - dateObj);
+                
+                if (dateObj <= reportDateObj && distance < minDistanceBefore) {
+                    closestBefore = { date: validDates[idx], index: idx, distance: distance };
+                    minDistanceBefore = distance;
+                }
+                
+                if (dateObj >= reportDateObj && distance < minDistanceAfter) {
+                    closestAfter = { date: validDates[idx], index: idx, distance: distance };
+                    minDistanceAfter = distance;
                 }
             });
+            
+            // If we have both before and after, interpolate position
+            if (closestBefore && closestAfter && closestBefore.index !== closestAfter.index) {
+                const totalDistance = minDistanceBefore + minDistanceAfter;
+                const ratio = minDistanceBefore / totalDistance;
+                return {
+                    position: closestBefore.index + ratio,
+                    displayDate: `${reportDate} (between ${closestBefore.date} & ${closestAfter.date})`,
+                    xPosition: closestBefore.index + ratio // For plotting
+                };
+            }
+            
+            // Otherwise use the single closest date
+            const closest = minDistanceBefore <= minDistanceAfter ? closestBefore : closestAfter;
+            if (closest) {
+                return {
+                    position: closest.index,
+                    displayDate: `${reportDate} (closest: ${closest.date})`,
+                    xPosition: closest.index
+                };
+            }
+            
+            return null;
+        }
 
-            // Create a trace for the legend if we have matching reports
-            if (matchingReports.length > 0) {
-                // Find Y values for the report dates
-                const yValues = reportDates.map(date => {
-                    const idx = validDates.indexOf(date);
-                    return idx >= 0 && idx < validValues.length ? validValues[idx] : null;
+        // Produce enhanced report markers with better visibility and interactivity
+        function getReportMarkersAndTraces(validDates, validValues) {
+            const result = { shapes: [], trace: null };
+            if (!Array.isArray(validDates) || !validDates.length || !reports || reports.length === 0) return result;
+
+            const validSet = new Set(validDates);
+            const allReports = [];
+            const reportPositions = [];
+            const reportLabels = [];
+            const reportIds = [];
+
+            // Process all reports (both matching and non-matching dates)
+            reports.forEach(r => {
+                let position, displayDate, xPos;
+                
+                if (validSet.has(r.datetime)) {
+                    // Exact match - use the actual date position
+                    const dateIndex = validDates.indexOf(r.datetime);
+                    position = dateIndex;
+                    displayDate = r.datetime;
+                    xPos = dateIndex;
+                } else {
+                    // No exact match - find closest position
+                    const closestInfo = findClosestDatePosition(r.datetime, validDates);
+                    if (closestInfo) {
+                        position = closestInfo.position;
+                        displayDate = closestInfo.displayDate;
+                        xPos = closestInfo.xPosition;
+                    } else {
+                        return; // Skip if we can't find a good position
+                    }
+                }
+                
+                allReports.push(r);
+                reportPositions.push(position);
+                reportLabels.push(`${r.modality}: ${r.title}`);
+                reportIds.push(r.id);
+                
+                // Create enhanced vertical line
+                // For interpolated positions, we need to use paper coordinates
+                const lineX = validSet.has(r.datetime) ? r.datetime : xPos;
+                
+                result.shapes.push({
+                    type: 'line',
+                    xref: validSet.has(r.datetime) ? 'x' : 'paper',
+                    yref: 'paper',
+                    x0: validSet.has(r.datetime) ? r.datetime : (xPos / (validDates.length - 1)),
+                    x1: validSet.has(r.datetime) ? r.datetime : (xPos / (validDates.length - 1)),
+                    y0: 0,
+                    y1: 1,
+                    line: {
+                        color: validSet.has(r.datetime) ? 'rgba(255, 20, 147, 0.5)' : 'rgba(255, 140, 0, 0.6)', // Orange for interpolated
+                        width: 3,
+                        dash: validSet.has(r.datetime) ? 'dot' : 'dashdot'
+                    },
+                    layer: 'below'
+                });
+                
+                // Add a report indicator at the top
+                result.shapes.push({
+                    type: 'rect',
+                    xref: validSet.has(r.datetime) ? 'x' : 'paper',
+                    yref: 'paper',
+                    x0: validSet.has(r.datetime) ? r.datetime : (xPos / (validDates.length - 1)),
+                    x1: validSet.has(r.datetime) ? r.datetime : (xPos / (validDates.length - 1)),
+                    y0: 0.95,
+                    y1: 1,
+                    fillcolor: validSet.has(r.datetime) ? 'rgba(255, 20, 147, 0.15)' : 'rgba(255, 140, 0, 0.15)',
+                    line: {
+                        color: validSet.has(r.datetime) ? 'rgba(255, 20, 147, 0.8)' : 'rgba(255, 140, 0, 0.8)',
+                        width: 1
+                    },
+                    layer: 'above'
+                });
+            });
+
+            // Create an interactive trace for all report markers
+            if (allReports.length > 0) {
+                const maxY = Math.max(...validValues.filter(v => !isNaN(v)));
+                
+                // Calculate marker positions and Y values
+                const markerX = [];
+                const markerY = [];
+                
+                reportPositions.forEach((pos, idx) => {
+                    const report = allReports[idx];
+                    
+                    if (validSet.has(report.datetime)) {
+                        // Exact match - use actual date
+                        markerX.push(report.datetime);
+                        markerY.push(maxY * 1.05);
+                    } else {
+                        // Interpolated position - use closest valid dates for approximation
+                        const floorIndex = Math.floor(pos);
+                        const ceilIndex = Math.ceil(pos);
+                        
+                        if (floorIndex === ceilIndex) {
+                            // Exact index match to closest date
+                            markerX.push(validDates[floorIndex]);
+                            markerY.push(maxY * 1.05);
+                        } else {
+                            // Interpolate between two dates - use the earlier one for x position
+                            markerX.push(validDates[floorIndex]);
+                            markerY.push(maxY * 1.08); // Slightly higher for interpolated markers
+                        }
+                    }
                 });
 
                 result.trace = {
-                    x: reportDates,
-                    y: yValues,
-                    mode: 'markers',
-                    name: 'Imaging Reports',
+                    x: markerX,
+                    y: markerY,
+                    customdata: reportIds,
+                    mode: 'markers+text',
+                    name: `Imaging Reports (${allReports.length})`,
                     marker: {
-                        size: 12,
-                        color: 'rgba(255, 0, 128, 0.6)',
-                        symbol: 'triangle-up',
+                        size: 16,
+                        color: allReports.map(r => validSet.has(r.datetime) ? 'rgba(255, 20, 147, 0.8)' : 'rgba(255, 140, 0, 0.8)'),
+                        symbol: allReports.map(r => validSet.has(r.datetime) ? 'triangle-up' : 'triangle-up'),
                         line: {
-                            color: 'rgba(255, 0, 128, 1)',
+                            color: 'rgba(255, 255, 255, 1)',
                             width: 2
                         }
                     },
-                    text: reportLabels,
-                    hovertemplate: '%{text}<br>Date: %{x}<extra></extra>',
+                    text: allReports.map(r => r.modality.charAt(0)),
+                    textfont: {
+                        size: 10,
+                        color: 'white',
+                        family: 'Arial Black'
+                    },
+                    textposition: 'middle center',
+                    hovertext: allReports.map((r, idx) => {
+                        const dateInfo = validSet.has(r.datetime) ? r.datetime : `${r.datetime} (approximated)`;
+                        return `<b>${r.modality}</b><br>${r.title}<br>Date: ${dateInfo}<br><i>Click to view details</i>`;
+                    }),
+                    hoverinfo: 'text',
                     showlegend: true
                 };
             }
@@ -1308,7 +1312,6 @@
 
         document.addEventListener('DOMContentLoaded', async () => {
             await loadReports();
-            renderReportsTimeline();
             // If labs are already loaded, refresh the chart so markers appear
             try { if (typeof isDataLoaded !== 'undefined' && isDataLoaded) updateChart(); } catch (_) { }
             maybeOpenReportFromHash();
