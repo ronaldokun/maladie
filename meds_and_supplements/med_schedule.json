@@ -1,0 +1,209 @@
+{
+  "time_order": [
+    "Morning",
+    "Midday",
+    "Evening",
+    "Dinner",
+    "Bedtime"
+  ],
+  "items": [
+    {
+      "time": "Morning",
+      "compound": "Apple Cider Vinegar",
+      "function": "Digestive / microbiome support",
+      "dosage": "1–3 tbsp (diluted)"
+    },
+    {
+      "time": "Morning",
+      "compound": "Bactrim",
+      "function": "Antimicrobial (infection prophylaxis)",
+      "dosage": "1 tab"
+    },
+    {
+      "time": "Morning",
+      "compound": "Ursacol",
+      "function": "Liver / bile flow",
+      "dosage": "600 mg × 2 (1,200 mg)"
+    },
+    {
+      "time": "Morning",
+      "compound": "Mesalazine",
+      "function": "Colon anti-inflammatory",
+      "dosage": "500 mg"
+    },
+    {
+      "time": "Morning",
+      "compound": "Adalimumab",
+      "function": "Systemic anti-TNF",
+      "dosage": "40 mg (weekly)"
+    },
+    {
+      "time": "Morning",
+      "compound": "Magnesium complex",
+      "function": "Relaxation / metabolism",
+      "dosage": "2 tabs (≈232 mg each)"
+    },
+    {
+      "time": "Morning",
+      "compound": "NutrioneLife + L. rhamnosus",
+      "function": "Gut microbiota balance",
+      "dosage": "1 sachet"
+    },
+    {
+      "time": "Morning",
+      "compound": "Creatine",
+      "function": "Energy / cellular metabolism",
+      "dosage": "10 g"
+    },
+    {
+      "time": "Morning",
+      "compound": "(Optional) Theanine",
+      "function": "Relaxation / focus",
+      "dosage": "100 mg"
+    },
+    {
+      "time": "Midday",
+      "compound": "Calcium",
+      "function": "Bone / muscle support",
+      "dosage": "500 mg"
+    },
+    {
+      "time": "Midday",
+      "compound": "Vitamin D3",
+      "function": "Immunity / liver modulation",
+      "dosage": "8,000 IU"
+    },
+    {
+      "time": "Midday",
+      "compound": "Omega-3 + Phosphatidylserine",
+      "function": "Anti-inflammatory / cognition",
+      "dosage": "2 caps (Ω3 1,590 mg) + PS 100 mg"
+    },
+    {
+      "time": "Midday",
+      "compound": "Racemethionine + Choline",
+      "function": "Methylation / bile flow",
+      "dosage": "200 mg + 40 mg × 2 tabs"
+    },
+    {
+      "time": "Midday",
+      "compound": "Silymarin",
+      "function": "Liver protection",
+      "dosage": "400 mg × 2 (800 mg)"
+    },
+    {
+      "time": "Midday",
+      "compound": "NAC",
+      "function": "Antioxidant / liver detox",
+      "dosage": "1 g"
+    },
+    {
+      "time": "Midday",
+      "compound": "MSM",
+      "function": "Anti-inflammatory / sulfur donor",
+      "dosage": "1 g"
+    },
+    {
+      "time": "Midday",
+      "compound": "Quercetin",
+      "function": "Anti-inflammatory / anti-fibrotic",
+      "dosage": "500 mg"
+    },
+    {
+      "time": "Evening",
+      "compound": "Golden Milk",
+      "function": "Curcumin anti-inflammatory",
+      "dosage": "7 g (with pepper)"
+    },
+    {
+      "time": "Evening",
+      "compound": "Noripurum",
+      "function": "Iron supplementation",
+      "dosage": "20 drops (20 mg Fe)"
+    },
+    {
+      "time": "Evening",
+      "compound": "Vitamin C",
+      "function": "Antioxidant / collagen",
+      "dosage": "1 g"
+    },
+    {
+      "time": "Dinner",
+      "compound": "L. rhamnosus",
+      "function": "Gut support",
+      "dosage": "1 sachet (250 mg)"
+    },
+    {
+      "time": "Dinner",
+      "compound": "Racemethionine + Choline",
+      "function": "Methylation / bile flow",
+      "dosage": "200 mg + 40 mg × 2 tabs"
+    },
+    {
+      "time": "Dinner",
+      "compound": "Silymarin",
+      "function": "Liver protection",
+      "dosage": "400 mg × 2 (800 mg)"
+    },
+    {
+      "time": "Dinner",
+      "compound": "Omega-3 + Phosphatidylserine",
+      "function": "Anti-inflammatory / cognition",
+      "dosage": "2 caps (Ω3 1,590 mg) + PS 100 mg"
+    },
+    {
+      "time": "Dinner",
+      "compound": "MSM",
+      "function": "Anti-inflammatory / sulfur donor",
+      "dosage": "1 g"
+    },
+    {
+      "time": "Bedtime",
+      "compound": "Ursacol",
+      "function": "Liver / bile flow overnight",
+      "dosage": "300 mg × 3 (900 mg)"
+    },
+    {
+      "time": "Bedtime",
+      "compound": "Magnesium complex",
+      "function": "Relaxation / sleep",
+      "dosage": "≈116 mg elemental"
+    },
+    {
+      "time": "Bedtime",
+      "compound": "Theanine",
+      "function": "Calm / GABA support",
+      "dosage": "250 mg"
+    },
+    {
+      "time": "Bedtime",
+      "compound": "Glycine",
+      "function": "Sleep onset / thermoregulation",
+      "dosage": "3 g"
+    },
+    {
+      "time": "Bedtime",
+      "compound": "Myo-Inositol",
+      "function": "Neurochemical balance",
+      "dosage": "3 g"
+    },
+    {
+      "time": "Bedtime",
+      "compound": "NAC",
+      "function": "Nighttime detox",
+      "dosage": "1 g"
+    },
+    {
+      "time": "Bedtime",
+      "compound": "MSM",
+      "function": "Repair / sulfur donor",
+      "dosage": "2 g"
+    },
+    {
+      "time": "Bedtime",
+      "compound": "Quercetin",
+      "function": "Antihistaminic / sleep aid",
+      "dosage": "500 mg"
+    }
+  ]
+}
