@@ -234,9 +234,11 @@
             <h2>Interactive Evolution Chart</h2>
             <div class="info-box"
                 style="margin-bottom: 10px; padding: 8px; background-color: #f8f9fa; border-radius: 5px; font-size: 14px;">
-                <p style="margin: 0;"><strong>Navigation tips:</strong> Use the range slider below to zoom and pan. 
-                <strong>📍 Imaging Reports:</strong> <span style="color: #ff8c00;">Orange</span> dotted lines and triangle markers indicate when imaging studies were performed. 
-                Click triangle markers to view report details.</p>
+                <p style="margin: 0;"><strong>Navigation tips:</strong> Use the range slider below to zoom and pan.
+                    <strong>📍 Exam Reports:</strong> <span style="color: #ff8c00;">Orange</span> dotted lines and
+                    triangle markers indicate when imaging studies were performed.
+                    Click triangle markers to view report details.
+                </p>
             </div>
             <div id="plotlyChart" style="height: 700px;"></div>
             <div id="fileLoader"
@@ -1123,11 +1125,11 @@
         function findClosestDatePosition(reportDate, validDates) {
             const reportDateObj = parseReportDate(reportDate);
             const validDateObjs = validDates.map(d => parseReportDate(d));
-            
+
             let closestDate = null;
             let minDistance = Infinity;
             let closestIndex = -1;
-            
+
             // Find the single closest date
             validDateObjs.forEach((dateObj, idx) => {
                 const distance = Math.abs(reportDateObj - dateObj);
@@ -1137,7 +1139,7 @@
                     closestIndex = idx;
                 }
             });
-            
+
             if (closestDate !== null) {
                 return {
                     position: closestIndex,
@@ -1145,7 +1147,7 @@
                     xPosition: closestIndex
                 };
             }
-            
+
             return null;
         }
 
@@ -1164,7 +1166,7 @@
             // Process all reports (both matching and non-matching dates)
             reports.forEach(r => {
                 let position, finalDate;
-                
+
                 if (validSet.has(r.datetime)) {
                     // Exact match - use the actual date position
                     const dateIndex = validDates.indexOf(r.datetime);
@@ -1180,13 +1182,13 @@
                         return; // Skip if we can't find a good position
                     }
                 }
-                
+
                 allReports.push(r);
                 reportPositions.push(position);
                 reportLabels.push(`${r.modality}: ${r.title}`);
                 reportIds.push(r.id);
                 finalDates.push(finalDate);
-                
+
                 // Create enhanced vertical line - always use orange and x coordinates
                 result.shapes.push({
                     type: 'line',
@@ -1203,7 +1205,7 @@
                     },
                     layer: 'below'
                 });
-                
+
                 // Add a report indicator at the top - always orange
                 result.shapes.push({
                     type: 'rect',
@@ -1231,7 +1233,7 @@
                     y: finalDates.map(() => maxY * 1.05), // Same height for all
                     customdata: reportIds,
                     mode: 'markers+text',
-                    name: `Imaging Reports (${allReports.length})`,
+                    name: `Exam Reports (${allReports.length})`,
                     marker: {
                         size: 16,
                         color: 'rgba(255, 140, 0, 0.8)', // Orange for all
