@@ -476,6 +476,26 @@
             }
         }
 
+        // Function to calculate mean of valid numeric values
+        function calculateMean(values) {
+            // Filter out invalid values and convert to numbers
+            const numericValues = values.filter(val => {
+                if (val === "----" || val === null || val === "Inferior a 0.5" || val === "Raras") return false;
+                const num = parseFloat(val);
+                return !isNaN(num);
+            }).map(val => {
+                if (val === "Inferior a 0.5") return 0.25;
+                if (val === "Raras") return 0;
+                return parseFloat(val);
+            });
+
+            if (numericValues.length === 0) return null;
+
+            // Calculate mean
+            const sum = numericValues.reduce((acc, val) => acc + val, 0);
+            return sum / numericValues.length;
+        }
+
         // Function to check if value is within reference range
         function isWithinRange(value, reference) {
             if (value === "----" || value === null || value === "Inferior a 0.5" || value === "Raras") return null;
@@ -714,8 +734,9 @@
                 textangle: 0
             };
 
-            // Calculate median for trend analysis
+            // Calculate median and mean for trend analysis
             const medianValue = calculateMedian(analyte.values);
+            const meanValue = calculateMean(analyte.values);
 
             const traces = [trace];
             const shapes = [];
@@ -731,6 +752,24 @@
                     y1: medianValue,
                     line: {
                         color: 'rgba(255, 165, 0, 0.8)', // Orange color
+                        width: 2,
+                        dash: 'dot'
+                    },
+                    layer: 'above'
+                });
+            }
+
+            // Add mean line if available
+            if (meanValue !== null) {
+                shapes.push({
+                    type: 'line',
+                    x0: 0,
+                    x1: 1,
+                    xref: 'paper',
+                    y0: meanValue,
+                    y1: meanValue,
+                    line: {
+                        color: 'rgba(138, 43, 226, 0.8)', // Purple color
                         width: 2,
                         dash: 'dot'
                     },
@@ -802,6 +841,22 @@
                         name: `Median Trend (${medianValue.toFixed(2)} ${analyte.unit})`,
                         line: {
                             color: 'rgba(255, 165, 0, 0.8)',
+                            width: 2,
+                            dash: 'dot'
+                        },
+                        showlegend: true
+                    });
+                }
+
+                // Add mean trace for legend (if available)
+                if (meanValue !== null) {
+                    traces.push({
+                        x: [null],
+                        y: [null],
+                        mode: 'lines',
+                        name: `Mean Trend (${meanValue.toFixed(2)} ${analyte.unit})`,
+                        line: {
+                            color: 'rgba(138, 43, 226, 0.8)',
                             width: 2,
                             dash: 'dot'
                         },
