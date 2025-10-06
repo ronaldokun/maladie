@@ -13,23 +13,22 @@
 ### ✅ **Ursacol (Ursodeoxycholic Acid)**
 
 * **Mechanism:** Hydrophilic bile acid → replaces toxic bile salts → reduces cholestasis & inflammation in PSC.
-* **Dose:** You’re at **~2.1 g/day**, which is **within the high-therapeutic range** (13–15 mg/kg/day).
+* **Dose:** You’re at **~1.5 g/day**, which is above **the high-therapeutic range** (13–15 mg/kg/day).
 * **Optimization:** Maintain divided dosing (morning + bedtime) for even bile acid pool modulation.
 
-### ✅ **Silymarin (800 mg × 2)**
+### ✅ **Silymarin (400 mg × 3)**
 
 * Strong hepatoprotective flavonolignan complex; up-regulates glutathione synthesis and down-regulates NF-κB.
-* Current **1.6 g/day** is at the **upper evidence-based therapeutic end**. You can **reduce to 1.2 g/day** if digestive tolerance is an issue.
 
 ### ✅ **Racemethionine + Choline**
 
 * Key methyl donors and bile-mobilizing nutrients.
 * Twice-daily use is good; **consider moving the evening dose earlier (around 17–18 h)** to avoid potential mild stimulatory effects that could delay sleep.
 
-### ✅ **N-Acetylcysteine (2 g/day total)**
+### ✅ **N-Acetylcysteine (3 g/day total)**
 
 * Ideal for PSC/UC overlap: boosts hepatic glutathione, reduces bile viscosity, and supports mucosal protection.
-* Nighttime dose supports liver redox overnight. You can **increase to 1.2–1.5 g × 2/day** if well tolerated and renal function is stable.
+* Nighttime dose supports liver redox overnight. 
 
 ### ⚡ **MSM (4 g/day total)**
 
@@ -66,7 +65,6 @@
 ### ✅ **Glycine (3 g bedtime)**
 
 * Enhances slow-wave sleep and thermoregulation.
-* Maintain.
 
 ### ✅ **Myo-inositol (3 g bedtime)**
 
@@ -114,6 +112,7 @@
 * 🍎 Apple Cider Vinegar: 1 to 3 spoons (after breakfast)
 * 💊 Bactrim: 
 * 💊 Ursacol: 2 x 300mg
+* 🕸️ Silymarin: 2 x 200 mg
 * 💊 Mesalazine: 1 x 500mg
 * 💉 Adalimumab: 1 x 40mg (weekly)
 * ⚡ Magnesium complex: 1 x 117mg
