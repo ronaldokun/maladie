@@ -116,26 +116,24 @@ Agrégation, chronologie et journalisation sur ma santé.
 * 🍎 Apple Cider Vinegar: 1 to 3 spoons (after breakfast)
 * 💊 Bactrim: 
 * 💊 Ursacol: 2 x 300mg
-* 🕸️ Silymarin: 2 x 200 mg
 * 💊 Mesalazine: 1 x 500mg
 * 💉 Adalimumab: 1 x 40mg (weekly)
-* ⚡ Magnesium complex: 1 x 117mg
+* ⚡ Magnesium complex: 2 x 117mg
 * 🦠 NutrioneLife sachet: 1 x 5g
 * 🏋️ Creatine: 10g
-* ✅ Optional: add small dose of Theanine (100 mg) here if you feel daytime tension
-
+* 🍵 Theanine: 1 x 250 mg
 ---
 
 ### 🍽 Lunch
 
 * 🦴 Calcium: 1 x 500 mg
 * 🌞 Vitamin D3: 2 x 2000 IU
-* 🐟 Omega-3: 2 x 0.8 g
-* 🧠 Phosphatidylserine: 2 x 50 mg
 * 🕸️ Racemetionine: 2 x 100mg
 * 🕸️ Choline Clorate: 2 x 20mg
 * 🕸️ Silymarin: 2 x 200 mg
 * 🛡️ NAC: 1.5g
+* 🐟 Omega-3: 2 x 0.8 g
+* 🧠 Phosphatidylserine: 2 x 50 mg
 * 🦵 MSM 1g
 * 🛡️ Quercetin: 1 x 500 mg
 
@@ -143,22 +141,19 @@ Agrégation, chronologie et journalisation sur ma santé.
 
 ### 🌆 Late Afternoon / Evening
 
-* Golden-milk (7 g) + black pepper
-* 🔩 Noripurum (20 drops) → (avoid 3 h around quercetin/NAC)
+* ✨ Golden-milk (7 g) + black pepper
 * 🍊 Vitamin C (1 g)
-* 🦠 Smart L. rhamnosus: 1 x 1g
+* 🔩 Noripurum (20 drops) → (avoid 3 h around quercetin/NAC)
+* 🦠 Smart L. rhamnosus: 2 x 1g
 
 
 ---
 
 ### 🌙 Dinner
-
-* 🦠 Smart L. rhamnosus (250 mg)
-* 🐟 Omega-3: 2 x 0.8 g
-* 🧠 Phosphatidylserine: 2 x 50 mg
 * 🕸️ Racemetionine: 2 x 100mg
 * 🕸️ Choline Clorate: 2 x 20mg
-* 🕸️ Silymarin: 2 x 200 mg
+* 🐟 Omega-3: 2 x 0.8 g
+* 🧠 Phosphatidylserine: 2 x 50 mg
 * 🦵 MSM 1g
 
 ---
@@ -166,13 +161,13 @@ Agrégation, chronologie et journalisation sur ma santé.
 ### 🌃 Bedtime
 
 * 💊 Ursacol: 3 x 300mg
-* ⚡ Magnesium complex: 1 x 117mg
-* 🍵 Theanine: 1 x 250 mg
+* 🛡️ NAC: 1.5g
+* 🕸️ Silymarin: 2 x 200 mg
+* 🦵 MSM: 2g
 * 💤 Glycine: 3g
 * 💤 Myo-inositol: 3g
-* 🛡️ NAC: 1.5g
-* 🦵 MSM: 2g
 * 🛡️ Quercetin: 1 x 500 mg
+
 
 ---
 
