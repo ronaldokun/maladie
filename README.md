@@ -61,6 +61,7 @@ Agrégation, chronologie et journalisation sur ma santé.
 
 * Excellent combo: immune modulation + intestinal permeability control.
 * Continue both; consider cycling with a **Bifidobacterium-dominant strain** every few months for microbiome diversity.
+> ⚠️ **Take at least 4h away from Bactrim**
 
 ---
 
@@ -119,7 +120,6 @@ Agrégation, chronologie et journalisation sur ma santé.
 * 💊 Mesalazine: 1 x 500mg
 * 💉 Adalimumab: 1 x 40mg (weekly)
 * ⚡ Magnesium complex: 2 x 117mg
-* 🦠 NutrioneLife sachet: 1 x 5g
 * 🏋️ Creatine: 10g
 * 🍵 Theanine: 1 x 250 mg
 ---
@@ -156,6 +156,8 @@ Agrégation, chronologie et journalisation sur ma santé.
 * 🧠 Phosphatidylserine: 2 x 50 mg
 * 🦵 MSM 1g
 * 🦠 Smart L. rhamnosus: 2 x 1g
+* 🦠 NutrioneLife sachet: 1 x 5g
+
   
 ---
 
@@ -191,3 +193,35 @@ Agrégation, chronologie et journalisation sur ma santé.
 * ✅  Sleep foundation: Magnesium bisglycinate + Theanine + Glycine + Inositol
 * ⚠️  Manage supplement timing to avoid absorption conflicts (iron ↔ quercetin/NAC).
 * ⚙️  Optionally recheck hepatic enzymes (γ-GT, ALP) after 6–8 weeks on this adjusted plan to quantify benefit.
+
+---
+
+## ✅ Additions (2025-10-08)
+
+**Goals impacted:** Sleep optimization • Liver/PSC (GGT/ALP) • UC inflammation
+
+### New supplements added to schedule
+- **TMG (Trimethylglycine)** — 500 mg morning + 500 mg dinner → supports BHMT remethylation and bile flow synergy with methionine/choline.
+- **Melatonin** — 1–3 mg at bedtime (start 1 mg) → sleep onset/maintenance; adjunct signals in UC.
+- **Psyllium husk** — 10 g morning + 10 g dinner (≥250–300 mL water) → UC maintenance; *separate meds by ~2 h*.
+- **Probiotic step-up (OPTIONAL):**
+  - **VSL#3 / De Simone formulation** — 450–900B CFU in the **afternoon** (≥3–4 h after Bactrim).
+  - **E. coli Nissle 1917 (Mutaflor)** — per label (maintenance).
+- **Vitamin K2 (MK-7)** — 100–200 µg with dinner (consider water-miscible form if cholestasis).
+- **SAMe** — 400 mg morning + 400 mg afternoon → cholestasis adjunct; monitor ALP/GGT, mood/sleep.
+- **Taurine** — 1 g morning + 1 g dinner → bile acid conjugation support.
+- **Boswellia (AKBA-standardized)** — 300–500 mg lunch + dinner → adjunct anti-inflammatory.
+
+### Interactions & Spacing (critical)
+- **Psyllium**: separate from **mesalazine, calcium, iron, quercetin, NAC** by **~2 hours**.
+- **Probiotics vs Bactrim**: dose **≥3–4 h after** antibiotic (placed in **Afternoon**).
+- **Iron (Noripurum)**: keep **away** from **quercetin/tea/coffee/calcium** by **≥2 h** (you already pair with vitamin C).
+- **Methylation stack**: TMG + Methionine/Choline ± **SAMe** → check **homocysteine** after 6–8 weeks (target ~6–9 µmol/L).
+- **Stimulation**: SAMe can be alerting → **avoid late evening**; shift earlier if sleep impacted.
+
+### Monitoring plan (next 6–8 weeks)
+- **Liver**: GGT, ALP, bilirubin.
+- **Methylation**: Homocysteine.
+- **Cholestasis fat-solubles**: Vitamins **A, D, E, K** (replete as needed; K2 added).
+- **Lipids**: watch LDL-C with TMG/SAMe changes.
+
