@@ -210,15 +210,15 @@
     },
     {
       "time": "Afternoon",
-      "compound": "L. rhamnosus",
-      "function": "Gut support",
-      "dosage": "2 sachets (250 mg)"
-    },
-    {
-      "time": "Dinner",
       "compound": "🕸️ Racemethionine + Choline",
       "function": "Methylation / bile flow",
       "dosage": "2 x (100 mg + 20 mg)"
+    },
+    {
+      "time": "Dinner",
+      "compound": "L. rhamnosus",
+      "function": "Gut support",
+      "dosage": "2 sachets (250 mg)"
     },
     {
       "time": "Dinner",

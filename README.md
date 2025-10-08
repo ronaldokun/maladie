@@ -144,18 +144,19 @@ Agrégation, chronologie et journalisation sur ma santé.
 * ✨ Golden-milk (7 g) + black pepper
 * 🍊 Vitamin C (1 g)
 * 🔩 Noripurum (20 drops) → (avoid 3 h around quercetin/NAC)
-* 🦠 Smart L. rhamnosus: 2 x 1g
+* 🕸️ Racemetionine: 2 x 100mg
+* 🕸️ Choline Clorate: 2 x 20mg
+
 
 
 ---
 
 ### 🌙 Dinner
-* 🕸️ Racemetionine: 2 x 100mg
-* 🕸️ Choline Clorate: 2 x 20mg
 * 🐟 Omega-3: 2 x 0.8 g
 * 🧠 Phosphatidylserine: 2 x 50 mg
 * 🦵 MSM 1g
-
+* 🦠 Smart L. rhamnosus: 2 x 1g
+  
 ---
 
 ### 🌃 Bedtime

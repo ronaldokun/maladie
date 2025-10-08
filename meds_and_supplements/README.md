@@ -1,19 +1,32 @@
-## How to config and create plot locally
+## How to use the Medication & Supplementation Timeline
 
-* **Config JSON** (edit settings here):
-  [med_schedule_config.json](sandbox:/mnt/data/med_schedule_config.json)
-* **Reusable script (reads JSON settings)**:
-  [plot_med_schedule_configurable.py](sandbox:/mnt/data/plot_med_schedule_configurable.py)
-* **Standalone interactive HTML (generated)**:
-  [med_schedule_plot_configurable.html](sandbox:/mnt/data/med_schedule_plot_configurable.html)
+### JavaScript-based (Current - Recommended)
 
+The visualization now runs entirely in the browser using native JavaScript!
+
+* **Interactive HTML**: `meds.html` - Open this file directly in your browser
+* **Config JSON**: `med_schedule.json` - Edit this file to update your medications/supplements
+
+**Usage:**
+1. Edit `med_schedule.json` with your medication schedule
+2. Open `meds.html` in any modern web browser
+3. The plot will automatically reload data from the JSON file
+
+**Benefits:**
+- No Python required!
+- Just refresh the browser to see updates after editing the JSON
+- Works exactly like `index.html` in the parent directory
+
+### Python-based (Legacy - Optional)
+
+You can still generate a static HTML file using Python if needed:
 
 ```bash
 pip install plotly pandas
-python plot_med_schedule_configurable.py --json med_schedule_config.json --out med_schedule_plot_configurable.html
+python plot_meds.py --json med_schedule.json --out meds_static.html
 ```
 
-### What you can tweak in `med_schedule_config.json`
+### What you can tweak in `med_schedule.json`
 
 * **Bucket rules & order**
 
