@@ -5,7 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Medication & Supplementation Timeline</title>
-    <script src="https://cdn.plot.ly/plotly-3.1.1.min.js" integrity="sha256-HUEFyfiTnZJxCxur99FjbKYTvKSzwDaD3/x5TqHpFu4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.plot.ly/plotly-3.1.1.min.js"
+        integrity="sha256-HUEFyfiTnZJxCxur99FjbKYTvKSzwDaD3/x5TqHpFu4=" crossorigin="anonymous"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -55,8 +56,11 @@
         <h1>Medication & Supplementation Timeline</h1>
         <div id="loading" class="loading">Loading data...</div>
         <div id="error" class="error" style="display: none;"></div>
-        <div id="fileLoader" style="display:none; margin: 20px 0; padding: 15px; background:#fff3cd; border:1px solid #ffeeba; border-radius:6px;">
-            <p style="margin:0 0 8px 0;">Could not load med_schedule.json automatically. If you opened this file directly from your disk (file://), please choose the JSON file located in the same folder as this HTML:</p>
+        <div id="fileLoader"
+            style="display:none; margin: 20px 0; padding: 15px; background:#fff3cd; border:1px solid #ffeeba; border-radius:6px;">
+            <p style="margin:0 0 8px 0;">Could not load med_schedule.json automatically. If you opened this file
+                directly from your disk (file://), please choose the JSON file located in the same folder as this HTML:
+            </p>
             <input type="file" id="jsonInput" accept=".json" />
         </div>
         <div id="chart"></div>
@@ -129,7 +133,7 @@
             // Create a trace for each bucket
             bucketOrder.forEach(bucket => {
                 const bucketData = rows.filter(row => row.bucket === bucket);
-                
+
                 const trace = {
                     x: bucketData.map(row => row.time),
                     y: bucketData.map(row => row.orderInSlot),
@@ -138,7 +142,7 @@
                     textposition: textposition,
                     textfont: { size: textfontSize },
                     name: bucket,
-                    hovertemplate: bucketData.map(row => 
+                    hovertemplate: bucketData.map(row =>
                         `<b>${row.compound}</b><br>` +
                         `Bucket: ${bucket}<br>` +
                         `Function: ${row.function}<br>` +
@@ -238,23 +242,23 @@
         function renderChart(data) {
             const loadingEl = document.getElementById('loading');
             const fileLoaderEl = document.getElementById('fileLoader');
-            
+
             try {
                 configData = data;
-                
+
                 // Build data structure
                 const { rows, timeOrder, settings } = buildDataStructure(configData);
-                
+
                 // Create figure
                 const { traces, layout, config } = makeFigure(rows, timeOrder, settings);
-                
+
                 // Render with Plotly
                 Plotly.newPlot('chart', traces, layout, config);
-                
+
                 // Hide loading and file loader
                 loadingEl.style.display = 'none';
                 fileLoaderEl.style.display = 'none';
-                
+
             } catch (error) {
                 console.error('Error rendering chart:', error);
                 const errorEl = document.getElementById('error');
@@ -269,18 +273,18 @@
             const picker = document.getElementById('fileLoader');
             const input = document.getElementById('jsonInput');
             const loadingEl = document.getElementById('loading');
-            
+
             if (!picker || !input) return;
-            
+
             loadingEl.style.display = 'none';
             picker.style.display = 'block';
-            
-            input.addEventListener('change', function(ev) {
+
+            input.addEventListener('change', function (ev) {
                 const file = ev.target.files && ev.target.files[0];
                 if (!file) return;
-                
+
                 const reader = new FileReader();
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     try {
                         const data = JSON.parse(e.target.result);
                         renderChart(data);
@@ -302,14 +306,14 @@
                 // Load JSON file from same directory
                 const jsonUrl = new URL('med_schedule.json', window.location.href).href;
                 const response = await fetch(jsonUrl);
-                
+
                 if (!response.ok) {
                     throw new Error(`HTTP ${response.status}`);
                 }
 
                 const data = await response.json();
                 renderChart(data);
-                
+
             } catch (error) {
                 console.warn('Automatic JSON load failed (likely due to file:// restrictions). Enabling manual file picker...', error);
                 enableManualFilePicker();
