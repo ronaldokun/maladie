@@ -55,6 +55,10 @@
         <h1>Medication & Supplementation Timeline</h1>
         <div id="loading" class="loading">Loading data...</div>
         <div id="error" class="error" style="display: none;"></div>
+        <div id="fileLoader" style="display:none; margin: 20px 0; padding: 15px; background:#fff3cd; border:1px solid #ffeeba; border-radius:6px;">
+            <p style="margin:0 0 8px 0;">Could not load med_schedule.json automatically. If you opened this file directly from your disk (file://), please choose the JSON file located in the same folder as this HTML:</p>
+            <input type="file" id="jsonInput" accept=".json" />
+        </div>
         <div id="chart"></div>
     </div>
 
@@ -230,22 +234,13 @@
             return { traces, layout, config };
         }
 
-        // Function to load JSON and render plot
-        async function loadAndRender() {
+        // Function to render the chart from loaded data
+        function renderChart(data) {
             const loadingEl = document.getElementById('loading');
-            const errorEl = document.getElementById('error');
-            const chartEl = document.getElementById('chart');
-
+            const fileLoaderEl = document.getElementById('fileLoader');
+            
             try {
-                // Load JSON file from same directory
-                const jsonUrl = new URL('med_schedule.json', window.location.href).href;
-                const response = await fetch(jsonUrl);
-                
-                if (!response.ok) {
-                    throw new Error(`Failed to load med_schedule.json: HTTP ${response.status}`);
-                }
-
-                configData = await response.json();
+                configData = data;
                 
                 // Build data structure
                 const { rows, timeOrder, settings } = buildDataStructure(configData);
@@ -256,14 +251,68 @@
                 // Render with Plotly
                 Plotly.newPlot('chart', traces, layout, config);
                 
-                // Hide loading message
+                // Hide loading and file loader
                 loadingEl.style.display = 'none';
+                fileLoaderEl.style.display = 'none';
                 
             } catch (error) {
-                console.error('Error loading or rendering chart:', error);
+                console.error('Error rendering chart:', error);
+                const errorEl = document.getElementById('error');
                 loadingEl.style.display = 'none';
                 errorEl.style.display = 'block';
-                errorEl.textContent = `Error: ${error.message}. Make sure med_schedule.json is in the same directory as this HTML file.`;
+                errorEl.textContent = `Error rendering chart: ${error.message}`;
+            }
+        }
+
+        // Function to enable manual file picker
+        function enableManualFilePicker() {
+            const picker = document.getElementById('fileLoader');
+            const input = document.getElementById('jsonInput');
+            const loadingEl = document.getElementById('loading');
+            
+            if (!picker || !input) return;
+            
+            loadingEl.style.display = 'none';
+            picker.style.display = 'block';
+            
+            input.addEventListener('change', function(ev) {
+                const file = ev.target.files && ev.target.files[0];
+                if (!file) return;
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        const data = JSON.parse(e.target.result);
+                        renderChart(data);
+                    } catch (err) {
+                        const errorEl = document.getElementById('error');
+                        errorEl.style.display = 'block';
+                        errorEl.textContent = `Failed to parse JSON: ${err.message}`;
+                    }
+                };
+                reader.readAsText(file, 'utf-8');
+            }, { once: true });
+        }
+
+        // Function to load JSON and render plot
+        async function loadAndRender() {
+            const loadingEl = document.getElementById('loading');
+
+            try {
+                // Load JSON file from same directory
+                const jsonUrl = new URL('med_schedule.json', window.location.href).href;
+                const response = await fetch(jsonUrl);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+
+                const data = await response.json();
+                renderChart(data);
+                
+            } catch (error) {
+                console.warn('Automatic JSON load failed (likely due to file:// restrictions). Enabling manual file picker...', error);
+                enableManualFilePicker();
             }
         }
 

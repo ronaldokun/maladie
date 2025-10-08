@@ -8,14 +8,28 @@ The visualization now runs entirely in the browser using native JavaScript!
 * **Config JSON**: `med_schedule.json` - Edit this file to update your medications/supplements
 
 **Usage:**
-1. Edit `med_schedule.json` with your medication schedule
-2. Open `meds.html` in any modern web browser
-3. The plot will automatically reload data from the JSON file
+
+*Option 1: Using a local web server (Recommended)*
+```bash
+# From the meds_and_supplements directory
+./serve.sh
+# Or manually:
+python3 -m http.server 8000
+# Then open: http://localhost:8000/meds.html
+```
+
+*Option 2: Direct file opening (Manual file selection)*
+1. Open `meds.html` directly in your browser
+2. When prompted, select the `med_schedule.json` file from the file picker
+3. The visualization will load
+
+**Note:** Modern browsers block JavaScript from loading local files for security reasons when opened via `file://`. The manual file picker is a workaround, but using a local web server (Option 1) provides the best experience.
 
 **Benefits:**
-- No Python required!
-- Just refresh the browser to see updates after editing the JSON
+- No Python dependencies to install (unless using the local server)
+- Edit JSON → Refresh browser → See changes instantly!
 - Works exactly like `index.html` in the parent directory
+- All configuration in one JSON file
 
 ### Python-based (Legacy - Optional)
 
