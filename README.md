@@ -152,8 +152,6 @@ Agrégation, chronologie et journalisation sur ma santé.
 ---
 
 ### 🌙 Dinner
-* 🐟 Omega-3: 2 x 0.8 g
-* 🧠 Phosphatidylserine: 2 x 50 mg
 * 🦵 MSM 1g
 * 🦠 Smart L. rhamnosus: 2 x 1g
 * 🦠 NutrioneLife sachet: 1 x 5g
