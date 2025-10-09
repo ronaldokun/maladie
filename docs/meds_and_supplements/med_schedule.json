@@ -1,0 +1,362 @@
+{
+  "time_order": [
+    "Morning",
+    "Lunch",
+    "Afternoon",
+    "Dinner",
+    "Bedtime"
+  ],
+  "settings": {
+    "bucket_order": [
+      "Liver",
+      "Relaxation/Sleep",
+      "Anti-inflammatory",
+      "Gut/Other"
+    ],
+    "bucket_rules": {
+      "Liver": [
+        "Liver / bile flow",
+        "Liver protection",
+        "Methylation / bile flow",
+        "Antioxidant / liver detox",
+        "Liver / bile flow overnight",
+        "Immunity / liver modulation",
+        "Antimicrobial (infection prophylaxis)"
+      ],
+      "Relaxation/Sleep": [
+        "Relaxation / sleep",
+        "Calm / GABA support",
+        "Sleep onset / thermoregulation",
+        "Neurochemical balance",
+        "Relaxation / metabolism",
+        "Relaxation / focus",
+        "Antihistaminic / sleep aid"
+      ],
+      "Anti-inflammatory": [
+        "Systemic anti-TNF",
+        "Colon anti-inflammatory",
+        "Anti-inflammatory / cognition",
+        "Anti-inflammatory / sulfur donor",
+        "Curcumin anti-inflammatory",
+        "Antioxidant / collagen",
+        "Anti-inflammatory / anti-fibrotic"
+      ]
+    },
+    "legend": {
+      "orientation": "v",
+      "x": 1.02,
+      "y": 1.0,
+      "xanchor": "left",
+      "yanchor": "top",
+      "bgcolor": "rgba(255,255,255,0.9)",
+      "bordercolor": "rgba(0,0,0,0.2)",
+      "borderwidth": 1
+    },
+    "figure": {
+      "height": 780,
+      "margin": {
+        "l": 60,
+        "r": 200,
+        "t": 40,
+        "b": 60
+      }
+    },
+    "labels": {
+      "title": "Medication & Supplementation — Interactive Timeline (Config via JSON)",
+      "xaxis_title": "Time of Day",
+      "yaxis_title": "Order within Time Slot"
+    },
+    "traces": {
+      "marker_size": 14,
+      "textfont_size": 12,
+      "textposition": "top center"
+    },
+    "buttons_bar": {
+      "x": 0.55,
+      "y": 1.0,
+      "xanchor": "center",
+      "yanchor": "top",
+      "bgcolor": "rgba(255,255,255,0.8)",
+      "bordercolor": "rgba(0,0,0,0.25)",
+      "borderwidth": 1,
+      "pad": {
+        "r": 5,
+        "t": 2,
+        "b": 2,
+        "l": 5
+      }
+    }
+  },
+  "items": [
+    {
+      "time": "Morning",
+      "compound": "⚡ Magnesium complex",
+      "function": "Relaxation / metabolism",
+      "dosage": "2 x 117mg"
+    },
+    {
+      "time": "Morning",
+      "compound": "🌾 Psyllium husk",
+      "function": "Gut support",
+      "dosage": "10 g (≥250–300 mL water)"
+    },
+    {
+      "time": "Morning",
+      "compound": "🍎 Apple Cider Vinegar",
+      "function": "Liver / bile flow",
+      "dosage": "1–3 tbsp (diluted)"
+    },
+    {
+      "time": "Morning",
+      "compound": "🍵 Theanine",
+      "function": "Relaxation / focus",
+      "dosage": "250 mg"
+    },
+    {
+      "time": "Morning",
+      "compound": "🏋️ Creatine",
+      "function": "Energy / cellular metabolism",
+      "dosage": "10 g"
+    },
+    {
+      "time": "Morning",
+      "compound": "💉 Adalimumab",
+      "function": "Systemic anti-TNF",
+      "dosage": "1 x 40 mg (weekly)"
+    },
+    {
+      "time": "Morning",
+      "compound": "💊 Bactrim",
+      "function": "Antimicrobial (infection prophylaxis)",
+      "dosage": "1 tab"
+    },
+    {
+      "time": "Morning",
+      "compound": "💊 Mesalazine",
+      "function": "Colon anti-inflammatory",
+      "dosage": "1 x 500 mg"
+    },
+    {
+      "time": "Morning",
+      "compound": "💊 Ursacol",
+      "function": "Liver / bile flow",
+      "dosage": "2 x 300 mg"
+    },
+    {
+      "time": "Morning",
+      "compound": "🧪 SAMe (S-adenosyl-L-methionine)",
+      "function": "Methylation / bile flow",
+      "dosage": "400 mg"
+    },
+    {
+      "time": "Morning",
+      "compound": "🧪 Taurine",
+      "function": "Liver / bile flow",
+      "dosage": "1 g"
+    },
+    {
+      "time": "Morning",
+      "compound": "🧬 TMG (Trimethylglycine)",
+      "function": "Methylation / bile flow",
+      "dosage": "500 mg"
+    },
+    {
+      "time": "Lunch",
+      "compound": "🌞 Vitamin D3",
+      "function": "Immunity / liver modulation",
+      "dosage": "2 x 2000 IU"
+    },
+    {
+      "time": "Lunch",
+      "compound": "🌿 Boswellia (AKBA-std.)",
+      "function": "Anti-inflammatory / anti-fibrotic",
+      "dosage": "300–500 mg"
+    },
+    {
+      "time": "Lunch",
+      "compound": "🐟 Omega-3 + 🧠 Phosphatidylserine",
+      "function": "Anti-inflammatory / cognition",
+      "dosage": "2 x 0.8g | 2 x 50 mg"
+    },
+    {
+      "time": "Lunch",
+      "compound": "🕸️ NAC",
+      "function": "Antioxidant / liver detox",
+      "dosage": "1.5g"
+    },
+    {
+      "time": "Lunch",
+      "compound": "🕸️ Racemethionine + Choline",
+      "function": "Methylation / bile flow",
+      "dosage": "2 x (100 mg + 20 mg)"
+    },
+    {
+      "time": "Lunch",
+      "compound": "🕸️ Silymarin",
+      "function": "Liver protection",
+      "dosage": "2 x 200 mg"
+    },
+    {
+      "time": "Lunch",
+      "compound": "🛡️ Quercetin",
+      "function": "Anti-inflammatory / anti-fibrotic",
+      "dosage": "1 x 500 mg"
+    },
+    {
+      "time": "Lunch",
+      "compound": "🦴 Calcium",
+      "function": "Bone / muscle support",
+      "dosage": "1 x 500 mg"
+    },
+    {
+      "time": "Lunch",
+      "compound": "🦵 MSM",
+      "function": "Anti-inflammatory / sulfur donor",
+      "dosage": "1g"
+    },
+    {
+      "time": "Afternoon",
+      "compound": "✨ Golden Milk",
+      "function": "Curcumin anti-inflammatory",
+      "dosage": "7 g (with pepper)"
+    },
+    {
+      "time": "Afternoon",
+      "compound": "🍊 Vitamin C",
+      "function": "Antioxidant / collagen",
+      "dosage": "1g"
+    },
+    {
+      "time": "Afternoon",
+      "compound": "🔩 Noripurum",
+      "function": "Iron supplementation",
+      "dosage": "20 drops (20 mg Fe)"
+    },
+    {
+      "time": "Afternoon",
+      "compound": "🕸️ Racemethionine + Choline",
+      "function": "Methylation / bile flow",
+      "dosage": "2 x (100 mg + 20 mg)"
+    },
+    {
+      "time": "Afternoon",
+      "compound": "🧪 E. coli Nissle 1917 (OPTION)",
+      "function": "Gut microbiota balance",
+      "dosage": "per label"
+    },
+    {
+      "time": "Afternoon",
+      "compound": "🧪 SAMe (S-adenosyl-L-methionine)",
+      "function": "Methylation / bile flow",
+      "dosage": "400 mg"
+    },
+    {
+      "time": "Afternoon",
+      "compound": "🧪 VSL#3 / De Simone (OPTION)",
+      "function": "Gut microbiota balance",
+      "dosage": "450–900B CFU"
+    },
+    {
+      "time": "Dinner",
+      "compound": "L. rhamnosus",
+      "function": "Gut support",
+      "dosage": "2 sachets (250 mg)"
+    },
+    {
+      "time": "Dinner",
+      "compound": "🌾 Psyllium husk",
+      "function": "Gut support",
+      "dosage": "10 g (≥250–300 mL water)"
+    },
+    {
+      "time": "Dinner",
+      "compound": "🌿 Boswellia (AKBA-std.)",
+      "function": "Anti-inflammatory / anti-fibrotic",
+      "dosage": "300–500 mg"
+    },
+    {
+      "time": "Dinner",
+      "compound": "🐟 Omega-3 + Phosphatidylserine",
+      "function": "Anti-inflammatory / cognition",
+      "dosage": "2 caps (Ω3 1,590 mg) + PS 100 mg"
+    },
+    {
+      "time": "Dinner",
+      "compound": "🦠 NutrioneLife",
+      "function": "Gut microbiota balance",
+      "dosage": "1 sachet"
+    },
+    {
+      "time": "Dinner",
+      "compound": "🦴 Vitamin K2 (MK-7)",
+      "function": "Bone / muscle support",
+      "dosage": "100–200 µg"
+    },
+    {
+      "time": "Dinner",
+      "compound": "🦵 MSM",
+      "function": "Anti-inflammatory / sulfur donor",
+      "dosage": "1g"
+    },
+    {
+      "time": "Dinner",
+      "compound": "🧪 Taurine",
+      "function": "Liver / bile flow",
+      "dosage": "1 g"
+    },
+    {
+      "time": "Dinner",
+      "compound": "🧬 TMG (Trimethylglycine)",
+      "function": "Methylation / bile flow",
+      "dosage": "500 mg"
+    },
+    {
+      "time": "Bedtime",
+      "compound": "🌙 Melatonin",
+      "function": "Relaxation / sleep",
+      "dosage": "1–3 mg (start 1 mg)"
+    },
+    {
+      "time": "Bedtime",
+      "compound": "💊 Ursacol",
+      "function": "Liver / bile flow overnight",
+      "dosage": "3 x 300 mg (900 mg)"
+    },
+    {
+      "time": "Bedtime",
+      "compound": "💤 Glycine",
+      "function": "Sleep onset / thermoregulation",
+      "dosage": "3g"
+    },
+    {
+      "time": "Bedtime",
+      "compound": "💤 Myo-Inositol",
+      "function": "Neurochemical balance",
+      "dosage": "3g"
+    },
+    {
+      "time": "Bedtime",
+      "compound": "🕸️ Silymarin",
+      "function": "Liver protection",
+      "dosage": "2 x 200 mg"
+    },
+    {
+      "time": "Bedtime",
+      "compound": "🛡️ NAC",
+      "function": "Antioxidant / liver detox",
+      "dosage": "1.5g"
+    },
+    {
+      "time": "Bedtime",
+      "compound": "🛡️ Quercetin",
+      "function": "Antihistaminic / sleep aid",
+      "dosage": "1 x 500 mg"
+    },
+    {
+      "time": "Bedtime",
+      "compound": "🦵 MSM",
+      "function": "Repair / sulfur donor",
+      "dosage": "2g"
+    }
+  ]
+}

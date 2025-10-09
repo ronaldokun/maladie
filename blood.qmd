@@ -1,0 +1,10 @@
+---
+title: "Blood Markers Evolution Analysis"
+format:
+  html:
+    toc: false
+---
+
+```{=html}
+<iframe src="blood_standalone.html" width="100%" height="1200px" frameborder="0" style="border: none;"></iframe>
+```

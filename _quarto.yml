@@ -1,0 +1,26 @@
+project:
+  type: website
+  output-dir: docs
+  resources:
+    - blood_standalone.html
+    - meds_standalone.html
+    - blood_markers_pivot.csv
+    - reports.json
+    - meds_and_supplements/med_schedule.json
+
+website:
+  title: "Maladie - Health Tracking"
+  navbar:
+    left:
+      - text: "Home"
+        href: index.qmd
+      - text: "Blood Markers"
+        href: blood.qmd
+      - text: "Medications"
+        href: meds.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
