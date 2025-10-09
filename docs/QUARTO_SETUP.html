@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Blood Markers Evolution Analysis – Maladie - Health Tracking</title>
+<title>quarto_setup – Maladie - Health Tracking</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -72,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -96,7 +131,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./blood.html" aria-current="page"> 
+    <a class="nav-link" href="./blood.html"> 
 <span class="menu-text">Blood Markers</span></a>
   </li>  
   <li class="nav-item">
@@ -111,76 +146,141 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-layout-custom page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#quarto-multi-page-site-setup" id="toc-quarto-multi-page-site-setup" class="nav-link active" data-scroll-target="#quarto-multi-page-site-setup">Quarto Multi-Page Site Setup</a>
+  <ul class="collapse">
+  <li><a href="#structure" id="toc-structure" class="nav-link" data-scroll-target="#structure">Structure</a></li>
+  <li><a href="#files-created" id="toc-files-created" class="nav-link" data-scroll-target="#files-created">Files Created</a>
+  <ul class="collapse">
+  <li><a href="#configuration" id="toc-configuration" class="nav-link" data-scroll-target="#configuration">Configuration</a></li>
+  <li><a href="#page-files" id="toc-page-files" class="nav-link" data-scroll-target="#page-files">Page Files</a></li>
+  <li><a href="#standalone-html-files-embedded-via-iframe" id="toc-standalone-html-files-embedded-via-iframe" class="nav-link" data-scroll-target="#standalone-html-files-embedded-via-iframe">Standalone HTML Files (embedded via iframe)</a></li>
+  <li><a href="#data-files-automatically-copied-to-docs" id="toc-data-files-automatically-copied-to-docs" class="nav-link" data-scroll-target="#data-files-automatically-copied-to-docs">Data Files (automatically copied to docs/)</a></li>
+  </ul></li>
+  <li><a href="#building-the-site" id="toc-building-the-site" class="nav-link" data-scroll-target="#building-the-site">Building the Site</a></li>
+  <li><a href="#deployment" id="toc-deployment" class="nav-link" data-scroll-target="#deployment">Deployment</a>
+  <ul class="collapse">
+  <li><a href="#github-pages-settings" id="toc-github-pages-settings" class="nav-link" data-scroll-target="#github-pages-settings">GitHub Pages Settings</a></li>
+  </ul></li>
+  <li><a href="#maintenance" id="toc-maintenance" class="nav-link" data-scroll-target="#maintenance">Maintenance</a>
+  <ul class="collapse">
+  <li><a href="#adding-new-pages" id="toc-adding-new-pages" class="nav-link" data-scroll-target="#adding-new-pages">Adding New Pages</a></li>
+  <li><a href="#updating-data" id="toc-updating-data" class="nav-link" data-scroll-target="#updating-data">Updating Data</a></li>
+  <li><a href="#modifying-standalone-visualizations" id="toc-modifying-standalone-visualizations" class="nav-link" data-scroll-target="#modifying-standalone-visualizations">Modifying Standalone Visualizations</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Blood Markers Evolution Analysis</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-  #quarto-content {
-    padding: 0 !important;
-    margin: 0 !important;
-    max-width: 100% !important;
-  }
-  .quarto-container {
-    max-width: 100% !important;
-    padding: 0 !important;
-  }
-  main.content {
-    max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-  .page-columns {
-    max-width: 100% !important;
-  }
-  #title-block-header {
-    display: none !important;
-  }
-  .quarto-title-block {
-    display: none !important;
-  }
-  iframe {
-    border: none;
-    width: 100vw;
-    height: calc(100vh - 56px);
-    display: block;
-    position: fixed;
-    top: 56px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-</style>
-<iframe src="blood_standalone.html"></iframe>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
 
+<section id="quarto-multi-page-site-setup" class="level1">
+<h1>Quarto Multi-Page Site Setup</h1>
+<p>This document describes the Quarto configuration for the maladie health tracking website.</p>
+<section id="structure" class="level2">
+<h2 class="anchored" data-anchor-id="structure">Structure</h2>
+<p>The site is now a multi-page Quarto website with the following pages:</p>
+<ul>
+<li><strong>Home</strong> (<code>/</code> or <code>/index.html</code>) - The main page from README.md containing supplement schedule and health goals</li>
+<li><strong>Blood Markers</strong> (<code>/blood.html</code>) - Interactive blood test results visualization</li>
+<li><strong>Medications</strong> (<code>/meds.html</code>) - Medication and supplementation timeline visualization</li>
+</ul>
+</section>
+<section id="files-created" class="level2">
+<h2 class="anchored" data-anchor-id="files-created">Files Created</h2>
+<section id="configuration" class="level3">
+<h3 class="anchored" data-anchor-id="configuration">Configuration</h3>
+<ul>
+<li><code>_quarto.yml</code> - Main Quarto configuration file</li>
+</ul>
+</section>
+<section id="page-files" class="level3">
+<h3 class="anchored" data-anchor-id="page-files">Page Files</h3>
+<ul>
+<li><code>index.qmd</code> - Copy of README.md, serves as the home page</li>
+<li><code>blood.qmd</code> - Page that embeds the blood markers visualization</li>
+<li><code>meds.qmd</code> - Page that embeds the medications timeline</li>
+</ul>
+</section>
+<section id="standalone-html-files-embedded-via-iframe" class="level3">
+<h3 class="anchored" data-anchor-id="standalone-html-files-embedded-via-iframe">Standalone HTML Files (embedded via iframe)</h3>
+<ul>
+<li><code>blood_standalone.html</code> - Original index.html with blood markers analysis</li>
+<li><code>meds_standalone.html</code> - Copy of meds_and_supplements/meds.html</li>
+</ul>
+</section>
+<section id="data-files-automatically-copied-to-docs" class="level3">
+<h3 class="anchored" data-anchor-id="data-files-automatically-copied-to-docs">Data Files (automatically copied to docs/)</h3>
+<ul>
+<li><code>blood_markers_pivot.csv</code> - Blood test data</li>
+<li><code>reports.json</code> - Medical reports metadata</li>
+<li><code>meds_and_supplements/med_schedule.json</code> - Medication schedule data</li>
+</ul>
+</section>
+</section>
+<section id="building-the-site" class="level2">
+<h2 class="anchored" data-anchor-id="building-the-site">Building the Site</h2>
+<p>To rebuild the site after making changes:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This will regenerate all HTML files in the <code>docs/</code> directory.</p>
+</section>
+<section id="deployment" class="level2">
+<h2 class="anchored" data-anchor-id="deployment">Deployment</h2>
+<p>The site is configured to deploy to GitHub Pages from the <code>docs/</code> directory.</p>
+<section id="github-pages-settings" class="level3">
+<h3 class="anchored" data-anchor-id="github-pages-settings">GitHub Pages Settings</h3>
+<ol type="1">
+<li>Go to repository Settings → Pages</li>
+<li>Set Source to “Deploy from a branch”</li>
+<li>Set Branch to “main” (or your default branch)</li>
+<li>Set Folder to “/docs”</li>
+<li>Save</li>
+</ol>
+<p>The site will be available at: https://maladie.ronaldo.tech</p>
+</section>
+</section>
+<section id="maintenance" class="level2">
+<h2 class="anchored" data-anchor-id="maintenance">Maintenance</h2>
+<section id="adding-new-pages" class="level3">
+<h3 class="anchored" data-anchor-id="adding-new-pages">Adding New Pages</h3>
+<ol type="1">
+<li>Create a new <code>.qmd</code> file in the root directory</li>
+<li>Add the page to the navbar in <code>_quarto.yml</code></li>
+<li>Run <code>quarto render</code> to regenerate the site</li>
+</ol>
+</section>
+<section id="updating-data" class="level3">
+<h3 class="anchored" data-anchor-id="updating-data">Updating Data</h3>
+<ul>
+<li>Update CSV/JSON files in the root directory</li>
+<li>The data files are automatically copied to <code>docs/</code> during render</li>
+<li>Run <code>quarto render</code> to update</li>
+</ul>
+</section>
+<section id="modifying-standalone-visualizations" class="level3">
+<h3 class="anchored" data-anchor-id="modifying-standalone-visualizations">Modifying Standalone Visualizations</h3>
+<ul>
+<li>Edit <code>blood_standalone.html</code> or <code>meds_standalone.html</code></li>
+<li>Run <code>quarto render</code> to copy changes to docs/</li>
+</ul>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

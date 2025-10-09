@@ -3,8 +3,50 @@ title: "Blood Markers Evolution Analysis"
 format:
   html:
     toc: false
+    page-layout: custom
 ---
 
 ```{=html}
-<iframe src="blood_standalone.html" width="100%" height="1200px" frameborder="0" style="border: none;"></iframe>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  #quarto-content {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+  .quarto-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  main.content {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .page-columns {
+    max-width: 100% !important;
+  }
+  #title-block-header {
+    display: none !important;
+  }
+  .quarto-title-block {
+    display: none !important;
+  }
+  iframe {
+    border: none;
+    width: 100vw;
+    height: calc(100vh - 56px);
+    display: block;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+</style>
+<iframe src="blood_standalone.html"></iframe>
 ```

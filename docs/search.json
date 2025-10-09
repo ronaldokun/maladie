@@ -70,6 +70,48 @@
     "text": "Goals impacted: Sleep optimization • Liver/PSC (GGT/ALP) • UC inflammation\n\n\n\nTMG (Trimethylglycine) — 500 mg morning + 500 mg dinner → supports BHMT remethylation and bile flow synergy with methionine/choline.\nMelatonin — 1–3 mg at bedtime (start 1 mg) → sleep onset/maintenance; adjunct signals in UC.\nPsyllium husk — 10 g morning + 10 g dinner (≥250–300 mL water) → UC maintenance; separate meds by ~2 h.\nProbiotic step-up (OPTIONAL):\n\nVSL#3 / De Simone formulation — 450–900B CFU in the afternoon (≥3–4 h after Bactrim).\nE. coli Nissle 1917 (Mutaflor) — per label (maintenance).\n\nVitamin K2 (MK-7) — 100–200 µg with dinner (consider water-miscible form if cholestasis).\nSAMe — 400 mg morning + 400 mg afternoon → cholestasis adjunct; monitor ALP/GGT, mood/sleep.\nTaurine — 1 g morning + 1 g dinner → bile acid conjugation support.\nBoswellia (AKBA-standardized) — 300–500 mg lunch + dinner → adjunct anti-inflammatory.\n\n\n\n\n\nPsyllium: separate from mesalazine, calcium, iron, quercetin, NAC by ~2 hours.\nProbiotics vs Bactrim: dose ≥3–4 h after antibiotic (placed in Afternoon).\nIron (Noripurum): keep away from quercetin/tea/coffee/calcium by ≥2 h (you already pair with vitamin C).\nMethylation stack: TMG + Methionine/Choline ± SAMe → check homocysteine after 6–8 weeks (target ~6–9 µmol/L).\nStimulation: SAMe can be alerting → avoid late evening; shift earlier if sleep impacted.\n\n\n\n\n\nLiver: GGT, ALP, bilirubin.\nMethylation: Homocysteine.\nCholestasis fat-solubles: Vitamins A, D, E, K (replete as needed; K2 added).\nLipids: watch LDL-C with TMG/SAMe changes."
   },
   {
+    "objectID": "QUARTO_SETUP.html",
+    "href": "QUARTO_SETUP.html",
+    "title": "Quarto Multi-Page Site Setup",
+    "section": "",
+    "text": "This document describes the Quarto configuration for the maladie health tracking website.\n\n\nThe site is now a multi-page Quarto website with the following pages:\n\nHome (/ or /index.html) - The main page from README.md containing supplement schedule and health goals\nBlood Markers (/blood.html) - Interactive blood test results visualization\nMedications (/meds.html) - Medication and supplementation timeline visualization\n\n\n\n\n\n\n\n_quarto.yml - Main Quarto configuration file\n\n\n\n\n\nindex.qmd - Copy of README.md, serves as the home page\nblood.qmd - Page that embeds the blood markers visualization\nmeds.qmd - Page that embeds the medications timeline\n\n\n\n\n\nblood_standalone.html - Original index.html with blood markers analysis\nmeds_standalone.html - Copy of meds_and_supplements/meds.html\n\n\n\n\n\nblood_markers_pivot.csv - Blood test data\nreports.json - Medical reports metadata\nmeds_and_supplements/med_schedule.json - Medication schedule data\n\n\n\n\n\nTo rebuild the site after making changes:\nquarto render\nThis will regenerate all HTML files in the docs/ directory.\n\n\n\nThe site is configured to deploy to GitHub Pages from the docs/ directory.\n\n\n\nGo to repository Settings → Pages\nSet Source to “Deploy from a branch”\nSet Branch to “main” (or your default branch)\nSet Folder to “/docs”\nSave\n\nThe site will be available at: https://maladie.ronaldo.tech\n\n\n\n\n\n\n\nCreate a new .qmd file in the root directory\nAdd the page to the navbar in _quarto.yml\nRun quarto render to regenerate the site\n\n\n\n\n\nUpdate CSV/JSON files in the root directory\nThe data files are automatically copied to docs/ during render\nRun quarto render to update\n\n\n\n\n\nEdit blood_standalone.html or meds_standalone.html\nRun quarto render to copy changes to docs/"
+  },
+  {
+    "objectID": "QUARTO_SETUP.html#structure",
+    "href": "QUARTO_SETUP.html#structure",
+    "title": "Quarto Multi-Page Site Setup",
+    "section": "",
+    "text": "The site is now a multi-page Quarto website with the following pages:\n\nHome (/ or /index.html) - The main page from README.md containing supplement schedule and health goals\nBlood Markers (/blood.html) - Interactive blood test results visualization\nMedications (/meds.html) - Medication and supplementation timeline visualization"
+  },
+  {
+    "objectID": "QUARTO_SETUP.html#files-created",
+    "href": "QUARTO_SETUP.html#files-created",
+    "title": "Quarto Multi-Page Site Setup",
+    "section": "",
+    "text": "_quarto.yml - Main Quarto configuration file\n\n\n\n\n\nindex.qmd - Copy of README.md, serves as the home page\nblood.qmd - Page that embeds the blood markers visualization\nmeds.qmd - Page that embeds the medications timeline\n\n\n\n\n\nblood_standalone.html - Original index.html with blood markers analysis\nmeds_standalone.html - Copy of meds_and_supplements/meds.html\n\n\n\n\n\nblood_markers_pivot.csv - Blood test data\nreports.json - Medical reports metadata\nmeds_and_supplements/med_schedule.json - Medication schedule data"
+  },
+  {
+    "objectID": "QUARTO_SETUP.html#building-the-site",
+    "href": "QUARTO_SETUP.html#building-the-site",
+    "title": "Quarto Multi-Page Site Setup",
+    "section": "",
+    "text": "To rebuild the site after making changes:\nquarto render\nThis will regenerate all HTML files in the docs/ directory."
+  },
+  {
+    "objectID": "QUARTO_SETUP.html#deployment",
+    "href": "QUARTO_SETUP.html#deployment",
+    "title": "Quarto Multi-Page Site Setup",
+    "section": "",
+    "text": "The site is configured to deploy to GitHub Pages from the docs/ directory.\n\n\n\nGo to repository Settings → Pages\nSet Source to “Deploy from a branch”\nSet Branch to “main” (or your default branch)\nSet Folder to “/docs”\nSave\n\nThe site will be available at: https://maladie.ronaldo.tech"
+  },
+  {
+    "objectID": "QUARTO_SETUP.html#maintenance",
+    "href": "QUARTO_SETUP.html#maintenance",
+    "title": "Quarto Multi-Page Site Setup",
+    "section": "",
+    "text": "Create a new .qmd file in the root directory\nAdd the page to the navbar in _quarto.yml\nRun quarto render to regenerate the site\n\n\n\n\n\nUpdate CSV/JSON files in the root directory\nThe data files are automatically copied to docs/ during render\nRun quarto render to update\n\n\n\n\n\nEdit blood_standalone.html or meds_standalone.html\nRun quarto render to copy changes to docs/"
+  },
+  {
     "objectID": "WARP.html",
     "href": "WARP.html",
     "title": "WARP.md",
