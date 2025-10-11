@@ -48,5 +48,5 @@ format:
     bottom: 0;
   }
 </style>
-<iframe src="meds_standalone.html"></iframe>
+<iframe src="meds.html"></iframe>
 ```

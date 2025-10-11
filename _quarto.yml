@@ -2,8 +2,8 @@ project:
   type: website
   output-dir: docs
   resources:
-    - blood_standalone.html
-    - meds_and_supplements/meds_standalone.html
+    - blood_markers.html
+    - meds_and_supplements/meds.html
     - blood_markers_pivot.csv
     - reports.json
     - meds_and_supplements/med_schedule.json

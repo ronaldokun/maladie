@@ -21,8 +21,8 @@ The site is now a multi-page Quarto website with the following pages:
 - `meds.qmd` - Page that embeds the medications timeline
 
 ### Standalone HTML Files (embedded via iframe)
-- `blood_standalone.html` - Original index.html with blood markers analysis
-- `meds_standalone.html` - Copy of meds_and_supplements/meds.html
+- `blood_markers.html` - Original index.html with blood markers analysis
+- `meds.html` - Copy of meds_and_supplements/meds.html
 
 ### Data Files (automatically copied to docs/)
 - `blood_markers_pivot.csv` - Blood test data
@@ -65,5 +65,5 @@ The site will be available at: https://maladie.ronaldo.tech
 - Run `quarto render` to update
 
 ### Modifying Standalone Visualizations
-- Edit `blood_standalone.html` or `meds_standalone.html`
+- Edit `blood_markers.html` or `meds.html`
 - Run `quarto render` to copy changes to docs/
