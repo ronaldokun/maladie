@@ -212,7 +212,7 @@
       "time": "Lunch",
       "compound": "🦵 MSM",
       "function": "Anti-inflammatory / sulfur donor",
-      "dosage": "1g"
+      "dosage": "2g"
     },
     {
       "time": "Afternoon",
@@ -234,12 +234,6 @@
     },
     {
       "time": "Afternoon",
-      "compound": "🕸️ Racemethionine + Choline",
-      "function": "Methylation / bile flow",
-      "dosage": "2 x (100 mg + 20 mg)"
-    },
-    {
-      "time": "Afternoon",
       "compound": "🧪 E. coli Nissle 1917 (OPTION)",
       "function": "Gut microbiota balance",
       "dosage": "per label"
@@ -255,6 +249,12 @@
       "compound": "🧪 VSL#3 / De Simone (OPTION)",
       "function": "Gut microbiota balance",
       "dosage": "450–900B CFU"
+    },
+    {
+      "time": "Lunch",
+      "compound": "🐟 Omega-3 + 🧠 Phosphatidylserine",
+      "function": "Anti-inflammatory / cognition",
+      "dosage": "2 x 0.8g | 2 x 50 mg"
     },
     {
       "time": "Dinner",
@@ -288,9 +288,9 @@
     },
     {
       "time": "Dinner",
-      "compound": "🦵 MSM",
-      "function": "Anti-inflammatory / sulfur donor",
-      "dosage": "1g"
+      "compound": "🕸️ Racemethionine + Choline",
+      "function": "Methylation / bile flow",
+      "dosage": "2 x (100 mg + 20 mg)"
     },
     {
       "time": "Dinner",

@@ -304,7 +304,7 @@
 
             try {
                 // Load JSON file from meds_and_supplements directory
-                const jsonUrl = new URL('meds_and_supplements/med_schedule.json', window.location.href).href;
+                const jsonUrl = new URL('med_schedule.json', window.location.href).href;
                 const response = await fetch(jsonUrl);
 
                 if (!response.ok) {

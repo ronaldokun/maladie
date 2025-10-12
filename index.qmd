@@ -114,62 +114,69 @@ Agrégation, chronologie et journalisation sur ma santé.
 
 ### 🕗 Morning
 
-* 🍎 Apple Cider Vinegar: 1 to 3 spoons (after breakfast)
-* 💊 Bactrim: 
-* 💊 Ursacol: 2 x 300mg
-* 💊 Mesalazine: 1 x 500mg
-* 💉 Adalimumab: 1 x 40mg (weekly)
-* ⚡ Magnesium complex: 2 x 117mg
-* 🏋️ Creatine: 10g
-* 🍵 Theanine: 1 x 250 mg
+* ⚡ Magnesium complex — 2 x 117 mg
+* 🌾 Psyllium husk — 10 g (≥250–300 mL water)
+* 🍎 Apple Cider Vinegar — 1–3 tbsp (diluted)
+* 🍵 Theanine — 250 mg
+* 🏋️ Creatine — 10 g
+* 💉 Adalimumab — 1 x 40 mg (weekly)
+* 💊 Bactrim — 1 tab
+* 💊 Mesalazine — 1 x 500 mg
+* 💊 Ursacol — 2 x 300 mg
+* 🧪 SAMe (S-adenosyl-L-methionine) — 400 mg
+* 🧪 Taurine — 1 g
+* 🧬 TMG (Trimethylglycine) — 500 mg
+
 ---
 
 ### 🍽 Lunch
 
-* 🦴 Calcium: 1 x 500 mg
-* 🌞 Vitamin D3: 2 x 2000 IU
-* 🕸️ Racemetionine: 2 x 100mg
-* 🕸️ Choline Clorate: 2 x 20mg
-* 🕸️ Silymarin: 2 x 200 mg
-* 🛡️ NAC: 1.5g
-* 🐟 Omega-3: 2 x 0.8 g
-* 🧠 Phosphatidylserine: 2 x 50 mg
-* 🦵 MSM 1g
-* 🛡️ Quercetin: 1 x 500 mg
+* 🌞 Vitamin D3 — 2 x 2000 IU
+* 🌿 Boswellia (AKBA-std.) — 300–500 mg
+* 🐟 Omega-3 + 🧠 Phosphatidylserine — 2 x 0.8 g | 2 x 50 mg
+* 🕸️ NAC — 1.5 g
+* 🕸️ Racemethionine + Choline — 2 x (100 mg + 20 mg)
+* 🕸️ Silymarin — 2 x 200 mg
+* 🛡️ Quercetin — 1 x 500 mg
+* 🦴 Calcium — 1 x 500 mg
+* 🦵 MSM — 2 g
 
 ---
 
-### 🌆 Late Afternoon / Evening
+### 🌇 Afternoon
 
-* ✨ Golden-milk (7 g) + black pepper
-* 🍊 Vitamin C (1 g)
-* 🔩 Noripurum (20 drops) → (avoid 3 h around quercetin/NAC)
-* 🕸️ Racemetionine: 2 x 100mg
-* 🕸️ Choline Clorate: 2 x 20mg
-
-
+* ✨ Golden Milk — 7 g (with pepper)
+* 🍊 Vitamin C — 1 g
+* 🔩 Noripurum — 20 drops (20 mg Fe) → avoid 2–3 h around quercetin/NAC/calcium
+* 🧪 E. coli Nissle 1917 (OPTION) — per label
+* 🧪 SAMe (S-adenosyl-L-methionine) — 400 mg
+* 🧪 VSL#3 / De Simone (OPTION) — 450–900B CFU
 
 ---
 
 ### 🌙 Dinner
-* 🐟 Omega-3: 2 x 0.8 g
-* 🧠 Phosphatidylserine: 2 x 50 mg
-* 🦵 MSM 1g
-* 🦠 Smart L. rhamnosus: 2 x 1g
-* 🦠 NutrioneLife sachet: 1 x 5g
 
-  
+* L. rhamnosus — 2 sachets (250 mg)
+* 🌾 Psyllium husk — 10 g (≥250–300 mL water)
+* 🌿 Boswellia (AKBA-std.) — 300–500 mg
+* 🦠 NutrioneLife — 1 sachet
+* 🦴 Vitamin K2 (MK-7) — 100–200 µg
+* 🕸️ Racemethionine + Choline — 2 x (100 mg + 20 mg)
+* 🧪 Taurine — 1 g
+* 🧬 TMG (Trimethylglycine) — 500 mg
+
 ---
 
 ### 🌃 Bedtime
 
-* 💊 Ursacol: 3 x 300mg
-* 🛡️ NAC: 1.5g
-* 🕸️ Silymarin: 2 x 200 mg
-* 🦵 MSM: 2g
-* 💤 Glycine: 3g
-* 💤 Myo-inositol: 3g
-* 🛡️ Quercetin: 1 x 500 mg
+* 🌙 Melatonin — 1–3 mg (start 1 mg)
+* 💊 Ursacol — 3 x 300 mg (900 mg)
+* 💤 Glycine — 3 g
+* 💤 Myo-Inositol — 3 g
+* 🕸️ Silymarin — 2 x 200 mg
+* 🛡️ NAC — 1.5 g
+* 🛡️ Quercetin — 1 x 500 mg
+* 🦵 MSM — 2 g
 
 
 ---

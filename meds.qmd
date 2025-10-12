@@ -48,5 +48,5 @@ format:
     bottom: 0;
   }
 </style>
-<iframe src="meds_and_supplements/meds.html"></iframe>
+<iframe src="meds_plot.html"></iframe>
 ```
