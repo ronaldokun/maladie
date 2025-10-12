@@ -1,116 +1,91 @@
-# Présentation
-Agrégation, chronologie et journalisation sur ma santé. 
-> Le Français occasionel est seulement pour pratiquer la production de texte.
+# Introduction
+Data, plots, timeline and journalling about my health management and battle with UC / PSC since January 2005. 
+This grasping of data about myself, even if it gives just an _illusion_ of control, it "works" nonetheless as coping mechanism because sometimes just the illusion is enough to calm down your monkey brain from taking over and the stress to worsen and even cause further malaise. 
 
-## 🧠 1. Overview of Goals
+This is something I wanted to do for many years but never started. A recent double hospitalization in less than a month, and the advent of powerful LLM coding agents gave me the nudge I needed.
 
-| Priority                                         | Main Mechanisms                                   | Key Compounds Involved                                                                          |
-| ------------------------------------------------ | ------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| **Liver Support**                                | Bile flow, detoxification, antioxidant protection | Ursacol, Silymarin, NAC, Methionine, Choline, Omega-3, MSM                                      |
-| **Anti-inflammatory Control (Systemic + Colon)** | Cytokine modulation, gut barrier repair           | Adalimumab, Mesalazine, Omega-3, Curcumin (Golden Milk), Probiotics                             |
-| **Sleep Optimization**                           | GABAergic, serotonin, and glycine pathways        | Magnesium (bisglycinate, taurinate), Theanine, Glycine, Inositol, possibly Quercetin (low-dose) |
+## 🧠 Overview of Goals
 
----
-
-## 🩸 2. Liver & Biliary Support
+| Priority                                         | Main Mechanisms                                   | Key Compounds Involved                                                                                             |
+| ------------------------------------------------ | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **Liver Support**                                | Bile flow, detoxification, antioxidant protection | Ursacol, **Silymarin**, **NAC**, Methionine, Choline, **TMG**, **SAMe**, **Taurine**, Omega-3, MSM, **Vitamin K2** |
+| **Anti-inflammatory Control (Systemic + Colon)** | Cytokine modulation, gut barrier repair           | Adalimumab, Mesalazine, Omega-3, Curcumin (Golden Milk), **Quercetin**, **Boswellia**, **Psyllium**, Probiotics    |
+| **Sleep Optimization**                           | GABAergic, serotonin, and glycine pathways        | Magnesium (bisglycinate/taurinate), Theanine, **Melatonin**, Glycine, Inositol                                     |
+## 🩸 Liver & Biliary Support
 
 ### ✅ **Ursacol (Ursodeoxycholic Acid)**
-
 * **Mechanism:** Hydrophilic bile acid → replaces toxic bile salts → reduces cholestasis & inflammation in PSC.
-* **Dose:** You’re at **~1.5 g/day**, which is above **the high-therapeutic range** (13–15 mg/kg/day).
-* **Optimization:** Maintain divided dosing (morning + bedtime) for even bile acid pool modulation.
+* **Dose:** Currently **2 × 300 mg (AM) + 3 × 300 mg (bedtime) = 1.5 g/day** (align with weight‑based guidance with your hepatologist).
+* **Optimization:** Maintain split dosing (AM + bedtime).
 
-### ✅ **Silymarin (400 mg × 3)**
+### ✅ **Silymarin — current: 800 mg/day**
+* **2 × 200 mg at lunch + 2 × 200 mg at bedtime** (= 800 mg/day). Hepatoprotection via glutathione up‑regulation and NF‑κB modulation.
 
-* Strong hepatoprotective flavonolignan complex; up-regulates glutathione synthesis and down-regulates NF-κB.
+### ✅ **N‑Acetylcysteine (NAC) — 3 g/day**
+* **1.5 g lunch + 1.5 g bedtime** → hepatic GSH support and mucosal protection.
 
-### ✅ **Racemethionine + Choline**
+### ✅ **MSM — 4 g/day**
+* **2 g lunch + 2 g bedtime** → thiol replenishment & connective‑tissue support.
 
-* Key methyl donors and bile-mobilizing nutrients.
-* Twice-daily use is good; **consider moving the evening dose earlier (around 17–18 h)** to avoid potential mild stimulatory effects that could delay sleep.
+### ✅ **TMG (Trimethylglycine) — 500 mg AM + 500 mg dinner**
+* Supports **BHMT remethylation** and may aid bile flow; complements methionine/choline.
 
-### ✅ **N-Acetylcysteine (3 g/day total)**
+### ✅ **SAMe (S‑adenosyl‑L‑methionine) — 400 mg AM + 400 mg afternoon**
+* Evidence for cholestasis symptom and enzyme support; **avoid late‑evening** dosing if stimulating.
 
-* Ideal for PSC/UC overlap: boosts hepatic glutathione, reduces bile viscosity, and supports mucosal protection.
-* Nighttime dose supports liver redox overnight. 
+### ✅ **Taurine — 1 g AM + 1 g dinner**
+* Substrate for bile‑acid conjugation; supportive for bile flow.
 
-### ⚡ **MSM (4 g/day total)**
+### ✅ **Vitamin K2 (MK‑7) — 100–200 µg dinner**
+* Fat‑soluble vitamin support in cholestasis (bone/INR considerations). Water‑miscible forms if advised.
 
-* Synergistic with NAC in thiol replenishment and inflammation control.
-* Keep spacing (1 g midday, 1 g dinner, 2 g bedtime) — this pattern supports connective tissue repair and mild sedative synergy via sulfur metabolism.
-
----
-
-## 🧬 3. Anti-inflammatory & Gut Support
+## 🧬 Anti-inflammatory & Gut Support
 
 ### ✅ **Adalimumab + Mesalazine**
+* Baseline for mucosal control — continue as prescribed.
 
-* Excellent baseline for mucosal control. Continue as prescribed.
+### ✅ **Curcumin (Golden Milk) — 7 g powder with pepper**
+* Lipid vehicle (milk) + piperine improves absorption.
 
-### ✅ **Curcumin (Golden Milk, 7 g powder ≈ 300–400 mg curcuminoids)**
+### ✅ **Omega‑3 + Phosphatidylserine**
+* At lunch per schedule; maintain split EPA+DHA to ~3 g/day total.
 
-* Maintain with lipid vehicle (milk) + black pepper for absorption.
-* If tolerated, you could increase to **twice daily** for enhanced systemic anti-inflammatory effect.
+### ✅ **Psyllium husk — 10 g morning + 10 g dinner**
+* Remission maintenance and butyrate support. **Separate from meds/supps by ~2 h** (iron, calcium, NAC, quercetin, mesalazine).
 
-### ✅ **Omega-3 (3.18 g/day EPA+DHA)**
+### ✅ **Probiotics**
+* **L. rhamnosus + NutrioneLife** at dinner.  
+* **Step‑up options:** **De Simone formulation (VSL#3)** or **E. coli Nissle 1917 (Mutaflor)** — in **afternoon**, **≥3–4 h after Bactrim**.
 
-* Anti-TNF and anti-fibrotic; this is an optimal anti-inflammatory range.
-* Continue splitting across meals.
+### ✅ **Quercetin — 500 mg lunch + 500 mg bedtime**
+* Anti‑inflammatory/anti‑fibrotic; **keep ≥3 h away from iron** (Noripurum).
 
-### ✅ **Probiotics (Smart L. rhamnosus + NutrioneLife)**
-
-* Excellent combo: immune modulation + intestinal permeability control.
-* Continue both; consider cycling with a **Bifidobacterium-dominant strain** every few months for microbiome diversity.
-> ⚠️ **Take at least 4h away from Bactrim**
-
----
+### ✅ **Boswellia (AKBA‑standardized) — 300–500 mg lunch + dinner**
+* Botanical adjunct for UC inflammation/fibrosis; use standardized extract.
 
 ## 🌙 4. Sleep Optimization
 
-### ✅ **Glycine (3 g bedtime)**
+### ✅ **Melatonin — 1–3 mg (start 1 mg) at bedtime**
+* Sleep onset/maintenance; titrate by 0.5–1 mg steps.
 
-* Enhances slow-wave sleep and thermoregulation.
+### ✅ **Glycine — 3 g bedtime**
+* Improves slow‑wave sleep and thermoregulation.
 
-### ✅ **Myo-inositol (3 g bedtime)**
+### ✅ **Myo‑inositol — 3 g bedtime**
+* Serotonergic/cholinergic modulation for calmer sleep.
 
-* Acts on serotonin and acetylcholine signaling, improving sleep initiation and calmness.
-* Keep at bedtime; synergistic with magnesium and theanine.
+### ✅ **L‑Theanine — 250 mg total**
+* Keep 100–150 mg mid‑afternoon + remainder at bedtime if helpful for wind‑down.
 
-### ✅ **L-Theanine (250 mg)**
-
-* Excellent anxiolytic without sedation.
-* You may experiment with **dividing it**: 100 mg mid-afternoon + 150 mg bedtime for smoother effect.
-
-### ✅ **Magnesium (approx. 350–400 mg total elemental)**
-
-* Excellent selection of forms: bisglycinate (CNS-calming), malate (energy), taurinate (GABAergic).
-* Maintain one dose morning, one pre-bed. **Avoid excessive citrate** later in the day (can cause bowel movement stimulation).
-
-### ⚠️ **Apple Cider Vinegar**
-
-* Beneficial for digestion, but **empty stomach use** may irritate gastric mucosa; dilute it well or take after food.
-
----
-
+### ✅ **Magnesium (bisglycinate/taurinate‑dominant)**
+* Keep morning + pre‑bed; avoid high citrate late day if it loosens stools.
 ## 🧩 5. Quercetin Integration
 
-### 💊 **Quercetin (500 mg/tablet)**
+**Dosing in schedule:** **500 mg lunch + 500 mg bedtime**.  
+* Roles: anti‑inflammatory, mast‑cell stabilizer, antifibrotic.  
+* **Spacing:** keep **≥3 h away from iron**; avoid taking with large calcium/fiber boluses that impair absorption.
 
-* Potent **anti-inflammatory**, **mast-cell stabilizer**, and **antifibrotic** (especially relevant for PSC).
-* It **enhances NAC + Silymarin synergy** and may aid **sleep** through lowering histamine and oxidative stress.
-
-#### Suggested protocol:
-
-| Timing      | Dose   | Purpose                                                                |
-| ----------- | ------ | ---------------------------------------------------------------------- |
-| **Lunch**   | 500 mg | Anti-inflammatory synergy with Silymarin, NAC                          |
-| **Bedtime** | 500 mg | Antihistaminic / sleep enhancement via H1-blockade and GABA modulation |
-
-> ⚠️ Avoid combining high quercetin with high-dose iron (Noripurum): it inhibits iron absorption. Space at least **3 h apart**.
-
----
-
-## 💡 6. Adjusted Schedule Summary
+## 💡 Adjusted Schedule Summary
 
 ### 🕗 Morning
 
@@ -178,22 +153,21 @@ Agrégation, chronologie et journalisation sur ma santé.
 * 🛡️ Quercetin — 1 x 500 mg
 * 🦵 MSM — 2 g
 
-
 ---
 
-## ⚖️ 7. Strategic Observations
+## ⚖️ Strategic Observations
 
 | Focus                    | Recommendation                                                                                                            |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
 | **Iron absorption**      | Maintain Noripurum **away from quercetin, NAC, and calcium**.                                                             |
 | **Bowel motility**       | If stools become too loose, shift part of magnesium dose earlier or reduce citrate fraction.                              |
-| **Methylation balance**  | You might later add **Trimethylglycine (TMG 500 mg)** alongside Methionine + Choline for full methyl-cycle support.       |
+| **Methylation balance**  | You are using **TMG 500 mg AM + 500 mg dinner** for methyl‑cycle support.                                                 |
 | **Inflammatory control** | Curcumin + Omega-3 + Adalimumab + Quercetin + Silymarin create an excellent anti-NF-κB network; avoid unnecessary NSAIDs. |
 | **Sleep**                | Maintain fixed bedtime, dim light 1 h before, magnesium/glycine/theanine/inositol at least 30 min pre-sleep.              |
 
 ---
 
-## 🧾 8. Key Takeaways
+## 🧾 Key Takeaways
 
 * ✅  Strong hepatoprotection: Ursacol + Silymarin + NAC + MSM
 * ✅  Anti-inflammatory synergy: Adalimumab + Omega-3 + Curcumin + Quercetin
@@ -202,33 +176,3 @@ Agrégation, chronologie et journalisation sur ma santé.
 * ⚙️  Optionally recheck hepatic enzymes (γ-GT, ALP) after 6–8 weeks on this adjusted plan to quantify benefit.
 
 ---
-
-## ✅ Additions (2025-10-08)
-
-**Goals impacted:** Sleep optimization • Liver/PSC (GGT/ALP) • UC inflammation
-
-### New supplements added to schedule
-- **TMG (Trimethylglycine)** — 500 mg morning + 500 mg dinner → supports BHMT remethylation and bile flow synergy with methionine/choline.
-- **Melatonin** — 1–3 mg at bedtime (start 1 mg) → sleep onset/maintenance; adjunct signals in UC.
-- **Psyllium husk** — 10 g morning + 10 g dinner (≥250–300 mL water) → UC maintenance; *separate meds by ~2 h*.
-- **Probiotic step-up (OPTIONAL):**
-  - **VSL#3 / De Simone formulation** — 450–900B CFU in the **afternoon** (≥3–4 h after Bactrim).
-  - **E. coli Nissle 1917 (Mutaflor)** — per label (maintenance).
-- **Vitamin K2 (MK-7)** — 100–200 µg with dinner (consider water-miscible form if cholestasis).
-- **SAMe** — 400 mg morning + 400 mg afternoon → cholestasis adjunct; monitor ALP/GGT, mood/sleep.
-- **Taurine** — 1 g morning + 1 g dinner → bile acid conjugation support.
-- **Boswellia (AKBA-standardized)** — 300–500 mg lunch + dinner → adjunct anti-inflammatory.
-
-### Interactions & Spacing (critical)
-- **Psyllium**: separate from **mesalazine, calcium, iron, quercetin, NAC** by **~2 hours**.
-- **Probiotics vs Bactrim**: dose **≥3–4 h after** antibiotic (placed in **Afternoon**).
-- **Iron (Noripurum)**: keep **away** from **quercetin/tea/coffee/calcium** by **≥2 h** (you already pair with vitamin C).
-- **Methylation stack**: TMG + Methionine/Choline ± **SAMe** → check **homocysteine** after 6–8 weeks (target ~6–9 µmol/L).
-- **Stimulation**: SAMe can be alerting → **avoid late evening**; shift earlier if sleep impacted.
-
-### Monitoring plan (next 6–8 weeks)
-- **Liver**: GGT, ALP, bilirubin.
-- **Methylation**: Homocysteine.
-- **Cholestasis fat-solubles**: Vitamins **A, D, E, K** (replete as needed; K2 added).
-- **Lipids**: watch LDL-C with TMG/SAMe changes.
-
