@@ -103,6 +103,7 @@
                     compound: item.compound,
                     function: func,
                     dosage: item.dosage || "",
+                    justification: item.justification || "",
                     bucket: bucket
                 });
             });
@@ -142,13 +143,23 @@
                     textposition: textposition,
                     textfont: { size: textfontSize },
                     name: bucket,
-                    hovertemplate: bucketData.map(row =>
-                        `<b>${row.compound}</b><br>` +
-                        `Bucket: ${bucket}<br>` +
-                        `Function: ${row.function}<br>` +
-                        `Dosage: ${row.dosage}<extra></extra>`
-                    ),
-                    customdata: bucketData.map(row => [row.function, row.dosage]),
+                    hovertemplate: bucketData.map(row => {
+                        let template = `<b>${row.compound}</b><br>` +
+                            `Bucket: ${bucket}<br>` +
+                            `Function: ${row.function}<br>` +
+                            `Dosage: ${row.dosage}`;
+                        
+                        if (row.justification) {
+                            // Format justification with line breaks for readability
+                            const formattedJust = row.justification
+                                .replace(/\n/g, '<br>')  // Convert \n to <br>
+                                .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');  // Convert **text** to <b>text</b>
+                            template += `<br><br><i>Justification:</i><br>${formattedJust}`;
+                        }
+                        
+                        return template + '<extra></extra>';
+                    }),
+                    customdata: bucketData.map(row => [row.function, row.dosage, row.justification]),
                     marker: { size: markerSize },
                     type: "scatter"
                 };
@@ -233,6 +244,18 @@
                 responsive: true,
                 displayModeBar: true,
                 modeBarButtonsToRemove: ['lasso2d', 'select2d']
+            };
+            
+            // Customize hover label style for better readability
+            layout.hoverlabel = {
+                bgcolor: 'white',
+                bordercolor: '#333',
+                font: {
+                    family: 'Arial, sans-serif',
+                    size: 12,
+                    color: '#333'
+                },
+                align: 'left'
             };
 
             return { traces, layout, config };
