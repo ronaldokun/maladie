@@ -92,187 +92,218 @@
       "time": "Morning",
       "compound": "🍎 Apple Cider Vinegar",
       "function": "Liver / bile flow",
-      "dosage": "1–3 tbsp (diluted)"
+      "dosage": "1–3 tbsp (diluted)",
+      "justification": "Beneficial for digestion; dilute well or take after food to avoid gastric irritation."
     },
     {
       "time": "Morning",
       "compound": "💊 Ursacol",
       "function": "Liver / bile flow",
-      "dosage": "2 x 300 mg"
+      "dosage": "2 x 300 mg",
+      "justification": "Hydrophilic bile acid → replaces toxic bile salts → reduces cholestasis & inflammation in PSC."
     },
     {
       "time": "Morning",
       "compound": "💉 Adalimumab",
       "function": "Systemic anti-TNF",
-      "dosage": "1 x 40 mg (weekly)"
+      "dosage": "1 x 40 mg (weekly)",
+      "justification": "Baseline for mucosal control — continue as prescribed."
     },
     {
       "time": "Morning",
       "compound": "💊 Mesalazine",
       "function": "Colon anti-inflammatory",
-      "dosage": "1 x 500 mg"
+      "dosage": "1 x 500 mg",
+      "justification": "Baseline for mucosal control — continue as prescribed."
     },
     {
       "time": "Morning",
       "compound": "🏋️ Creatine",
       "function": "Energy / cellular metabolism",
-      "dosage": "10 g"
+      "dosage": "10 g",
+      "justification": "Supports cellular energy and muscle metabolism."
     },
     {
       "time": "Morning",
       "compound": "💊 Bactrim",
       "function": "Antimicrobial (infection prophylaxis)",
-      "dosage": "1 tab"
+      "dosage": "1 tab",
+      "justification": "Infection prophylaxis; probiotics should be dosed ≥3–4 h after."
     },
     {
       "time": "Morning",
       "compound": "⚡ Magnesium complex",
       "function": "Relaxation / metabolism",
-      "dosage": "2 x 117mg"
+      "dosage": "2 x 117mg",
+      "justification": "Keep morning + pre‑bed; avoid high citrate late day if it loosens stools."
     },
     {
       "time": "Morning",
       "compound": "🍵 Theanine",
       "function": "Relaxation / focus",
-      "dosage": "250 mg"
+      "dosage": "250 mg",
+      "justification": "Excellent anxiolytic without sedation. Keep 100–150 mg mid‑afternoon + remainder at bedtime if helpful for wind‑down."
     },
     {
       "time": "Lunch",
       "compound": "🌞 Vitamin D3",
       "function": "Immunity / liver modulation",
-      "dosage": "2 x 2000 IU"
+      "dosage": "2 x 2000 IU",
+      "justification": "Immune modulation and liver health support; fat-soluble vitamin important in cholestasis."
     },
     {
       "time": "Lunch",
       "compound": "🕸️ NAC",
       "function": "Antioxidant / liver detox",
-      "dosage": "1.5g"
+      "dosage": "1.5g",
+      "justification": "Hepatic GSH support and mucosal protection; ideal for PSC/UC overlap."
     },
     {
       "time": "Lunch",
       "compound": "🕸️ Racemethionine + Choline",
       "function": "Methylation / bile flow",
-      "dosage": "2 x (100 mg + 20 mg)"
+      "dosage": "2 x (100 mg + 20 mg)",
+      "justification": "Key methyl donors and bile-mobilizing nutrients."
     },
     {
       "time": "Lunch",
       "compound": "🕸️ Silymarin",
       "function": "Liver protection",
-      "dosage": "2 x 200 mg"
+      "dosage": "2 x 200 mg",
+      "justification": "Hepatoprotection via glutathione up‑regulation and NF‑κB modulation."
     },
     {
       "time": "Lunch",
       "compound": "🐟 Omega-3 + 🧠 Phosphatidylserine",
       "function": "Anti-inflammatory / cognition",
-      "dosage": "2 x 0.8g | 2 x 50 mg"
+      "dosage": "2 x 0.8g | 2 x 50 mg",
+      "justification": "Maintain split EPA+DHA to ~3 g/day total for anti-TNF and anti-fibrotic effects."
     },
     {
       "time": "Lunch",
       "compound": "🛡️ Quercetin",
       "function": "Anti-inflammatory / anti-fibrotic",
-      "dosage": "1 x 500 mg"
+      "dosage": "1 x 500 mg",
+      "justification": "Anti‑inflammatory/anti‑fibrotic; mast‑cell stabilizer; **keep ≥3 h away from iron** (Noripurum)."
     },
     {
       "time": "Lunch",
       "compound": "🦵 MSM",
       "function": "Anti-inflammatory / sulfur donor",
-      "dosage": "1g"
+      "dosage": "1g",
+      "justification": "* Synergistic with NAC in thiol replenishment and inflammation control.\n* Supports connective tissue repair and mild sedative synergy via sulfur metabolism."
     },
     {
       "time": "Lunch",
       "compound": "🦴 Calcium",
       "function": "Bone / muscle support",
-      "dosage": "1 x 500 mg"
+      "dosage": "1 x 500 mg",
+      "justification": "Bone health support; separate from iron and other supplements that may interfere with absorption."
     },
     {
       "time": "Afternoon",
       "compound": "🕸️ Racemethionine + Choline",
       "function": "Methylation / bile flow",
-      "dosage": "2 x (100 mg + 20 mg)"
+      "dosage": "2 x (100 mg + 20 mg)",
+      "justification": "Key methyl donors and bile-mobilizing nutrients."
     },
     {
       "time": "Afternoon",
       "compound": "✨ Golden Milk",
       "function": "Curcumin anti-inflammatory",
-      "dosage": "7 g (with pepper)"
+      "dosage": "7 g (with pepper)",
+      "justification": "Lipid vehicle (milk) + piperine improves absorption; enhanced systemic anti-inflammatory effect."
     },
     {
       "time": "Afternoon",
       "compound": "🍊 Vitamin C",
       "function": "Antioxidant / collagen",
-      "dosage": "1g"
+      "dosage": "1g",
+      "justification": "Antioxidant support and enhances iron absorption when taken with Noripurum."
     },
     {
       "time": "Afternoon",
       "compound": "🔩 Noripurum",
       "function": "Iron supplementation",
-      "dosage": "20 drops (20 mg Fe)"
+      "dosage": "20 drops (20 mg Fe)",
+      "justification": "Maintain **away from quercetin, NAC, and calcium** by ≥2–3 h; pair with vitamin C for absorption."
     },
     {
       "time": "Dinner",
       "compound": "🐟 Omega-3 + Phosphatidylserine",
       "function": "Anti-inflammatory / cognition",
-      "dosage": "2 caps (Ω3 1,590 mg) + PS 100 mg"
+      "dosage": "2 caps (Ω3 1,590 mg) + PS 100 mg",
+      "justification": "Maintain split EPA+DHA to ~3 g/day total for anti-TNF and anti-fibrotic effects."
     },
     {
       "time": "Dinner",
       "compound": "🦵 MSM",
       "function": "Anti-inflammatory / sulfur donor",
-      "dosage": "1g"
+      "dosage": "1g",
+      "justification": "* Synergistic with NAC in thiol replenishment and inflammation control.\n* Supports connective tissue repair and mild sedative synergy via sulfur metabolism."
     },
     {
       "time": "Dinner",
       "compound": "L. rhamnosus",
       "function": "Gut support",
-      "dosage": "2 sachets (250 mg)"
+      "dosage": "2 sachets (250 mg)",
+      "justification": "Excellent combo with NutrioneLife: immune modulation + intestinal permeability control."
     },
     {
       "time": "Dinner",
       "compound": "🦠 NutrioneLife",
       "function": "Gut microbiota balance",
-      "dosage": "1 sachet"
+      "dosage": "1 sachet",
+      "justification": "Excellent combo with L. rhamnosus: immune modulation + intestinal permeability control."
     },
     {
       "time": "Bedtime",
       "compound": "💊 Ursacol",
       "function": "Liver / bile flow overnight",
-      "dosage": "3 x 300 mg (900 mg)"
+      "dosage": "3 x 300 mg (900 mg)",
+      "justification": "Hydrophilic bile acid → replaces toxic bile salts → reduces cholestasis & inflammation in PSC."
     },
     {
       "time": "Bedtime",
       "compound": "🕸️ Silymarin",
       "function": "Liver protection",
-      "dosage": "2 x 200 mg"
+      "dosage": "2 x 200 mg",
+      "justification": "Hepatoprotection via glutathione up‑regulation and NF‑κB modulation."
     },
     {
       "time": "Bedtime",
       "compound": "🛡️ NAC",
       "function": "Antioxidant / liver detox",
-      "dosage": "1.5g"
+      "dosage": "1.5g",
+      "justification": "Hepatic GSH support and mucosal protection; ideal for PSC/UC overlap."
     },
     {
       "time": "Bedtime",
       "compound": "🦵 MSM",
       "function": "Repair / sulfur donor",
-      "dosage": "2g"
+      "dosage": "2g",
+      "justification": "* Synergistic with NAC in thiol replenishment and inflammation control.\n* Supports connective tissue repair and mild sedative synergy via sulfur metabolism."
     },
     {
       "time": "Bedtime",
       "compound": "💤 Glycine",
       "function": "Sleep onset / thermoregulation",
-      "dosage": "3g"
+      "dosage": "3g",
+      "justification": "Improves slow‑wave sleep and thermoregulation."
     },
     {
       "time": "Bedtime",
       "compound": "💤 Myo-Inositol",
       "function": "Neurochemical balance",
-      "dosage": "3g"
+      "dosage": "3g",
+      "justification": "Serotonergic/cholinergic modulation for calmer sleep; synergistic with magnesium and theanine."
     },
     {
       "time": "Bedtime",
       "compound": "🛡️ Quercetin",
       "function": "Antihistaminic / sleep aid",
-      "dosage": "1 x 500 mg"
+      "dosage": "1 x 500 mg",
+      "justification": "Anti‑inflammatory/anti‑fibrotic; mast‑cell stabilizer; **keep ≥3 h away from iron** (Noripurum)."
     }
   ]
 }
