@@ -132,6 +132,27 @@
     },
     {
       "time": "Morning",
+      "compound": "🧬 TMG (Trimethylglycine)",
+      "function": "Methylation / bile flow",
+      "dosage": "500 mg",
+      "justification": "Supports BHMT remethylation and may aid bile flow; complements methionine/choline."
+    },
+    {
+      "time": "Morning",
+      "compound": "🧪 SAMe (S-adenosyl-L-methionine)",
+      "function": "Liver / bile flow",
+      "dosage": "400 mg",
+      "justification": "Evidence for cholestasis symptom and enzyme support; avoid late‑evening dosing if stimulating."
+    },
+    {
+      "time": "Morning",
+      "compound": "🧪 Taurine",
+      "function": "Liver / bile flow",
+      "dosage": "1 g",
+      "justification": "Substrate for bile‑acid conjugation; supportive for bile flow."
+    },
+    {
+      "time": "Morning",
       "compound": "💊 Mesalazine",
       "function": "Colon anti-inflammatory",
       "dosage": "1 x 500 mg",
@@ -153,9 +174,16 @@
     },
     {
       "time": "Lunch",
+      "compound": "🐟 Omega-3 + 🧠 Phosphatidylserine",
+      "function": "Anti-inflammatory / cognition",
+      "dosage": "2 x 0.8 g | 2 x 50 mg",
+      "justification": "Maintain split EPA+DHA to ~3 g/day total for anti-TNF and anti-fibrotic effects."
+    },
+    {
+      "time": "Lunch",
       "compound": "🕸️ NAC",
       "function": "Antioxidant / liver detox",
-      "dosage": "1.5g",
+      "dosage": "1.5 g",
       "justification": "Hepatic GSH support and mucosal protection; ideal for PSC/UC overlap."
     },
     {
@@ -174,24 +202,10 @@
     },
     {
       "time": "Lunch",
-      "compound": "🐟 Omega-3 + 🧠 Phosphatidylserine",
-      "function": "Anti-inflammatory / cognition",
-      "dosage": "2 x 0.8g | 2 x 50 mg",
-      "justification": "Maintain split EPA+DHA to ~3 g/day total for anti-TNF and anti-fibrotic effects."
-    },
-    {
-      "time": "Lunch",
       "compound": "🛡️ Quercetin",
       "function": "Anti-inflammatory / anti-fibrotic",
       "dosage": "1 x 500 mg",
       "justification": "Anti‑inflammatory/anti‑fibrotic; mast‑cell stabilizer; **keep ≥3 h away from iron** (Noripurum)."
-    },
-    {
-      "time": "Lunch",
-      "compound": "🦵 MSM",
-      "function": "Anti-inflammatory / sulfur donor",
-      "dosage": "1g",
-      "justification": "* Synergistic with NAC in thiol replenishment and inflammation control.\n* Supports connective tissue repair and mild sedative synergy via sulfur metabolism."
     },
     {
       "time": "Lunch",
@@ -201,24 +215,24 @@
       "justification": "Bone health support; separate from iron and other supplements that may interfere with absorption."
     },
     {
-      "time": "Afternoon",
-      "compound": "🕸️ Racemethionine + Choline",
-      "function": "Methylation / bile flow",
-      "dosage": "2 x (100 mg + 20 mg)",
-      "justification": "Key methyl donors and bile-mobilizing nutrients."
+      "time": "Lunch",
+      "compound": "🦵 MSM",
+      "function": "Anti-inflammatory / sulfur donor",
+      "dosage": "2 g",
+      "justification": "* Synergistic with NAC in thiol replenishment and inflammation control.\n* Supports connective tissue repair and mild sedative synergy via sulfur metabolism."
     },
     {
       "time": "Afternoon",
       "compound": "✨ Golden Milk",
       "function": "Curcumin anti-inflammatory",
-      "dosage": "7 g (with pepper)",
+      "dosage": "15 g (with pepper)",
       "justification": "Lipid vehicle (milk) + piperine improves absorption; enhanced systemic anti-inflammatory effect."
     },
     {
       "time": "Afternoon",
       "compound": "🍊 Vitamin C",
       "function": "Antioxidant / collagen",
-      "dosage": "1g",
+      "dosage": "1 g",
       "justification": "Antioxidant support and enhances iron absorption when taken with Noripurum."
     },
     {
@@ -229,25 +243,18 @@
       "justification": "Maintain **away from quercetin, NAC, and calcium** by ≥2–3 h; pair with vitamin C for absorption."
     },
     {
-      "time": "Dinner",
-      "compound": "🐟 Omega-3 + Phosphatidylserine",
-      "function": "Anti-inflammatory / cognition",
-      "dosage": "2 caps (Ω3 1,590 mg) + PS 100 mg",
-      "justification": "Maintain split EPA+DHA to ~3 g/day total for anti-TNF and anti-fibrotic effects."
-    },
-    {
-      "time": "Dinner",
-      "compound": "🦵 MSM",
-      "function": "Anti-inflammatory / sulfur donor",
-      "dosage": "1g",
-      "justification": "* Synergistic with NAC in thiol replenishment and inflammation control.\n* Supports connective tissue repair and mild sedative synergy via sulfur metabolism."
-    },
-    {
-      "time": "Dinner",
+      "time": "Afternoon",
       "compound": "L. rhamnosus",
       "function": "Gut support",
       "dosage": "2 sachets (250 mg)",
       "justification": "Excellent combo with NutrioneLife: immune modulation + intestinal permeability control."
+    },
+    {
+      "time": "Afternoon",
+      "compound": "🧪 SAMe (S-adenosyl-L-methionine)",
+      "function": "Liver / bile flow",
+      "dosage": "400 mg",
+      "justification": "Evidence for cholestasis symptom and enzyme support; afternoon dosing to avoid stimulation late evening."
     },
     {
       "time": "Dinner",
@@ -255,6 +262,34 @@
       "function": "Gut microbiota balance",
       "dosage": "1 sachet",
       "justification": "Excellent combo with L. rhamnosus: immune modulation + intestinal permeability control."
+    },
+    {
+      "time": "Dinner",
+      "compound": "🦴 Vitamin K2 (MK-7)",
+      "function": "Liver / bile flow",
+      "dosage": "100–200 µg",
+      "justification": "Fat‑soluble vitamin support in cholestasis (bone/INR considerations); water‑miscible forms if advised."
+    },
+    {
+      "time": "Dinner",
+      "compound": "🕸️ Racemethionine + Choline",
+      "function": "Methylation / bile flow",
+      "dosage": "2 x (100 mg + 20 mg)",
+      "justification": "Key methyl donors and bile-mobilizing nutrients."
+    },
+    {
+      "time": "Dinner",
+      "compound": "🧪 Taurine",
+      "function": "Liver / bile flow",
+      "dosage": "1 g",
+      "justification": "Substrate for bile‑acid conjugation; supportive for bile flow."
+    },
+    {
+      "time": "Dinner",
+      "compound": "🧬 TMG (Trimethylglycine)",
+      "function": "Methylation / bile flow",
+      "dosage": "500 mg",
+      "justification": "Supports BHMT remethylation and may aid bile flow; complements methionine/choline."
     },
     {
       "time": "Bedtime",
@@ -274,29 +309,8 @@
       "time": "Bedtime",
       "compound": "🛡️ NAC",
       "function": "Antioxidant / liver detox",
-      "dosage": "1.5g",
+      "dosage": "1.5 g",
       "justification": "Hepatic GSH support and mucosal protection; ideal for PSC/UC overlap."
-    },
-    {
-      "time": "Bedtime",
-      "compound": "🦵 MSM",
-      "function": "Repair / sulfur donor",
-      "dosage": "2g",
-      "justification": "* Synergistic with NAC in thiol replenishment and inflammation control.\n* Supports connective tissue repair and mild sedative synergy via sulfur metabolism."
-    },
-    {
-      "time": "Bedtime",
-      "compound": "💤 Glycine",
-      "function": "Sleep onset / thermoregulation",
-      "dosage": "3g",
-      "justification": "Improves slow‑wave sleep and thermoregulation."
-    },
-    {
-      "time": "Bedtime",
-      "compound": "💤 Myo-Inositol",
-      "function": "Neurochemical balance",
-      "dosage": "3g",
-      "justification": "Serotonergic/cholinergic modulation for calmer sleep; synergistic with magnesium and theanine."
     },
     {
       "time": "Bedtime",
@@ -304,6 +318,27 @@
       "function": "Antihistaminic / sleep aid",
       "dosage": "1 x 500 mg",
       "justification": "Anti‑inflammatory/anti‑fibrotic; mast‑cell stabilizer; **keep ≥3 h away from iron** (Noripurum)."
+    },
+    {
+      "time": "Bedtime",
+      "compound": "🦵 MSM",
+      "function": "Repair / sulfur donor",
+      "dosage": "2 g",
+      "justification": "* Synergistic with NAC in thiol replenishment and inflammation control.\n* Supports connective tissue repair and mild sedative synergy via sulfur metabolism."
+    },
+    {
+      "time": "Bedtime",
+      "compound": "💤 Glycine",
+      "function": "Sleep onset / thermoregulation",
+      "dosage": "3 g",
+      "justification": "Improves slow‑wave sleep and thermoregulation."
+    },
+    {
+      "time": "Bedtime",
+      "compound": "💤 Myo-Inositol",
+      "function": "Neurochemical balance",
+      "dosage": "3 g",
+      "justification": "Serotonergic/cholinergic modulation for calmer sleep; synergistic with magnesium and theanine."
     }
   ]
 }

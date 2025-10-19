@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://maladie.ronaldo.tech/QUARTO_SETUP.html</loc>
-    <lastmod>2025-10-11T22:29:23.078Z</lastmod>
-  </url>
-  <url>
-    <loc>https://maladie.ronaldo.tech/meds.html</loc>
-    <lastmod>2025-10-11T23:15:21.794Z</lastmod>
-  </url>
-  <url>
-    <loc>https://maladie.ronaldo.tech/reports/Health_Report.html</loc>
-    <lastmod>2025-10-11T22:27:39.024Z</lastmod>
+    <loc>https://maladie.ronaldo.tech/index.html</loc>
+    <lastmod>2025-10-19T21:08:25.825Z</lastmod>
   </url>
   <url>
     <loc>https://maladie.ronaldo.tech/blood.html</loc>
-    <lastmod>2025-10-11T23:16:53.595Z</lastmod>
+    <lastmod>2025-10-19T02:25:01.731Z</lastmod>
   </url>
   <url>
-    <loc>https://maladie.ronaldo.tech/index.html</loc>
-    <lastmod>2025-10-19T20:37:12.966Z</lastmod>
+    <loc>https://maladie.ronaldo.tech/QUARTO_SETUP.html</loc>
+    <lastmod>2025-10-19T02:25:01.731Z</lastmod>
   </url>
   <url>
     <loc>https://maladie.ronaldo.tech/WARP.html</loc>
-    <lastmod>2025-10-11T22:27:38.900Z</lastmod>
+    <lastmod>2025-09-22T19:44:01.053Z</lastmod>
+  </url>
+  <url>
+    <loc>https://maladie.ronaldo.tech/reports/Health_Report.html</loc>
+    <lastmod>2025-10-19T02:25:01.732Z</lastmod>
+  </url>
+  <url>
+    <loc>https://maladie.ronaldo.tech/meds.html</loc>
+    <lastmod>2025-10-19T02:25:01.731Z</lastmod>
   </url>
 </urlset>
