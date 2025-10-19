@@ -97,31 +97,10 @@
     },
     {
       "time": "Morning",
-      "compound": "💊 Ursacol",
-      "function": "Liver / bile flow",
-      "dosage": "2 x 300 mg",
-      "justification": "Hydrophilic bile acid → replaces toxic bile salts → reduces cholestasis & inflammation in PSC."
-    },
-    {
-      "time": "Morning",
-      "compound": "💉 Adalimumab",
-      "function": "Systemic anti-TNF",
-      "dosage": "1 x 40 mg (weekly)",
-      "justification": "Baseline for mucosal control — continue as prescribed."
-    },
-    {
-      "time": "Morning",
-      "compound": "💊 Mesalazine",
-      "function": "Colon anti-inflammatory",
-      "dosage": "1 x 500 mg",
-      "justification": "Baseline for mucosal control — continue as prescribed."
-    },
-    {
-      "time": "Morning",
-      "compound": "🏋️ Creatine",
-      "function": "Energy / cellular metabolism",
-      "dosage": "10 g",
-      "justification": "Supports cellular energy and muscle metabolism."
+      "compound": "⚡ Magnesium complex",
+      "function": "Relaxation / metabolism",
+      "dosage": "2 x 117mg",
+      "justification": "Keep morning + pre‑bed; avoid high citrate late day if it loosens stools."
     },
     {
       "time": "Morning",
@@ -132,10 +111,10 @@
     },
     {
       "time": "Morning",
-      "compound": "⚡ Magnesium complex",
-      "function": "Relaxation / metabolism",
-      "dosage": "2 x 117mg",
-      "justification": "Keep morning + pre‑bed; avoid high citrate late day if it loosens stools."
+      "compound": "💊 Ursacol",
+      "function": "Liver / bile flow",
+      "dosage": "2 x 300 mg",
+      "justification": "Hydrophilic bile acid → replaces toxic bile salts → reduces cholestasis & inflammation in PSC."
     },
     {
       "time": "Morning",
@@ -143,6 +122,27 @@
       "function": "Relaxation / focus",
       "dosage": "250 mg",
       "justification": "Excellent anxiolytic without sedation. Keep 100–150 mg mid‑afternoon + remainder at bedtime if helpful for wind‑down."
+    },
+    {
+      "time": "Morning",
+      "compound": "🏋️ Creatine",
+      "function": "Energy / cellular metabolism",
+      "dosage": "10 g",
+      "justification": "Supports cellular energy and muscle metabolism."
+    },
+    {
+      "time": "Morning",
+      "compound": "💊 Mesalazine",
+      "function": "Colon anti-inflammatory",
+      "dosage": "1 x 500 mg",
+      "justification": "Baseline for mucosal control — continue as prescribed."
+    },
+    {
+      "time": "Morning",
+      "compound": "💉 Adalimumab",
+      "function": "Systemic anti-TNF",
+      "dosage": "1 x 40 mg (weekly)",
+      "justification": "Baseline for mucosal control — continue as prescribed."
     },
     {
       "time": "Lunch",
