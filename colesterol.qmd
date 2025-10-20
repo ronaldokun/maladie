@@ -1,0 +1,25 @@
+---
+format:
+  html:
+    toc: false
+    page-layout: full
+---
+
+# Metabolismo do Colesterol e Colestase Hepática
+![Colesterol na Colestase](fluxograma_colestase.svg)
+
+
+![Mapa Colesterol](mapa_colesterol.svg)
+
+
+## Mini-guia clínico em 4 linhas (foco em Colesterol Total):
+
+* Na colestase (PBC/PSC), o colesterol total sobe muito, dominado por LpX (não aterogênica e não captada por LDLR).
+
+* A disfunção do fluxo biliar reduz conversão em ácidos biliares e bloqueia excreção, levando a acúmulo hepático e feedback desregulado (↑ síntese).
+
+* O risco CV não aumenta proporcionalmente ao total, por causa do peso da LpX; meça ApoB/LDL verdadeiro para risco aterogênico real.
+
+* Conduta: tratar a colestase (UDCA/desobstrução/transplante); resinas para prurido; considerar estatina/fibrato se ApoB/LDL aterogênico estiverem elevados.
+
+
