@@ -1,5 +1,3 @@
-# Conclusão
-
 ## Biópsia de íleo terminal
 
 > **Mucosa ileal com arquitetura preservada.**
@@ -13,14 +11,14 @@
 * <p style="color:red;">Mucosa colônica com discretos microabscessos de cripta focais.</p>
 * Não foram detectados granulomas, parasitas, criptite e/ou displasia.
 
-## SPA25-164481C - Biópsia de cólon esquerdo
+## Biópsia de cólon esquerdo
 
 > ⚠️**Colite crônica leve.**
 
 * <p style="color:red;">Mucosa colônica com discreta distorção de criptas, criptite e microabscessos de criptas.</p>
 * Não foram detectados granulomas, parasitas e/ou displasia.
 
-## SPA25-164481D - Biópsia de reto
+## Biópsia de reto
 
 > ⚠️**Retite crônica leve.**
 
