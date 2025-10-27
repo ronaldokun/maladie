@@ -7,6 +7,8 @@ project:
     - blood_markers_pivot.csv
     - reports.json
     - med_schedule.json
+    - fluxograma_colestage.svg
+    - mapa_colesterol.svg
 
 website:
   title: "Maladie - Health Tracking"
@@ -16,6 +18,8 @@ website:
         href: index.qmd
       - text: "Blood Markers"
         href: blood.qmd
+      - text: Cholesterol and Cholestasis
+        href: colesterol.qmd
       - text: "Medications"
         href: meds.qmd
 
