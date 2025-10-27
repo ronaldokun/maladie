@@ -63,39 +63,18 @@
     "text": "Gama-Interferon\n\nResultado: Negativo\n\n\nNIL: 0 07 UI/mL\nAntígeno TB1 menos NIL: Inferior a 0,01 UI/mL\nAntígeno TB2 menos NIL: Inferior a 0,01 UI/mL\nMitógeno menos NIL: Superior a 10,00 UI/mL"
   },
   {
-    "objectID": "reports/20250918_Biópsia_Cólon.html",
-    "href": "reports/20250918_Biópsia_Cólon.html",
-    "title": "Conclusão",
+    "objectID": "reports/20250914_colangioressonancia.html",
+    "href": "reports/20250914_colangioressonancia.html",
+    "title": "Maladie - Health Tracking",
     "section": "",
-    "text": "Mucosa ileal com arquitetura preservada.\n\n\nNão foram detectados granulomas, parasitas, criptite, microabscessos de criptas e/ou displasia.\n\n\n\n\n\n⚠️ Colite ativa focal.\n\n\n\nMucosa colônica com discretos microabscessos de cripta focais.\n\nNão foram detectados granulomas, parasitas, criptite e/ou displasia.\n\n\n\n\n\n⚠️Colite crônica leve.\n\n\n\nMucosa colônica com discreta distorção de criptas, criptite e microabscessos de criptas.\n\nNão foram detectados granulomas, parasitas e/ou displasia.\n\n\n\n\n\n⚠️Retite crônica leve.\n\n\n\nMucosa retal com discreta distorção de criptas, criptite e microabscessos de criptas.\n\nNão foram detectados granulomas, parasitas e/ou displasia.\n\nNota: É necessária correlação com dados clínicos, laboratoriais e colonoscópicos."
+    "text": "Vias biliares: intra e extrahepáticas irregulares, com alguns segmentos apresentando redução focal de calibre entremeados por outros com leve ectasia. Não se caracterizam cálculos. As paredes são levemente espessas e irregulares, não se caracterizando sinais de hiperrealce.\nVesícula biliar: normodistendida, de paredes finas e regulares, com alguns cálculos esparsos, menores que 0,5 cm, sem sinais inflamatórios agudos.\nComparação: RM 31/08/25: - Mais evidente o espessamento parietal nos segmentos acessíveis da moldura cólica"
   },
   {
-    "objectID": "reports/20250918_Biópsia_Cólon.html#biópsia-de-íleo-terminal",
-    "href": "reports/20250918_Biópsia_Cólon.html#biópsia-de-íleo-terminal",
-    "title": "Conclusão",
-    "section": "",
-    "text": "Mucosa ileal com arquitetura preservada.\n\n\nNão foram detectados granulomas, parasitas, criptite, microabscessos de criptas e/ou displasia."
-  },
-  {
-    "objectID": "reports/20250918_Biópsia_Cólon.html#biópsia-de-cólon-direito",
-    "href": "reports/20250918_Biópsia_Cólon.html#biópsia-de-cólon-direito",
-    "title": "Conclusão",
-    "section": "",
-    "text": "⚠️ Colite ativa focal.\n\n\n\nMucosa colônica com discretos microabscessos de cripta focais.\n\nNão foram detectados granulomas, parasitas, criptite e/ou displasia."
-  },
-  {
-    "objectID": "reports/20250918_Biópsia_Cólon.html#spa25-164481c---biópsia-de-cólon-esquerdo",
-    "href": "reports/20250918_Biópsia_Cólon.html#spa25-164481c---biópsia-de-cólon-esquerdo",
-    "title": "Conclusão",
-    "section": "",
-    "text": "⚠️Colite crônica leve.\n\n\n\nMucosa colônica com discreta distorção de criptas, criptite e microabscessos de criptas.\n\nNão foram detectados granulomas, parasitas e/ou displasia."
-  },
-  {
-    "objectID": "reports/20250918_Biópsia_Cólon.html#spa25-164481d---biópsia-de-reto",
-    "href": "reports/20250918_Biópsia_Cólon.html#spa25-164481d---biópsia-de-reto",
-    "title": "Conclusão",
-    "section": "",
-    "text": "⚠️Retite crônica leve.\n\n\n\nMucosa retal com discreta distorção de criptas, criptite e microabscessos de criptas.\n\nNão foram detectados granulomas, parasitas e/ou displasia.\n\nNota: É necessária correlação com dados clínicos, laboratoriais e colonoscópicos."
+    "objectID": "reports/20250914_colangioressonancia.html#conclusão",
+    "href": "reports/20250914_colangioressonancia.html#conclusão",
+    "title": "Maladie - Health Tracking",
+    "section": "Conclusão:",
+    "text": "Conclusão:\n\nVias biliares irregulares, com alguns segmentos apresentando redução focal de calibre entremeados por outros com leve ectasia, achados que podem corresponder a processo inflamatório crônico, conforme dados clínicos fornecidos.\nNão se caracterizam sinais de processo agudo / atividade evidentes ao método; sugere-se correlação com dados laboratoriais.\nCálculos na vesícula biliar sem sinais inflamatórios.\nPequena distensão líquida e leve edema / espessamento parietal dos segmentos cólicos acessíveis, que pode corresponder processo inflamatório / colite."
   },
   {
     "objectID": "colesterol.html",
@@ -110,6 +89,41 @@
     "title": "Metabolismo do Colesterol e Colestase Hepática",
     "section": "",
     "text": "Na colestase (PBC/PSC), o colesterol total sobe muito, dominado por LpX (não aterogênica e não captada por LDLR).\nA disfunção do fluxo biliar reduz conversão em ácidos biliares e bloqueia excreção, levando a acúmulo hepático e feedback desregulado (↑ síntese).\nO risco CV não aumenta proporcionalmente ao total, por causa do peso da LpX; meça ApoB/LDL verdadeiro para risco aterogênico real.\nConduta: tratar a colestase (UDCA/desobstrução/transplante); resinas para prurido; considerar estatina/fibrato se ApoB/LDL aterogênico estiverem elevados."
+  },
+  {
+    "objectID": "reports/20250918_Biópsia_Cólon.html",
+    "href": "reports/20250918_Biópsia_Cólon.html",
+    "title": "Maladie - Health Tracking",
+    "section": "",
+    "text": "Mucosa ileal com arquitetura preservada.\n\n\nNão foram detectados granulomas, parasitas, criptite, microabscessos de criptas e/ou displasia."
+  },
+  {
+    "objectID": "reports/20250918_Biópsia_Cólon.html#biópsia-de-íleo-terminal",
+    "href": "reports/20250918_Biópsia_Cólon.html#biópsia-de-íleo-terminal",
+    "title": "Maladie - Health Tracking",
+    "section": "",
+    "text": "Mucosa ileal com arquitetura preservada.\n\n\nNão foram detectados granulomas, parasitas, criptite, microabscessos de criptas e/ou displasia."
+  },
+  {
+    "objectID": "reports/20250918_Biópsia_Cólon.html#biópsia-de-cólon-direito",
+    "href": "reports/20250918_Biópsia_Cólon.html#biópsia-de-cólon-direito",
+    "title": "Maladie - Health Tracking",
+    "section": "Biópsia de cólon direito",
+    "text": "Biópsia de cólon direito\n\n⚠️ Colite ativa focal.\n\n\n\nMucosa colônica com discretos microabscessos de cripta focais.\n\nNão foram detectados granulomas, parasitas, criptite e/ou displasia."
+  },
+  {
+    "objectID": "reports/20250918_Biópsia_Cólon.html#biópsia-de-cólon-esquerdo",
+    "href": "reports/20250918_Biópsia_Cólon.html#biópsia-de-cólon-esquerdo",
+    "title": "Maladie - Health Tracking",
+    "section": "Biópsia de cólon esquerdo",
+    "text": "Biópsia de cólon esquerdo\n\n⚠️Colite crônica leve.\n\n\n\nMucosa colônica com discreta distorção de criptas, criptite e microabscessos de criptas.\n\nNão foram detectados granulomas, parasitas e/ou displasia."
+  },
+  {
+    "objectID": "reports/20250918_Biópsia_Cólon.html#biópsia-de-reto",
+    "href": "reports/20250918_Biópsia_Cólon.html#biópsia-de-reto",
+    "title": "Maladie - Health Tracking",
+    "section": "Biópsia de reto",
+    "text": "Biópsia de reto\n\n⚠️Retite crônica leve.\n\n\n\nMucosa retal com discreta distorção de criptas, criptite e microabscessos de criptas.\n\nNão foram detectados granulomas, parasitas e/ou displasia.\n\nNota: É necessária correlação com dados clínicos, laboratoriais e colonoscópicos."
   },
   {
     "objectID": "reports/20250913_Relatorio_Clinico.html",

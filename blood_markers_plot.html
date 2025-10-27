@@ -304,14 +304,22 @@
             }
             // Parse header row to get dates
             const headers = parseCSVLine(lines[0]);
-            dateTimes = headers.slice(1, -1); // Remove first (ANALITOS) and last (VALORES DE REFERENCIA) columns
+            dateTimes = headers.slice(1, -1) // Remove first (ANALITOS) and last (VALORES DE REFERENCIA) columns
+                .filter(date => date.trim() !== ''); // Filter out empty date columns
             // Parse data rows
             rawData = [];
             for (let i = 1; i < lines.length; i++) {
                 const row = parseCSVLine(lines[i]);
                 if (row.length < 3) continue; // Skip incomplete rows
                 const analyteName = row[0];
-                const values = row.slice(1, -1); // Remove first and last columns
+                // Get values, removing first column (analyte name) and last column (reference)
+                // Also filter to only include values corresponding to non-empty date headers
+                const rawValues = row.slice(1, -1); // Remove first and last columns
+                const values = rawValues.filter((val, idx) => {
+                    // Only keep values where the corresponding header is not empty
+                    const correspondingHeader = headers[idx + 1]; // +1 because we removed the first column
+                    return correspondingHeader && correspondingHeader.trim() !== '';
+                });
                 const referenceWithUnit = row[row.length - 1] || '';
                 // Parse unit and reference from the last column
                 const unitMatch = referenceWithUnit.match(/([^\s]+)$/);
@@ -1128,6 +1136,7 @@
             // If body_md_file is specified, fetch the markdown from file
             if (r.body_md_file && !md) {
                 try {
+                    // Construct relative URL from current page location
                     const mdUrl = new URL(r.body_md_file, window.location.href).href;
                     const res = await fetch(mdUrl);
                     if (res.ok) {

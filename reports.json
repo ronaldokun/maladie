@@ -15,10 +15,23 @@
         "href": "https://media.githubusercontent.com/media/ronaldokun/maladie/refs/heads/main/reports/20241219_Colonoscopia.pdf"
       }
     ],
-    "body_md_file": "reports/20241219_Colonoscopia.md"
+    "body_md_file": "reports/20241219_Colonoscopia.html"
   },
   {
-    "id": "20250916_Relatorio_CLinico",
+    "id": "20250914_colangioressonancia",
+    "datetime": "14/09/25",
+    "modality": "Ressonância Magnética",
+    "title": "Colângio",
+    "summary": "Mais evidente o espessamento parietal nos segmentos acessíveis da moldura cólica",
+    "tags": [
+      "ressonância magnética",
+      "colangite"
+    ],
+    "attachments": [],
+    "body_md_file": "reports/20250914_colangioressonancia.html"
+  },
+  {
+    "id": "20250916_Relatorio_Clinico",
     "datetime": "13/09/25",
     "modality": "Relatorio",
     "title": "Relatório Clínico",
@@ -28,7 +41,7 @@
       "clínica médica"
     ],
     "attachments": [],
-    "body_md_file": "reports/20250913_Relatorio_Clinico.md"
+    "body_md_file": "reports/20250913_Relatorio_Clinico.html"
   },
   {
     "id": "20250918_Biópsia_Cólon",
@@ -41,7 +54,7 @@
       "biópsia"
     ],
     "attachments": [],
-    "body_md_file": "reports/20250918_Biópsia_Cólon.md"
+    "body_md_file": "reports/20250918_Biópsia_Cólon.html"
   },
   {
     "id": "20250925_TB_Interferon",
@@ -59,6 +72,6 @@
         "href": "https://media.githubusercontent.com/media/ronaldokun/maladie/refs/heads/main/reports/20250925_TB_Interferon.pdf"
       }
     ],
-    "body_md_file": "reports/20250925_TB_Interferon.md"
+    "body_md_file": "reports/20250925_TB_Interferon.html"
   }
 ]
