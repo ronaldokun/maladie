@@ -1115,7 +1115,7 @@
         }
 
 
-        function openReport(id) {
+        async function openReport(id) {
             const r = reports.find(x => x.id === id);
             if (!r) return;
             document.getElementById('reportTitle').textContent = `${r.modality} — ${r.title}`;
@@ -1123,7 +1123,26 @@
             if (Array.isArray(r.tags) && r.tags.length) metaParts.push(r.tags.join(', '));
             document.getElementById('reportMeta').textContent = metaParts.filter(Boolean).join(' • ');
             const bodyEl = document.getElementById('reportBody');
-            const md = r.body_md || r.summary || '';
+            let md = r.body_md || '';
+            
+            // If body_md_file is specified, fetch the markdown from file
+            if (r.body_md_file && !md) {
+                try {
+                    const mdUrl = new URL(r.body_md_file, window.location.href).href;
+                    const res = await fetch(mdUrl);
+                    if (res.ok) {
+                        md = await res.text();
+                    } else {
+                        md = r.summary || `Could not load report content from ${r.body_md_file}`;
+                    }
+                } catch (e) {
+                    console.warn('Error loading markdown file:', e);
+                    md = r.summary || 'Error loading report content';
+                }
+            } else {
+                md = md || r.summary || '';
+            }
+            
             bodyEl.innerHTML = (window.marked ? marked.parse(md) : md);
             const linksEl = document.getElementById('reportLinks');
             const links = (r.attachments || []).map(a => `<a href="${a.href}" target="_blank" rel="noopener">${(a.type || 'file').toUpperCase()}</a>`);
