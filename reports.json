@@ -18,6 +18,19 @@
     "body_md_file": "reports/20241219_Colonoscopia.html"
   },
   {
+    "id": "20250809_colangioressonancia",
+    "datetime": "09/08/25",
+    "modality": "Ressonância Magnética",
+    "title": "Colângio",
+    "summary": "Colecistolitíase sem sinais inflamatórios atuais. Irregularidades parietais difusas das vias biliares e discreta dilatação das vias biliares intra e extra hepáticas,",
+    "tags": [
+      "ressonância magnética",
+      "colangite"
+    ],
+    "attachments": [],
+    "body_md_file": "reports/20250809_colangioressonancia.html"
+  },
+  {
     "id": "20250914_colangioressonancia",
     "datetime": "14/09/25",
     "modality": "Ressonância Magnética",

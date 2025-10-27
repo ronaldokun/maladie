@@ -1,152 +1,5 @@
 [
   {
-    "objectID": "QUARTO_SETUP.html",
-    "href": "QUARTO_SETUP.html",
-    "title": "Quarto Multi-Page Site Setup",
-    "section": "",
-    "text": "This document describes the Quarto configuration for the maladie health tracking website.\n\n\nThe site is now a multi-page Quarto website with the following pages:\n\nHome (/ or /index.html) - The main page from README.md containing supplement schedule and health goals\nBlood Markers (/blood.html) - Interactive blood test results visualization\nMedications (/meds.html) - Medication and supplementation timeline visualization\n\n\n\n\n\n\n\n_quarto.yml - Main Quarto configuration file\n\n\n\n\n\nindex.qmd - Copy of README.md, serves as the home page\nblood.qmd - Page that embeds the blood markers visualization\nmeds.qmd - Page that embeds the medications timeline\n\n\n\n\n\nblood_markers.html - Original index.html with blood markers analysis\nmeds.html - Copy of meds_and_supplements/meds.html\n\n\n\n\n\nblood_markers_pivot.csv - Blood test data\nreports.json - Medical reports metadata\nmeds_and_supplements/med_schedule.json - Medication schedule data\n\n\n\n\n\nTo rebuild the site after making changes:\nquarto render\nThis will regenerate all HTML files in the docs/ directory.\n\n\n\nThe site is configured to deploy to GitHub Pages from the docs/ directory.\n\n\n\nGo to repository Settings → Pages\nSet Source to “Deploy from a branch”\nSet Branch to “main” (or your default branch)\nSet Folder to “/docs”\nSave\n\nThe site will be available at: https://maladie.ronaldo.tech\n\n\n\n\n\n\n\nCreate a new .qmd file in the root directory\nAdd the page to the navbar in _quarto.yml\nRun quarto render to regenerate the site\n\n\n\n\n\nUpdate CSV/JSON files in the root directory\nThe data files are automatically copied to docs/ during render\nRun quarto render to update\n\n\n\n\n\nEdit blood_markers.html or meds.html\nRun quarto render to copy changes to docs/"
-  },
-  {
-    "objectID": "QUARTO_SETUP.html#structure",
-    "href": "QUARTO_SETUP.html#structure",
-    "title": "Quarto Multi-Page Site Setup",
-    "section": "",
-    "text": "The site is now a multi-page Quarto website with the following pages:\n\nHome (/ or /index.html) - The main page from README.md containing supplement schedule and health goals\nBlood Markers (/blood.html) - Interactive blood test results visualization\nMedications (/meds.html) - Medication and supplementation timeline visualization"
-  },
-  {
-    "objectID": "QUARTO_SETUP.html#files-created",
-    "href": "QUARTO_SETUP.html#files-created",
-    "title": "Quarto Multi-Page Site Setup",
-    "section": "",
-    "text": "_quarto.yml - Main Quarto configuration file\n\n\n\n\n\nindex.qmd - Copy of README.md, serves as the home page\nblood.qmd - Page that embeds the blood markers visualization\nmeds.qmd - Page that embeds the medications timeline\n\n\n\n\n\nblood_markers.html - Original index.html with blood markers analysis\nmeds.html - Copy of meds_and_supplements/meds.html\n\n\n\n\n\nblood_markers_pivot.csv - Blood test data\nreports.json - Medical reports metadata\nmeds_and_supplements/med_schedule.json - Medication schedule data"
-  },
-  {
-    "objectID": "QUARTO_SETUP.html#building-the-site",
-    "href": "QUARTO_SETUP.html#building-the-site",
-    "title": "Quarto Multi-Page Site Setup",
-    "section": "",
-    "text": "To rebuild the site after making changes:\nquarto render\nThis will regenerate all HTML files in the docs/ directory."
-  },
-  {
-    "objectID": "QUARTO_SETUP.html#deployment",
-    "href": "QUARTO_SETUP.html#deployment",
-    "title": "Quarto Multi-Page Site Setup",
-    "section": "",
-    "text": "The site is configured to deploy to GitHub Pages from the docs/ directory.\n\n\n\nGo to repository Settings → Pages\nSet Source to “Deploy from a branch”\nSet Branch to “main” (or your default branch)\nSet Folder to “/docs”\nSave\n\nThe site will be available at: https://maladie.ronaldo.tech"
-  },
-  {
-    "objectID": "QUARTO_SETUP.html#maintenance",
-    "href": "QUARTO_SETUP.html#maintenance",
-    "title": "Quarto Multi-Page Site Setup",
-    "section": "",
-    "text": "Create a new .qmd file in the root directory\nAdd the page to the navbar in _quarto.yml\nRun quarto render to regenerate the site\n\n\n\n\n\nUpdate CSV/JSON files in the root directory\nThe data files are automatically copied to docs/ during render\nRun quarto render to update\n\n\n\n\n\nEdit blood_markers.html or meds.html\nRun quarto render to copy changes to docs/"
-  },
-  {
-    "objectID": "reports/Health_Report.html",
-    "href": "reports/Health_Report.html",
-    "title": "Maladie - Health Tracking",
-    "section": "",
-    "text": "1. Acute Hepatic Crisis (September 12, 2025) Your most recent blood work shows a dramatic deterioration in liver function markers, with what appears to be a severe hepatobiliary crisis. This coincides precisely with your reported symptoms of fatigue, inflammation, excessive urination, and diarrhea.\n2. Cholestatic Pattern The elevation pattern suggests cholestatic injury (bile duct inflammation/obstruction) rather than pure hepatocellular damage, which is consistent with PSC exacerbation. The disproportionate rise in alkaline phosphatase (ALP) and gamma-glutamyl transferase (GGT) compared to transaminases is classic for biliary tract pathology.\n3. Post-Infectious Complications The timeline is critical here: - August 5-14: Cholangitis hospitalization (bacterial infection of bile ducts) - August 31: C. difficile infection with UC flare - September 12: Acute decompensation\nThis sequence suggests you may be experiencing: - Recurrent cholangitis or incomplete resolution of the initial infection - PSC stricture progression triggered by recent infections - Post-infectious inflammatory response affecting both IBD and PSC\n\n\n\n\nRecurrent Ascending Cholangitis: The sudden enzyme elevation with systemic symptoms strongly suggests another episode of cholangitis, possibly due to bacterial seeding during your recent infections.\nDominant Stricture Development: PSC can develop dominant strictures that cause acute obstruction, leading to the dramatic enzyme elevations you’re experiencing.\nDrug-Induced Hepatotoxicity: If you received antibiotics for C. diff (likely vancomycin or fidaxomicin), there could be a component of medication-related liver injury, though this seems less likely given the cholestatic pattern.\nOverlap Syndrome Flare: The combination of UC flare and PSC exacerbation can create a severe inflammatory cascade affecting multiple organ systems.\n\n\n\n\nImmediate Concerns: - The multi-fold increase in liver enzymes with systemic symptoms suggests active biliary sepsis or severe cholestasis requiring urgent intervention - The fluid shifts (edema followed by diuresis) suggest possible hepatic decompensation\nShort-term Prognosis: With appropriate treatment, acute cholangitis typically responds well to antibiotics and biliary drainage if needed. However, given your recent infection history, you may need: - Extended antibiotic therapy - MRCP or ERCP to evaluate for dominant strictures - Possible biliary intervention (stenting/dilation)\nLong-term Considerations: - Recurrent cholangitis episodes accelerate PSC progression - Your young age at diagnosis (20) and now 20 years of disease duration puts you at higher risk for cirrhosis and need for transplant evaluation - The recent pattern of infections suggests your disease may be entering a more aggressive phase\nURGENT: You should seek immediate medical evaluation, preferably at a center with hepatology expertise. The combination of markedly elevated liver enzymes, systemic symptoms, and your PSC history warrants urgent assessment for cholangitis and possible biliary intervention."
-  },
-  {
-    "objectID": "reports/Health_Report.html#section",
-    "href": "reports/Health_Report.html#section",
-    "title": "Maladie - Health Tracking",
-    "section": "",
-    "text": "1. Acute Hepatic Crisis (September 12, 2025) Your most recent blood work shows a dramatic deterioration in liver function markers, with what appears to be a severe hepatobiliary crisis. This coincides precisely with your reported symptoms of fatigue, inflammation, excessive urination, and diarrhea.\n2. Cholestatic Pattern The elevation pattern suggests cholestatic injury (bile duct inflammation/obstruction) rather than pure hepatocellular damage, which is consistent with PSC exacerbation. The disproportionate rise in alkaline phosphatase (ALP) and gamma-glutamyl transferase (GGT) compared to transaminases is classic for biliary tract pathology.\n3. Post-Infectious Complications The timeline is critical here: - August 5-14: Cholangitis hospitalization (bacterial infection of bile ducts) - August 31: C. difficile infection with UC flare - September 12: Acute decompensation\nThis sequence suggests you may be experiencing: - Recurrent cholangitis or incomplete resolution of the initial infection - PSC stricture progression triggered by recent infections - Post-infectious inflammatory response affecting both IBD and PSC\n\n\n\n\nRecurrent Ascending Cholangitis: The sudden enzyme elevation with systemic symptoms strongly suggests another episode of cholangitis, possibly due to bacterial seeding during your recent infections.\nDominant Stricture Development: PSC can develop dominant strictures that cause acute obstruction, leading to the dramatic enzyme elevations you’re experiencing.\nDrug-Induced Hepatotoxicity: If you received antibiotics for C. diff (likely vancomycin or fidaxomicin), there could be a component of medication-related liver injury, though this seems less likely given the cholestatic pattern.\nOverlap Syndrome Flare: The combination of UC flare and PSC exacerbation can create a severe inflammatory cascade affecting multiple organ systems.\n\n\n\n\nImmediate Concerns: - The multi-fold increase in liver enzymes with systemic symptoms suggests active biliary sepsis or severe cholestasis requiring urgent intervention - The fluid shifts (edema followed by diuresis) suggest possible hepatic decompensation\nShort-term Prognosis: With appropriate treatment, acute cholangitis typically responds well to antibiotics and biliary drainage if needed. However, given your recent infection history, you may need: - Extended antibiotic therapy - MRCP or ERCP to evaluate for dominant strictures - Possible biliary intervention (stenting/dilation)\nLong-term Considerations: - Recurrent cholangitis episodes accelerate PSC progression - Your young age at diagnosis (20) and now 20 years of disease duration puts you at higher risk for cirrhosis and need for transplant evaluation - The recent pattern of infections suggests your disease may be entering a more aggressive phase\nURGENT: You should seek immediate medical evaluation, preferably at a center with hepatology expertise. The combination of markedly elevated liver enzymes, systemic symptoms, and your PSC history warrants urgent assessment for cholangitis and possible biliary intervention."
-  },
-  {
-    "objectID": "reports/20250925_TB_Interferon.html",
-    "href": "reports/20250925_TB_Interferon.html",
-    "title": "Gama-Interferon",
-    "section": "",
-    "text": "Gama-Interferon\n\nResultado: Negativo\n\n\nNIL: 0 07 UI/mL\nAntígeno TB1 menos NIL: Inferior a 0,01 UI/mL\nAntígeno TB2 menos NIL: Inferior a 0,01 UI/mL\nMitógeno menos NIL: Superior a 10,00 UI/mL"
-  },
-  {
-    "objectID": "reports/20250914_colangioressonancia.html",
-    "href": "reports/20250914_colangioressonancia.html",
-    "title": "Maladie - Health Tracking",
-    "section": "",
-    "text": "Vias biliares: intra e extrahepáticas irregulares, com alguns segmentos apresentando redução focal de calibre entremeados por outros com leve ectasia. Não se caracterizam cálculos. As paredes são levemente espessas e irregulares, não se caracterizando sinais de hiperrealce.\nVesícula biliar: normodistendida, de paredes finas e regulares, com alguns cálculos esparsos, menores que 0,5 cm, sem sinais inflamatórios agudos.\nComparação: RM 31/08/25: - Mais evidente o espessamento parietal nos segmentos acessíveis da moldura cólica"
-  },
-  {
-    "objectID": "reports/20250914_colangioressonancia.html#conclusão",
-    "href": "reports/20250914_colangioressonancia.html#conclusão",
-    "title": "Maladie - Health Tracking",
-    "section": "Conclusão:",
-    "text": "Conclusão:\n\nVias biliares irregulares, com alguns segmentos apresentando redução focal de calibre entremeados por outros com leve ectasia, achados que podem corresponder a processo inflamatório crônico, conforme dados clínicos fornecidos.\nNão se caracterizam sinais de processo agudo / atividade evidentes ao método; sugere-se correlação com dados laboratoriais.\nCálculos na vesícula biliar sem sinais inflamatórios.\nPequena distensão líquida e leve edema / espessamento parietal dos segmentos cólicos acessíveis, que pode corresponder processo inflamatório / colite."
-  },
-  {
-    "objectID": "colesterol.html",
-    "href": "colesterol.html",
-    "title": "Metabolismo do Colesterol e Colestase Hepática",
-    "section": "",
-    "text": "Colesterol na Colestase\n\n\n\n\n\nMapa Colesterol\n\n\n\n\n\nNa colestase (PBC/PSC), o colesterol total sobe muito, dominado por LpX (não aterogênica e não captada por LDLR).\nA disfunção do fluxo biliar reduz conversão em ácidos biliares e bloqueia excreção, levando a acúmulo hepático e feedback desregulado (↑ síntese).\nO risco CV não aumenta proporcionalmente ao total, por causa do peso da LpX; meça ApoB/LDL verdadeiro para risco aterogênico real.\nConduta: tratar a colestase (UDCA/desobstrução/transplante); resinas para prurido; considerar estatina/fibrato se ApoB/LDL aterogênico estiverem elevados."
-  },
-  {
-    "objectID": "colesterol.html#mini-guia-clínico-em-4-linhas-foco-em-colesterol-total",
-    "href": "colesterol.html#mini-guia-clínico-em-4-linhas-foco-em-colesterol-total",
-    "title": "Metabolismo do Colesterol e Colestase Hepática",
-    "section": "",
-    "text": "Na colestase (PBC/PSC), o colesterol total sobe muito, dominado por LpX (não aterogênica e não captada por LDLR).\nA disfunção do fluxo biliar reduz conversão em ácidos biliares e bloqueia excreção, levando a acúmulo hepático e feedback desregulado (↑ síntese).\nO risco CV não aumenta proporcionalmente ao total, por causa do peso da LpX; meça ApoB/LDL verdadeiro para risco aterogênico real.\nConduta: tratar a colestase (UDCA/desobstrução/transplante); resinas para prurido; considerar estatina/fibrato se ApoB/LDL aterogênico estiverem elevados."
-  },
-  {
-    "objectID": "reports/20250918_Biópsia_Cólon.html",
-    "href": "reports/20250918_Biópsia_Cólon.html",
-    "title": "Maladie - Health Tracking",
-    "section": "",
-    "text": "Mucosa ileal com arquitetura preservada.\n\n\nNão foram detectados granulomas, parasitas, criptite, microabscessos de criptas e/ou displasia."
-  },
-  {
-    "objectID": "reports/20250918_Biópsia_Cólon.html#biópsia-de-íleo-terminal",
-    "href": "reports/20250918_Biópsia_Cólon.html#biópsia-de-íleo-terminal",
-    "title": "Maladie - Health Tracking",
-    "section": "",
-    "text": "Mucosa ileal com arquitetura preservada.\n\n\nNão foram detectados granulomas, parasitas, criptite, microabscessos de criptas e/ou displasia."
-  },
-  {
-    "objectID": "reports/20250918_Biópsia_Cólon.html#biópsia-de-cólon-direito",
-    "href": "reports/20250918_Biópsia_Cólon.html#biópsia-de-cólon-direito",
-    "title": "Maladie - Health Tracking",
-    "section": "Biópsia de cólon direito",
-    "text": "Biópsia de cólon direito\n\n⚠️ Colite ativa focal.\n\n\n\nMucosa colônica com discretos microabscessos de cripta focais.\n\nNão foram detectados granulomas, parasitas, criptite e/ou displasia."
-  },
-  {
-    "objectID": "reports/20250918_Biópsia_Cólon.html#biópsia-de-cólon-esquerdo",
-    "href": "reports/20250918_Biópsia_Cólon.html#biópsia-de-cólon-esquerdo",
-    "title": "Maladie - Health Tracking",
-    "section": "Biópsia de cólon esquerdo",
-    "text": "Biópsia de cólon esquerdo\n\n⚠️Colite crônica leve.\n\n\n\nMucosa colônica com discreta distorção de criptas, criptite e microabscessos de criptas.\n\nNão foram detectados granulomas, parasitas e/ou displasia."
-  },
-  {
-    "objectID": "reports/20250918_Biópsia_Cólon.html#biópsia-de-reto",
-    "href": "reports/20250918_Biópsia_Cólon.html#biópsia-de-reto",
-    "title": "Maladie - Health Tracking",
-    "section": "Biópsia de reto",
-    "text": "Biópsia de reto\n\n⚠️Retite crônica leve.\n\n\n\nMucosa retal com discreta distorção de criptas, criptite e microabscessos de criptas.\n\nNão foram detectados granulomas, parasitas e/ou displasia.\n\nNota: É necessária correlação com dados clínicos, laboratoriais e colonoscópicos."
-  },
-  {
-    "objectID": "reports/20250913_Relatorio_Clinico.html",
-    "href": "reports/20250913_Relatorio_Clinico.html",
-    "title": "Maladie - Health Tracking",
-    "section": "",
-    "text": "Inflamação (PCR / Proteína C Reativa):\n\nSubiu com a infecção/flare, mas vem caindo aos poucos de picos (~8–9 mg/dL) para cerca de 6,3 mg/dL em 16/09.\nIndica que a inflamação ainda existe, mas está diminuindo.\n\nLeucócitos:\n\nEstavam elevados (&gt;15 mil) durante a infecção.\nAgora caíram para ~9,7 mil em 16/09, perto da faixa normal.\nSugere melhora da atividade infecciosa/inflamatória.\n\nPlaquetas:\n\nSubiram de ~410 mil → quase 490 mil.\nIsso é comum em inflamação persistente ou estresse hepático (trombocitose reativa).\nNão preocupa isoladamente, mas mostra que o organismo ainda está em estado pró-inflamatório.\n\nEnzimas hepáticas:\n\nAST (TGO), ALT (TGP), GGT e Fosfatase Alcalina tiveram elevação acentuada no episódio de colestase.\nAgora parecem estabilizadas ou em leve queda, em linha com a ressonância (sem colangite aguda).\nO Tozacin pode estar ajudando a prevenir infecção secundária, enquanto a própria PSC mantém as enzimas altas.\n\nBilirrubina:\n\nEstá elevada, mas sem piora recente.\nBilirrubina estável + PCR em queda é sinal de que não há piora obstrutiva/infecciosa no momento.\n\n\n\n\n\n\nA infecção por C. difficile (início de setembro) desencadeou inflamação sistêmica e provavelmente precipitou o flare da RCU.\nA PSC complicou o quadro: as enzimas subiram, mas a ressonância afastou nova obstrução.\nOs médicos entraram com antibiótico de amplo espectro (Tozacin) para proteger contra colangite bacteriana — conduta razoável considerando seu histórico (colangite aguda no início de agosto).\nAgora, os exames sugerem:\n\nInfecção sob controle (queda de leucócitos e PCR).\nColite ulcerativa ainda ativa, mas melhorando.\nPSC estável, sem sinais de piora aguda.\n\n\n\n\n\n\nNesta semana: PCR e leucócitos devem se aproximar da normalidade se a infecção estiver realmente controlada.\n1–2 semanas: Enzimas hepáticas podem continuar altas, mas devem cair gradualmente se não houver nova colangite.\nColite ulcerativa: a melhora pode demorar mais (algumas semanas), especialmente se houver ajuste de corticoide/biológicos.\nPSC: risco crônico — objetivo é estabilizar, não normalizar completamente.\n\n\n\n\n\nSe enzimas hepáticas subirem novamente + febre → suspeita de nova colangite.\nSe PCR não cair ou plaquetas continuarem subindo → pode indicar inflamação contínua ou complicação secundária.\nSe bilirrubina aumentar muito → pode haver nova obstrução ou evento biliar.\n\n✅ Resumo: Você está na fase de melhora da tempestade inflamatória/infecciosa: a C. diff e o flare da colite desencadearam o quadro, mas os antibióticos e o suporte hospitalar estabilizaram. A expectativa é de melhora lenta e progressiva nas próximas 1–2 semanas, desde que não ocorra nova colangite ou reativação da RCU."
-  },
-  {
-    "objectID": "reports/20250913_Relatorio_Clinico.html#section",
-    "href": "reports/20250913_Relatorio_Clinico.html#section",
-    "title": "Maladie - Health Tracking",
-    "section": "",
-    "text": "Inflamação (PCR / Proteína C Reativa):\n\nSubiu com a infecção/flare, mas vem caindo aos poucos de picos (~8–9 mg/dL) para cerca de 6,3 mg/dL em 16/09.\nIndica que a inflamação ainda existe, mas está diminuindo.\n\nLeucócitos:\n\nEstavam elevados (&gt;15 mil) durante a infecção.\nAgora caíram para ~9,7 mil em 16/09, perto da faixa normal.\nSugere melhora da atividade infecciosa/inflamatória.\n\nPlaquetas:\n\nSubiram de ~410 mil → quase 490 mil.\nIsso é comum em inflamação persistente ou estresse hepático (trombocitose reativa).\nNão preocupa isoladamente, mas mostra que o organismo ainda está em estado pró-inflamatório.\n\nEnzimas hepáticas:\n\nAST (TGO), ALT (TGP), GGT e Fosfatase Alcalina tiveram elevação acentuada no episódio de colestase.\nAgora parecem estabilizadas ou em leve queda, em linha com a ressonância (sem colangite aguda).\nO Tozacin pode estar ajudando a prevenir infecção secundária, enquanto a própria PSC mantém as enzimas altas.\n\nBilirrubina:\n\nEstá elevada, mas sem piora recente.\nBilirrubina estável + PCR em queda é sinal de que não há piora obstrutiva/infecciosa no momento.\n\n\n\n\n\n\nA infecção por C. difficile (início de setembro) desencadeou inflamação sistêmica e provavelmente precipitou o flare da RCU.\nA PSC complicou o quadro: as enzimas subiram, mas a ressonância afastou nova obstrução.\nOs médicos entraram com antibiótico de amplo espectro (Tozacin) para proteger contra colangite bacteriana — conduta razoável considerando seu histórico (colangite aguda no início de agosto).\nAgora, os exames sugerem:\n\nInfecção sob controle (queda de leucócitos e PCR).\nColite ulcerativa ainda ativa, mas melhorando.\nPSC estável, sem sinais de piora aguda.\n\n\n\n\n\n\nNesta semana: PCR e leucócitos devem se aproximar da normalidade se a infecção estiver realmente controlada.\n1–2 semanas: Enzimas hepáticas podem continuar altas, mas devem cair gradualmente se não houver nova colangite.\nColite ulcerativa: a melhora pode demorar mais (algumas semanas), especialmente se houver ajuste de corticoide/biológicos.\nPSC: risco crônico — objetivo é estabilizar, não normalizar completamente.\n\n\n\n\n\nSe enzimas hepáticas subirem novamente + febre → suspeita de nova colangite.\nSe PCR não cair ou plaquetas continuarem subindo → pode indicar inflamação contínua ou complicação secundária.\nSe bilirrubina aumentar muito → pode haver nova obstrução ou evento biliar.\n\n✅ Resumo: Você está na fase de melhora da tempestade inflamatória/infecciosa: a C. diff e o flare da colite desencadearam o quadro, mas os antibióticos e o suporte hospitalar estabilizaram. A expectativa é de melhora lenta e progressiva nas próximas 1–2 semanas, desde que não ocorra nova colangite ou reativação da RCU."
-  },
-  {
-    "objectID": "reports/20241219_Colonoscopia.html",
-    "href": "reports/20241219_Colonoscopia.html",
-    "title": "Laudo",
-    "section": "",
-    "text": "Laudo\n\nProgressão do aparelho até o íleo terminal, sem intercorrências.\n⚠️ Em íleo distal, a cerca de 5cm da válvula ileocecal, nota-se uma erosão puntiforme, com mucosa adjacente preservada. Realizada biópsias (fr 01).\n⚠️ Em ceco, junto ao apêndice cecal, nota-se área com enantema, com microerosões, sugestiva de path cecal.Realizada biópsias (fr 02).\n⚠️ Em cólon ascendente, transverso, descendente e sigmoide, observa-se mucosa com aspecto cicatricial.\n⚠️ Em cólon transverso distal e descendente, notam-se algumas áreas com com edema, enantema e erosões entremadas por mucosa preservada.\n⚠️ Em cólon transverso distal, nota-se uma úlcera rasa, medindo cerca de 10mm, recoberta por fibrina. Realizada biópsias (fr04).\nReto sem alterações."
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Introduction",
@@ -203,6 +56,76 @@
     "text": "✅ Strong hepatoprotection: Ursacol + Silymarin + NAC + MSM\n✅ Anti-inflammatory synergy: Adalimumab + Omega-3 + Curcumin + Quercetin\n✅ Sleep foundation: Magnesium bisglycinate + Theanine + Glycine + Inositol\n⚠️ Manage supplement timing to avoid absorption conflicts (iron ↔︎ quercetin/NAC).\n⚙️ Optionally recheck hepatic enzymes (γ-GT, ALP) after 6–8 weeks on this adjusted plan to quantify benefit."
   },
   {
+    "objectID": "reports/20250914_colangioressonancia.html",
+    "href": "reports/20250914_colangioressonancia.html",
+    "title": "Maladie - Health Tracking",
+    "section": "",
+    "text": "Vias biliares: intra e extrahepáticas irregulares, com alguns segmentos apresentando redução focal de calibre entremeados por outros com leve ectasia. Não se caracterizam cálculos. As paredes são levemente espessas e irregulares, não se caracterizando sinais de hiperrealce.\nVesícula biliar: normodistendida, de paredes finas e regulares, com alguns cálculos esparsos, menores que 0,5 cm, sem sinais inflamatórios agudos.\nComparação: RM 31/08/25: - Mais evidente o espessamento parietal nos segmentos acessíveis da moldura cólica"
+  },
+  {
+    "objectID": "reports/20250914_colangioressonancia.html#conclusão",
+    "href": "reports/20250914_colangioressonancia.html#conclusão",
+    "title": "Maladie - Health Tracking",
+    "section": "Conclusão:",
+    "text": "Conclusão:\n\nVias biliares irregulares, com alguns segmentos apresentando redução focal de calibre entremeados por outros com leve ectasia, achados que podem corresponder a processo inflamatório crônico, conforme dados clínicos fornecidos.\nNão se caracterizam sinais de processo agudo / atividade evidentes ao método; sugere-se correlação com dados laboratoriais.\nCálculos na vesícula biliar sem sinais inflamatórios.\nPequena distensão líquida e leve edema / espessamento parietal dos segmentos cólicos acessíveis, que pode corresponder processo inflamatório / colite."
+  },
+  {
+    "objectID": "reports/20250918_Biópsia_Cólon.html",
+    "href": "reports/20250918_Biópsia_Cólon.html",
+    "title": "Maladie - Health Tracking",
+    "section": "",
+    "text": "Mucosa ileal com arquitetura preservada.\n\n\nNão foram detectados granulomas, parasitas, criptite, microabscessos de criptas e/ou displasia."
+  },
+  {
+    "objectID": "reports/20250918_Biópsia_Cólon.html#biópsia-de-íleo-terminal",
+    "href": "reports/20250918_Biópsia_Cólon.html#biópsia-de-íleo-terminal",
+    "title": "Maladie - Health Tracking",
+    "section": "",
+    "text": "Mucosa ileal com arquitetura preservada.\n\n\nNão foram detectados granulomas, parasitas, criptite, microabscessos de criptas e/ou displasia."
+  },
+  {
+    "objectID": "reports/20250918_Biópsia_Cólon.html#biópsia-de-cólon-direito",
+    "href": "reports/20250918_Biópsia_Cólon.html#biópsia-de-cólon-direito",
+    "title": "Maladie - Health Tracking",
+    "section": "Biópsia de cólon direito",
+    "text": "Biópsia de cólon direito\n\n⚠️ Colite ativa focal.\n\n\n\nMucosa colônica com discretos microabscessos de cripta focais.\n\nNão foram detectados granulomas, parasitas, criptite e/ou displasia."
+  },
+  {
+    "objectID": "reports/20250918_Biópsia_Cólon.html#biópsia-de-cólon-esquerdo",
+    "href": "reports/20250918_Biópsia_Cólon.html#biópsia-de-cólon-esquerdo",
+    "title": "Maladie - Health Tracking",
+    "section": "Biópsia de cólon esquerdo",
+    "text": "Biópsia de cólon esquerdo\n\n⚠️Colite crônica leve.\n\n\n\nMucosa colônica com discreta distorção de criptas, criptite e microabscessos de criptas.\n\nNão foram detectados granulomas, parasitas e/ou displasia."
+  },
+  {
+    "objectID": "reports/20250918_Biópsia_Cólon.html#biópsia-de-reto",
+    "href": "reports/20250918_Biópsia_Cólon.html#biópsia-de-reto",
+    "title": "Maladie - Health Tracking",
+    "section": "Biópsia de reto",
+    "text": "Biópsia de reto\n\n⚠️Retite crônica leve.\n\n\n\nMucosa retal com discreta distorção de criptas, criptite e microabscessos de criptas.\n\nNão foram detectados granulomas, parasitas e/ou displasia.\n\nNota: É necessária correlação com dados clínicos, laboratoriais e colonoscópicos."
+  },
+  {
+    "objectID": "reports/Health_Report.html",
+    "href": "reports/Health_Report.html",
+    "title": "Maladie - Health Tracking",
+    "section": "",
+    "text": "1. Acute Hepatic Crisis (September 12, 2025) Your most recent blood work shows a dramatic deterioration in liver function markers, with what appears to be a severe hepatobiliary crisis. This coincides precisely with your reported symptoms of fatigue, inflammation, excessive urination, and diarrhea.\n2. Cholestatic Pattern The elevation pattern suggests cholestatic injury (bile duct inflammation/obstruction) rather than pure hepatocellular damage, which is consistent with PSC exacerbation. The disproportionate rise in alkaline phosphatase (ALP) and gamma-glutamyl transferase (GGT) compared to transaminases is classic for biliary tract pathology.\n3. Post-Infectious Complications The timeline is critical here: - August 5-14: Cholangitis hospitalization (bacterial infection of bile ducts) - August 31: C. difficile infection with UC flare - September 12: Acute decompensation\nThis sequence suggests you may be experiencing: - Recurrent cholangitis or incomplete resolution of the initial infection - PSC stricture progression triggered by recent infections - Post-infectious inflammatory response affecting both IBD and PSC\n\n\n\n\nRecurrent Ascending Cholangitis: The sudden enzyme elevation with systemic symptoms strongly suggests another episode of cholangitis, possibly due to bacterial seeding during your recent infections.\nDominant Stricture Development: PSC can develop dominant strictures that cause acute obstruction, leading to the dramatic enzyme elevations you’re experiencing.\nDrug-Induced Hepatotoxicity: If you received antibiotics for C. diff (likely vancomycin or fidaxomicin), there could be a component of medication-related liver injury, though this seems less likely given the cholestatic pattern.\nOverlap Syndrome Flare: The combination of UC flare and PSC exacerbation can create a severe inflammatory cascade affecting multiple organ systems.\n\n\n\n\nImmediate Concerns: - The multi-fold increase in liver enzymes with systemic symptoms suggests active biliary sepsis or severe cholestasis requiring urgent intervention - The fluid shifts (edema followed by diuresis) suggest possible hepatic decompensation\nShort-term Prognosis: With appropriate treatment, acute cholangitis typically responds well to antibiotics and biliary drainage if needed. However, given your recent infection history, you may need: - Extended antibiotic therapy - MRCP or ERCP to evaluate for dominant strictures - Possible biliary intervention (stenting/dilation)\nLong-term Considerations: - Recurrent cholangitis episodes accelerate PSC progression - Your young age at diagnosis (20) and now 20 years of disease duration puts you at higher risk for cirrhosis and need for transplant evaluation - The recent pattern of infections suggests your disease may be entering a more aggressive phase\nURGENT: You should seek immediate medical evaluation, preferably at a center with hepatology expertise. The combination of markedly elevated liver enzymes, systemic symptoms, and your PSC history warrants urgent assessment for cholangitis and possible biliary intervention."
+  },
+  {
+    "objectID": "reports/Health_Report.html#section",
+    "href": "reports/Health_Report.html#section",
+    "title": "Maladie - Health Tracking",
+    "section": "",
+    "text": "1. Acute Hepatic Crisis (September 12, 2025) Your most recent blood work shows a dramatic deterioration in liver function markers, with what appears to be a severe hepatobiliary crisis. This coincides precisely with your reported symptoms of fatigue, inflammation, excessive urination, and diarrhea.\n2. Cholestatic Pattern The elevation pattern suggests cholestatic injury (bile duct inflammation/obstruction) rather than pure hepatocellular damage, which is consistent with PSC exacerbation. The disproportionate rise in alkaline phosphatase (ALP) and gamma-glutamyl transferase (GGT) compared to transaminases is classic for biliary tract pathology.\n3. Post-Infectious Complications The timeline is critical here: - August 5-14: Cholangitis hospitalization (bacterial infection of bile ducts) - August 31: C. difficile infection with UC flare - September 12: Acute decompensation\nThis sequence suggests you may be experiencing: - Recurrent cholangitis or incomplete resolution of the initial infection - PSC stricture progression triggered by recent infections - Post-infectious inflammatory response affecting both IBD and PSC\n\n\n\n\nRecurrent Ascending Cholangitis: The sudden enzyme elevation with systemic symptoms strongly suggests another episode of cholangitis, possibly due to bacterial seeding during your recent infections.\nDominant Stricture Development: PSC can develop dominant strictures that cause acute obstruction, leading to the dramatic enzyme elevations you’re experiencing.\nDrug-Induced Hepatotoxicity: If you received antibiotics for C. diff (likely vancomycin or fidaxomicin), there could be a component of medication-related liver injury, though this seems less likely given the cholestatic pattern.\nOverlap Syndrome Flare: The combination of UC flare and PSC exacerbation can create a severe inflammatory cascade affecting multiple organ systems.\n\n\n\n\nImmediate Concerns: - The multi-fold increase in liver enzymes with systemic symptoms suggests active biliary sepsis or severe cholestasis requiring urgent intervention - The fluid shifts (edema followed by diuresis) suggest possible hepatic decompensation\nShort-term Prognosis: With appropriate treatment, acute cholangitis typically responds well to antibiotics and biliary drainage if needed. However, given your recent infection history, you may need: - Extended antibiotic therapy - MRCP or ERCP to evaluate for dominant strictures - Possible biliary intervention (stenting/dilation)\nLong-term Considerations: - Recurrent cholangitis episodes accelerate PSC progression - Your young age at diagnosis (20) and now 20 years of disease duration puts you at higher risk for cirrhosis and need for transplant evaluation - The recent pattern of infections suggests your disease may be entering a more aggressive phase\nURGENT: You should seek immediate medical evaluation, preferably at a center with hepatology expertise. The combination of markedly elevated liver enzymes, systemic symptoms, and your PSC history warrants urgent assessment for cholangitis and possible biliary intervention."
+  },
+  {
+    "objectID": "reports/20241219_Colonoscopia.html",
+    "href": "reports/20241219_Colonoscopia.html",
+    "title": "Laudo",
+    "section": "",
+    "text": "Laudo\n\nProgressão do aparelho até o íleo terminal, sem intercorrências.\n⚠️ Em íleo distal, a cerca de 5cm da válvula ileocecal, nota-se uma erosão puntiforme, com mucosa adjacente preservada. Realizada biópsias (fr 01).\n⚠️ Em ceco, junto ao apêndice cecal, nota-se área com enantema, com microerosões, sugestiva de path cecal.Realizada biópsias (fr 02).\n⚠️ Em cólon ascendente, transverso, descendente e sigmoide, observa-se mucosa com aspecto cicatricial.\n⚠️ Em cólon transverso distal e descendente, notam-se algumas áreas com com edema, enantema e erosões entremadas por mucosa preservada.\n⚠️ Em cólon transverso distal, nota-se uma úlcera rasa, medindo cerca de 10mm, recoberta por fibrina. Realizada biópsias (fr04).\nReto sem alterações."
+  },
+  {
     "objectID": "WARP.html",
     "href": "WARP.html",
     "title": "WARP.md",
@@ -257,5 +180,96 @@
     "title": "WARP.md",
     "section": "",
     "text": "No server-side storage or processing\nAll analysis happens client-side\nPatient information should be anonymized in CSV data"
+  },
+  {
+    "objectID": "QUARTO_SETUP.html",
+    "href": "QUARTO_SETUP.html",
+    "title": "Quarto Multi-Page Site Setup",
+    "section": "",
+    "text": "This document describes the Quarto configuration for the maladie health tracking website.\n\n\nThe site is now a multi-page Quarto website with the following pages:\n\nHome (/ or /index.html) - The main page from README.md containing supplement schedule and health goals\nBlood Markers (/blood.html) - Interactive blood test results visualization\nMedications (/meds.html) - Medication and supplementation timeline visualization\n\n\n\n\n\n\n\n_quarto.yml - Main Quarto configuration file\n\n\n\n\n\nindex.qmd - Copy of README.md, serves as the home page\nblood.qmd - Page that embeds the blood markers visualization\nmeds.qmd - Page that embeds the medications timeline\n\n\n\n\n\nblood_markers.html - Original index.html with blood markers analysis\nmeds.html - Copy of meds_and_supplements/meds.html\n\n\n\n\n\nblood_markers_pivot.csv - Blood test data\nreports.json - Medical reports metadata\nmeds_and_supplements/med_schedule.json - Medication schedule data\n\n\n\n\n\nTo rebuild the site after making changes:\nquarto render\nThis will regenerate all HTML files in the docs/ directory.\n\n\n\nThe site is configured to deploy to GitHub Pages from the docs/ directory.\n\n\n\nGo to repository Settings → Pages\nSet Source to “Deploy from a branch”\nSet Branch to “main” (or your default branch)\nSet Folder to “/docs”\nSave\n\nThe site will be available at: https://maladie.ronaldo.tech\n\n\n\n\n\n\n\nCreate a new .qmd file in the root directory\nAdd the page to the navbar in _quarto.yml\nRun quarto render to regenerate the site\n\n\n\n\n\nUpdate CSV/JSON files in the root directory\nThe data files are automatically copied to docs/ during render\nRun quarto render to update\n\n\n\n\n\nEdit blood_markers.html or meds.html\nRun quarto render to copy changes to docs/"
+  },
+  {
+    "objectID": "QUARTO_SETUP.html#structure",
+    "href": "QUARTO_SETUP.html#structure",
+    "title": "Quarto Multi-Page Site Setup",
+    "section": "",
+    "text": "The site is now a multi-page Quarto website with the following pages:\n\nHome (/ or /index.html) - The main page from README.md containing supplement schedule and health goals\nBlood Markers (/blood.html) - Interactive blood test results visualization\nMedications (/meds.html) - Medication and supplementation timeline visualization"
+  },
+  {
+    "objectID": "QUARTO_SETUP.html#files-created",
+    "href": "QUARTO_SETUP.html#files-created",
+    "title": "Quarto Multi-Page Site Setup",
+    "section": "",
+    "text": "_quarto.yml - Main Quarto configuration file\n\n\n\n\n\nindex.qmd - Copy of README.md, serves as the home page\nblood.qmd - Page that embeds the blood markers visualization\nmeds.qmd - Page that embeds the medications timeline\n\n\n\n\n\nblood_markers.html - Original index.html with blood markers analysis\nmeds.html - Copy of meds_and_supplements/meds.html\n\n\n\n\n\nblood_markers_pivot.csv - Blood test data\nreports.json - Medical reports metadata\nmeds_and_supplements/med_schedule.json - Medication schedule data"
+  },
+  {
+    "objectID": "QUARTO_SETUP.html#building-the-site",
+    "href": "QUARTO_SETUP.html#building-the-site",
+    "title": "Quarto Multi-Page Site Setup",
+    "section": "",
+    "text": "To rebuild the site after making changes:\nquarto render\nThis will regenerate all HTML files in the docs/ directory."
+  },
+  {
+    "objectID": "QUARTO_SETUP.html#deployment",
+    "href": "QUARTO_SETUP.html#deployment",
+    "title": "Quarto Multi-Page Site Setup",
+    "section": "",
+    "text": "The site is configured to deploy to GitHub Pages from the docs/ directory.\n\n\n\nGo to repository Settings → Pages\nSet Source to “Deploy from a branch”\nSet Branch to “main” (or your default branch)\nSet Folder to “/docs”\nSave\n\nThe site will be available at: https://maladie.ronaldo.tech"
+  },
+  {
+    "objectID": "QUARTO_SETUP.html#maintenance",
+    "href": "QUARTO_SETUP.html#maintenance",
+    "title": "Quarto Multi-Page Site Setup",
+    "section": "",
+    "text": "Create a new .qmd file in the root directory\nAdd the page to the navbar in _quarto.yml\nRun quarto render to regenerate the site\n\n\n\n\n\nUpdate CSV/JSON files in the root directory\nThe data files are automatically copied to docs/ during render\nRun quarto render to update\n\n\n\n\n\nEdit blood_markers.html or meds.html\nRun quarto render to copy changes to docs/"
+  },
+  {
+    "objectID": "reports/20250913_Relatorio_Clinico.html",
+    "href": "reports/20250913_Relatorio_Clinico.html",
+    "title": "Maladie - Health Tracking",
+    "section": "",
+    "text": "Inflamação (PCR / Proteína C Reativa):\n\nSubiu com a infecção/flare, mas vem caindo aos poucos de picos (~8–9 mg/dL) para cerca de 6,3 mg/dL em 16/09.\nIndica que a inflamação ainda existe, mas está diminuindo.\n\nLeucócitos:\n\nEstavam elevados (&gt;15 mil) durante a infecção.\nAgora caíram para ~9,7 mil em 16/09, perto da faixa normal.\nSugere melhora da atividade infecciosa/inflamatória.\n\nPlaquetas:\n\nSubiram de ~410 mil → quase 490 mil.\nIsso é comum em inflamação persistente ou estresse hepático (trombocitose reativa).\nNão preocupa isoladamente, mas mostra que o organismo ainda está em estado pró-inflamatório.\n\nEnzimas hepáticas:\n\nAST (TGO), ALT (TGP), GGT e Fosfatase Alcalina tiveram elevação acentuada no episódio de colestase.\nAgora parecem estabilizadas ou em leve queda, em linha com a ressonância (sem colangite aguda).\nO Tozacin pode estar ajudando a prevenir infecção secundária, enquanto a própria PSC mantém as enzimas altas.\n\nBilirrubina:\n\nEstá elevada, mas sem piora recente.\nBilirrubina estável + PCR em queda é sinal de que não há piora obstrutiva/infecciosa no momento.\n\n\n\n\n\n\nA infecção por C. difficile (início de setembro) desencadeou inflamação sistêmica e provavelmente precipitou o flare da RCU.\nA PSC complicou o quadro: as enzimas subiram, mas a ressonância afastou nova obstrução.\nOs médicos entraram com antibiótico de amplo espectro (Tozacin) para proteger contra colangite bacteriana — conduta razoável considerando seu histórico (colangite aguda no início de agosto).\nAgora, os exames sugerem:\n\nInfecção sob controle (queda de leucócitos e PCR).\nColite ulcerativa ainda ativa, mas melhorando.\nPSC estável, sem sinais de piora aguda.\n\n\n\n\n\n\nNesta semana: PCR e leucócitos devem se aproximar da normalidade se a infecção estiver realmente controlada.\n1–2 semanas: Enzimas hepáticas podem continuar altas, mas devem cair gradualmente se não houver nova colangite.\nColite ulcerativa: a melhora pode demorar mais (algumas semanas), especialmente se houver ajuste de corticoide/biológicos.\nPSC: risco crônico — objetivo é estabilizar, não normalizar completamente.\n\n\n\n\n\nSe enzimas hepáticas subirem novamente + febre → suspeita de nova colangite.\nSe PCR não cair ou plaquetas continuarem subindo → pode indicar inflamação contínua ou complicação secundária.\nSe bilirrubina aumentar muito → pode haver nova obstrução ou evento biliar.\n\n✅ Resumo: Você está na fase de melhora da tempestade inflamatória/infecciosa: a C. diff e o flare da colite desencadearam o quadro, mas os antibióticos e o suporte hospitalar estabilizaram. A expectativa é de melhora lenta e progressiva nas próximas 1–2 semanas, desde que não ocorra nova colangite ou reativação da RCU."
+  },
+  {
+    "objectID": "reports/20250913_Relatorio_Clinico.html#section",
+    "href": "reports/20250913_Relatorio_Clinico.html#section",
+    "title": "Maladie - Health Tracking",
+    "section": "",
+    "text": "Inflamação (PCR / Proteína C Reativa):\n\nSubiu com a infecção/flare, mas vem caindo aos poucos de picos (~8–9 mg/dL) para cerca de 6,3 mg/dL em 16/09.\nIndica que a inflamação ainda existe, mas está diminuindo.\n\nLeucócitos:\n\nEstavam elevados (&gt;15 mil) durante a infecção.\nAgora caíram para ~9,7 mil em 16/09, perto da faixa normal.\nSugere melhora da atividade infecciosa/inflamatória.\n\nPlaquetas:\n\nSubiram de ~410 mil → quase 490 mil.\nIsso é comum em inflamação persistente ou estresse hepático (trombocitose reativa).\nNão preocupa isoladamente, mas mostra que o organismo ainda está em estado pró-inflamatório.\n\nEnzimas hepáticas:\n\nAST (TGO), ALT (TGP), GGT e Fosfatase Alcalina tiveram elevação acentuada no episódio de colestase.\nAgora parecem estabilizadas ou em leve queda, em linha com a ressonância (sem colangite aguda).\nO Tozacin pode estar ajudando a prevenir infecção secundária, enquanto a própria PSC mantém as enzimas altas.\n\nBilirrubina:\n\nEstá elevada, mas sem piora recente.\nBilirrubina estável + PCR em queda é sinal de que não há piora obstrutiva/infecciosa no momento.\n\n\n\n\n\n\nA infecção por C. difficile (início de setembro) desencadeou inflamação sistêmica e provavelmente precipitou o flare da RCU.\nA PSC complicou o quadro: as enzimas subiram, mas a ressonância afastou nova obstrução.\nOs médicos entraram com antibiótico de amplo espectro (Tozacin) para proteger contra colangite bacteriana — conduta razoável considerando seu histórico (colangite aguda no início de agosto).\nAgora, os exames sugerem:\n\nInfecção sob controle (queda de leucócitos e PCR).\nColite ulcerativa ainda ativa, mas melhorando.\nPSC estável, sem sinais de piora aguda.\n\n\n\n\n\n\nNesta semana: PCR e leucócitos devem se aproximar da normalidade se a infecção estiver realmente controlada.\n1–2 semanas: Enzimas hepáticas podem continuar altas, mas devem cair gradualmente se não houver nova colangite.\nColite ulcerativa: a melhora pode demorar mais (algumas semanas), especialmente se houver ajuste de corticoide/biológicos.\nPSC: risco crônico — objetivo é estabilizar, não normalizar completamente.\n\n\n\n\n\nSe enzimas hepáticas subirem novamente + febre → suspeita de nova colangite.\nSe PCR não cair ou plaquetas continuarem subindo → pode indicar inflamação contínua ou complicação secundária.\nSe bilirrubina aumentar muito → pode haver nova obstrução ou evento biliar.\n\n✅ Resumo: Você está na fase de melhora da tempestade inflamatória/infecciosa: a C. diff e o flare da colite desencadearam o quadro, mas os antibióticos e o suporte hospitalar estabilizaram. A expectativa é de melhora lenta e progressiva nas próximas 1–2 semanas, desde que não ocorra nova colangite ou reativação da RCU."
+  },
+  {
+    "objectID": "reports/20250925_TB_Interferon.html",
+    "href": "reports/20250925_TB_Interferon.html",
+    "title": "Gama-Interferon",
+    "section": "",
+    "text": "Gama-Interferon\n\nResultado: Negativo\n\n\nNIL: 0 07 UI/mL\nAntígeno TB1 menos NIL: Inferior a 0,01 UI/mL\nAntígeno TB2 menos NIL: Inferior a 0,01 UI/mL\nMitógeno menos NIL: Superior a 10,00 UI/mL"
+  },
+  {
+    "objectID": "reports/20250809_colangioressonancia.html",
+    "href": "reports/20250809_colangioressonancia.html",
+    "title": "Maladie - Health Tracking",
+    "section": "",
+    "text": "Vias biliares: discreta dilatação intra e extra-hepática identificada até o plano da papila duodenal, sem identificação de fator obstrutivo. Há estase biliar em ramos intra hepáticos, sem cálculos. Colédoco de calibre de 0,7 cm, sem cálculos de volume apreciável. Irregularidades parietais difusas, sem claros pontos de estenose. Não há variações anatômicas significativas das vias biliares.\nVesícula biliar: normodistendida, com paredes finas e contendo cálculos menores que 0,5\nComparação: RM 31/08/25: - Mais evidente o espessamento parietal nos segmentos acessíveis da moldura cólica"
+  },
+  {
+    "objectID": "reports/20250809_colangioressonancia.html#conclusão",
+    "href": "reports/20250809_colangioressonancia.html#conclusão",
+    "title": "Maladie - Health Tracking",
+    "section": "Conclusão:",
+    "text": "Conclusão:\n\nColecistolitíase sem sinais inflamatórios atuais.\nIrregularidades parietais difusas das vias biliares e discreta dilatação das vias biliares intra e extra hepáticas, achados provavelmente à colangite biliar primária referida pelo paciente."
+  },
+  {
+    "objectID": "colesterol.html",
+    "href": "colesterol.html",
+    "title": "Metabolismo do Colesterol e Colestase Hepática",
+    "section": "",
+    "text": "Colesterol na Colestase\n\n\n\n\n\nMapa Colesterol\n\n\n\n\n\nNa colestase (PBC/PSC), o colesterol total sobe muito, dominado por LpX (não aterogênica e não captada por LDLR).\nA disfunção do fluxo biliar reduz conversão em ácidos biliares e bloqueia excreção, levando a acúmulo hepático e feedback desregulado (↑ síntese).\nO risco CV não aumenta proporcionalmente ao total, por causa do peso da LpX; meça ApoB/LDL verdadeiro para risco aterogênico real.\nConduta: tratar a colestase (UDCA/desobstrução/transplante); resinas para prurido; considerar estatina/fibrato se ApoB/LDL aterogênico estiverem elevados."
+  },
+  {
+    "objectID": "colesterol.html#mini-guia-clínico-em-4-linhas-foco-em-colesterol-total",
+    "href": "colesterol.html#mini-guia-clínico-em-4-linhas-foco-em-colesterol-total",
+    "title": "Metabolismo do Colesterol e Colestase Hepática",
+    "section": "",
+    "text": "Na colestase (PBC/PSC), o colesterol total sobe muito, dominado por LpX (não aterogênica e não captada por LDLR).\nA disfunção do fluxo biliar reduz conversão em ácidos biliares e bloqueia excreção, levando a acúmulo hepático e feedback desregulado (↑ síntese).\nO risco CV não aumenta proporcionalmente ao total, por causa do peso da LpX; meça ApoB/LDL verdadeiro para risco aterogênico real.\nConduta: tratar a colestase (UDCA/desobstrução/transplante); resinas para prurido; considerar estatina/fibrato se ApoB/LDL aterogênico estiverem elevados."
   }
 ]

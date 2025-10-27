@@ -1,51 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://maladie.ronaldo.tech/QUARTO_SETUP.html</loc>
-    <lastmod>2025-10-11T22:29:23.078Z</lastmod>
-  </url>
-  <url>
-    <loc>https://maladie.ronaldo.tech/meds.html</loc>
-    <lastmod>2025-10-11T23:15:21.794Z</lastmod>
-  </url>
-  <url>
-    <loc>https://maladie.ronaldo.tech/reports/Health_Report.html</loc>
-    <lastmod>2025-10-27T17:33:29.239Z</lastmod>
-  </url>
-  <url>
-    <loc>https://maladie.ronaldo.tech/reports/20250925_TB_Interferon.html</loc>
-    <lastmod>2025-10-27T17:29:06.570Z</lastmod>
-  </url>
-  <url>
-    <loc>https://maladie.ronaldo.tech/reports/20250914_colangioressonancia.html</loc>
-    <lastmod>2025-10-27T19:01:42.575Z</lastmod>
+    <loc>https://maladie.ronaldo.tech/index.html</loc>
+    <lastmod>2025-10-19T21:08:25.825Z</lastmod>
   </url>
   <url>
     <loc>https://maladie.ronaldo.tech/blood.html</loc>
-    <lastmod>2025-10-11T23:16:53.595Z</lastmod>
+    <lastmod>2025-10-19T02:25:01.731Z</lastmod>
   </url>
   <url>
-    <loc>https://maladie.ronaldo.tech/colesterol.html</loc>
-    <lastmod>2025-10-27T17:41:10.840Z</lastmod>
+    <loc>https://maladie.ronaldo.tech/reports/20250914_colangioressonancia.html</loc>
+    <lastmod>2025-10-27T22:08:20.236Z</lastmod>
   </url>
   <url>
     <loc>https://maladie.ronaldo.tech/reports/20250918_Biópsia_Cólon.html</loc>
-    <lastmod>2025-10-27T19:01:28.216Z</lastmod>
+    <lastmod>2025-10-27T22:08:20.236Z</lastmod>
   </url>
   <url>
-    <loc>https://maladie.ronaldo.tech/reports/20250913_Relatorio_Clinico.html</loc>
-    <lastmod>2025-10-27T17:33:15.679Z</lastmod>
+    <loc>https://maladie.ronaldo.tech/reports/Health_Report.html</loc>
+    <lastmod>2025-10-27T22:08:20.236Z</lastmod>
   </url>
   <url>
     <loc>https://maladie.ronaldo.tech/reports/20241219_Colonoscopia.html</loc>
-    <lastmod>2025-10-27T17:27:48.511Z</lastmod>
-  </url>
-  <url>
-    <loc>https://maladie.ronaldo.tech/index.html</loc>
-    <lastmod>2025-10-19T20:37:12.966Z</lastmod>
+    <lastmod>2025-10-27T22:08:20.236Z</lastmod>
   </url>
   <url>
     <loc>https://maladie.ronaldo.tech/WARP.html</loc>
-    <lastmod>2025-10-11T22:27:38.900Z</lastmod>
+    <lastmod>2025-09-22T19:44:01.053Z</lastmod>
+  </url>
+  <url>
+    <loc>https://maladie.ronaldo.tech/QUARTO_SETUP.html</loc>
+    <lastmod>2025-10-19T02:25:01.731Z</lastmod>
+  </url>
+  <url>
+    <loc>https://maladie.ronaldo.tech/reports/20250913_Relatorio_Clinico.html</loc>
+    <lastmod>2025-10-27T22:08:20.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://maladie.ronaldo.tech/reports/20250925_TB_Interferon.html</loc>
+    <lastmod>2025-10-27T22:08:20.236Z</lastmod>
+  </url>
+  <url>
+    <loc>https://maladie.ronaldo.tech/reports/20250809_colangioressonancia.html</loc>
+    <lastmod>2025-10-27T22:14:21.886Z</lastmod>
+  </url>
+  <url>
+    <loc>https://maladie.ronaldo.tech/colesterol.html</loc>
+    <lastmod>2025-10-20T02:06:08.730Z</lastmod>
+  </url>
+  <url>
+    <loc>https://maladie.ronaldo.tech/meds.html</loc>
+    <lastmod>2025-10-19T02:25:01.731Z</lastmod>
   </url>
 </urlset>
