@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  pre-render:
+    - uv run generate_med_schedule.py
   resources:
     - blood_markers_plot.html
     - meds_plot.html
