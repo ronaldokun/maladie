@@ -97,9 +97,9 @@
     },
     {
       "time": "Morning",
-      "compound": "⚡ Magnesium complex",
+      "compound": "⚡ Magnesium Threonate",
       "function": "Relaxation / metabolism",
-      "dosage": "2 x 117mg",
+      "dosage": "0.5g",
       "justification": "Keep morning + pre‑bed; avoid high citrate late day if it loosens stools."
     },
     {
@@ -134,7 +134,7 @@
       "time": "Morning",
       "compound": "🧬 TMG (Trimethylglycine)",
       "function": "Methylation / bile flow",
-      "dosage": "500 mg",
+      "dosage": "1g",
       "justification": "Supports BHMT remethylation and may aid bile flow; complements methionine/choline."
     },
     {
@@ -188,17 +188,24 @@
     },
     {
       "time": "Lunch",
-      "compound": "🕸️ Racemethionine + Choline",
+      "compound": "🕸️ Methionine",
       "function": "Methylation / bile flow",
-      "dosage": "2 x (100 mg + 20 mg)",
-      "justification": "Key methyl donors and bile-mobilizing nutrients."
+      "dosage": "1g",
+      "justification": "Key methyl donor and bile-mobilizing nutrient."
+    },
+    {
+      "time": "Lunch",
+      "compound": "🕸️ Choline",
+      "function": "Methylation / bile flow",
+      "dosage": "1g",
+      "justification": "Key methyl donor and bile-mobilizing nutrient."
     },
     {
       "time": "Lunch",
       "compound": "🕸️ Silymarin",
       "function": "Liver protection",
       "dosage": "2 x 200 mg",
-      "justification": "Hepatoprotection via glutathione up‑regulation and NF‑κB modulation."
+      "justification": "Hepatoprotection via glutathione up‑regulation and NF‑κ—B modulation."
     },
     {
       "time": "Lunch",
@@ -272,24 +279,17 @@
     },
     {
       "time": "Dinner",
-      "compound": "🕸️ Racemethionine + Choline",
-      "function": "Methylation / bile flow",
-      "dosage": "2 x (100 mg + 20 mg)",
-      "justification": "Key methyl donors and bile-mobilizing nutrients."
-    },
-    {
-      "time": "Dinner",
       "compound": "🧪 Taurine",
       "function": "Liver / bile flow",
       "dosage": "1 g",
       "justification": "Substrate for bile‑acid conjugation; supportive for bile flow."
     },
     {
-      "time": "Dinner",
-      "compound": "🧬 TMG (Trimethylglycine)",
-      "function": "Methylation / bile flow",
-      "dosage": "500 mg",
-      "justification": "Supports BHMT remethylation and may aid bile flow; complements methionine/choline."
+      "time": "Bedtime",
+      "compound": "🌙 Melatonin",
+      "function": "Sleep onset / thermoregulation",
+      "dosage": "1–3 mg (start 1 mg)",
+      "justification": "Sleep onset/maintenance; titrate by 0.5–1 mg steps."
     },
     {
       "time": "Bedtime",
@@ -307,24 +307,10 @@
     },
     {
       "time": "Bedtime",
-      "compound": "🛡️ NAC",
-      "function": "Antioxidant / liver detox",
-      "dosage": "1.5 g",
-      "justification": "Hepatic GSH support and mucosal protection; ideal for PSC/UC overlap."
-    },
-    {
-      "time": "Bedtime",
       "compound": "🛡️ Quercetin",
       "function": "Antihistaminic / sleep aid",
       "dosage": "1 x 500 mg",
       "justification": "Anti‑inflammatory/anti‑fibrotic; mast‑cell stabilizer; **keep ≥3 h away from iron** (Noripurum)."
-    },
-    {
-      "time": "Bedtime",
-      "compound": "🦵 MSM",
-      "function": "Repair / sulfur donor",
-      "dosage": "2 g",
-      "justification": "* Synergistic with NAC in thiol replenishment and inflammation control.\n* Supports connective tissue repair and mild sedative synergy via sulfur metabolism."
     },
     {
       "time": "Bedtime",
