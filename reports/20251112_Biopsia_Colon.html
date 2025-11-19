@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>biopsia_colon – Maladie - Health Tracking</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ea54359d8ccd089b8b9b79e9d846d7a4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Maladie - Health Tracking</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../blood.html"> 
+<span class="menu-text">Blood Markers</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../colesterol.html"> 
+<span class="menu-text">Cholesterol and Cholestasis</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../meds.html"> 
+<span class="menu-text">Medications</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#colonoscopia" id="toc-colonoscopia" class="nav-link active" data-scroll-target="#colonoscopia">Colonoscopia</a>
+  <ul class="collapse">
+  <li><a href="#conclusão" id="toc-conclusão" class="nav-link" data-scroll-target="#conclusão">Conclusão:</a></li>
+  </ul></li>
+  <li><a href="#biópsia-de-cólon" id="toc-biópsia-de-cólon" class="nav-link" data-scroll-target="#biópsia-de-cólon">Biópsia de Cólon</a>
+  <ul class="collapse">
+  <li><a href="#a.-biópsia-de-cólon-ascendente" id="toc-a.-biópsia-de-cólon-ascendente" class="nav-link" data-scroll-target="#a.-biópsia-de-cólon-ascendente">A. Biópsia de cólon ascendente:</a></li>
+  <li><a href="#b.-biópsia-de-cólon-descendente-e-sigmoide" id="toc-b.-biópsia-de-cólon-descendente-e-sigmoide" class="nav-link" data-scroll-target="#b.-biópsia-de-cólon-descendente-e-sigmoide">B. Biópsia de cólon descendente e sigmoide:</a></li>
+  <li><a href="#c.-biópsia-de-reto" id="toc-c.-biópsia-de-reto" class="nav-link" data-scroll-target="#c.-biópsia-de-reto">C. Biópsia de reto:</a></li>
+  <li><a href="#d.-biópsia-de-lesão-plano-elevada-em-cólon-descendente" id="toc-d.-biópsia-de-lesão-plano-elevada-em-cólon-descendente" class="nav-link" data-scroll-target="#d.-biópsia-de-lesão-plano-elevada-em-cólon-descendente">D. Biópsia de lesão plano elevada em cólon descendente:</a></li>
+  </ul></li>
+  <li><a href="#resumo-técnico-e-interpretação-clínica-dos-achados" id="toc-resumo-técnico-e-interpretação-clínica-dos-achados" class="nav-link" data-scroll-target="#resumo-técnico-e-interpretação-clínica-dos-achados">✅ <strong>Resumo Técnico e Interpretação Clínica dos Achados</strong></a>
+  <ul class="collapse">
+  <li><a href="#a.-cólon-ascendente-normalidade-praticamente-completa" id="toc-a.-cólon-ascendente-normalidade-praticamente-completa" class="nav-link" data-scroll-target="#a.-cólon-ascendente-normalidade-praticamente-completa"><strong>A. Cólon Ascendente — Normalidade Praticamente Completa</strong></a></li>
+  <li><a href="#b.-cólon-descendente-e-sigmoide-colite-crônica-inativa" id="toc-b.-cólon-descendente-e-sigmoide-colite-crônica-inativa" class="nav-link" data-scroll-target="#b.-cólon-descendente-e-sigmoide-colite-crônica-inativa"><strong>B. Cólon Descendente e Sigmoide — Colite Crônica <em>Inativa</em></strong></a></li>
+  <li><a href="#c.-reto-hiperplasia-linfoide-reacional" id="toc-c.-reto-hiperplasia-linfoide-reacional" class="nav-link" data-scroll-target="#c.-reto-hiperplasia-linfoide-reacional"><strong>C. Reto — Hiperplasia Linfoide Reacional</strong></a></li>
+  <li><a href="#d.-lesão-plano-elevada-no-cólon-descendente-regeneração" id="toc-d.-lesão-plano-elevada-no-cólon-descendente-regeneração" class="nav-link" data-scroll-target="#d.-lesão-plano-elevada-no-cólon-descendente-regeneração"><strong>D. Lesão Plano-Elevada no Cólon Descendente — Regeneração</strong></a></li>
+  </ul></li>
+  <li><a href="#resumo-global-em-linguagem-simples" id="toc-resumo-global-em-linguagem-simples" class="nav-link" data-scroll-target="#resumo-global-em-linguagem-simples">📌 <strong>Resumo Global — Em Linguagem Simples</strong></a></li>
+  <li><a href="#ponto-importante-pancolite-colangite-esclerosante-primária-psccep" id="toc-ponto-importante-pancolite-colangite-esclerosante-primária-psccep" class="nav-link" data-scroll-target="#ponto-importante-pancolite-colangite-esclerosante-primária-psccep">⚠️ <strong>Ponto Importante: Pancolite + Colangite Esclerosante Primária (PSC/CEP)</strong></a>
+  <ul class="collapse">
+  <li><a href="#mesmo-em-remissão-histológica-a-vigilância-endoscópica-deve-ser-anual-com" id="toc-mesmo-em-remissão-histológica-a-vigilância-endoscópica-deve-ser-anual-com" class="nav-link" data-scroll-target="#mesmo-em-remissão-histológica-a-vigilância-endoscópica-deve-ser-anual-com">➤ Mesmo em remissão histológica, a vigilância endoscópica deve ser <strong>anual</strong> com:</a></li>
+  </ul></li>
+  <li><a href="#o-que-você-deve-discutir-com-o-seu-médico" id="toc-o-que-você-deve-discutir-com-o-seu-médico" class="nav-link" data-scroll-target="#o-que-você-deve-discutir-com-o-seu-médico">🩺 <strong>O que você deve discutir com o seu médico</strong></a>
+  <ul class="collapse">
+  <li><a href="#vigilância-para-displasia" id="toc-vigilância-para-displasia" class="nav-link" data-scroll-target="#vigilância-para-displasia"><strong>1. Vigilância para Displasia</strong></a></li>
+  <li><a href="#interpretação-da-lesão-plano-elevada" id="toc-interpretação-da-lesão-plano-elevada" class="nav-link" data-scroll-target="#interpretação-da-lesão-plano-elevada"><strong>2. Interpretação da Lesão Plano-Elevada</strong></a></li>
+  <li><a href="#estado-global-da-colite" id="toc-estado-global-da-colite" class="nav-link" data-scroll-target="#estado-global-da-colite"><strong>3. Estado Global da Colite</strong></a></li>
+  <li><a href="#relação-entre-sintomas-e-achados" id="toc-relação-entre-sintomas-e-achados" class="nav-link" data-scroll-target="#relação-entre-sintomas-e-achados"><strong>4. Relação Entre Sintomas e Achados</strong></a></li>
+  <li><a href="#checar-risco-oncológico-específico-de-quem-tem-psc" id="toc-checar-risco-oncológico-específico-de-quem-tem-psc" class="nav-link" data-scroll-target="#checar-risco-oncológico-específico-de-quem-tem-psc"><strong>5. Checar Risco Oncológico Específico de Quem Tem PSC</strong></a></li>
+  <li><a href="#inflamação-de-baixa-intensidade-no-reto" id="toc-inflamação-de-baixa-intensidade-no-reto" class="nav-link" data-scroll-target="#inflamação-de-baixa-intensidade-no-reto"><strong>6. Inflamação de Baixa Intensidade no Reto</strong></a></li>
+  <li><a href="#tratamento-de-manutenção" id="toc-tratamento-de-manutenção" class="nav-link" data-scroll-target="#tratamento-de-manutenção"><strong>7. Tratamento de Manutenção</strong></a></li>
+  </ul></li>
+  <li><a href="#mensagem-final" id="toc-mensagem-final" class="nav-link" data-scroll-target="#mensagem-final">🎯 <strong>Mensagem Final</strong></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="colonoscopia" class="level1">
+<h1>Colonoscopia</h1>
+<ul>
+<li>Progressão do aparelho até o íleo terminal, sem intercorrências.</li>
+<li>Íleo terminal: sem alterações.</li>
+<li>Em cólon ascendente, transverso, descendente e sigmoide, observa-se mucosa com aspecto cicatricial.</li>
+<li>Em cólon descendente, observa-se uma lesão plano elevada (Paris 0-IIa), limites e contornos precisos, superfície lisa, esbranquiçada, medindo aproximadamente 8mm, realizada cromoscopia com índigo carmin e cromoscopia eletrônica com NBI, sem alteração glandular ou vascular. Realizadas biópsias (Frasco 04).</li>
+<li>Em reto, notam-se algumas áreas com leve enantema sem erosões, aspecto cicatricial.</li>
+</ul>
+<section id="conclusão" class="level2">
+<h2 class="anchored" data-anchor-id="conclusão">Conclusão:</h2>
+<ul>
+<li>Retocolite ulcerativa em remisão endoscópica (Mayo score 0).</li>
+<li>Lesão plano elevada em cólon descendente. Biópsias.</li>
+</ul>
+</section>
+</section>
+<section id="biópsia-de-cólon" class="level1">
+<h1>Biópsia de Cólon</h1>
+<section id="a.-biópsia-de-cólon-ascendente" class="level2">
+<h2 class="anchored" data-anchor-id="a.-biópsia-de-cólon-ascendente">A. Biópsia de cólon ascendente:</h2>
+<ul>
+<li>MUCOSA CÓLICA DENTRO DOS LIMITES DA NORMALIDADE.
+<ul>
+<li>Discreto edema da lâmina própria.</li>
+<li>Ausência de criptite e microabscessos de cripta.</li>
+<li>Ausência de ovos, parasitas e granulomas.</li>
+<li>Ausência de sinais de malignidade.</li>
+</ul></li>
+</ul>
+</section>
+<section id="b.-biópsia-de-cólon-descendente-e-sigmoide" class="level2">
+<h2 class="anchored" data-anchor-id="b.-biópsia-de-cólon-descendente-e-sigmoide">B. Biópsia de cólon descendente e sigmoide:</h2>
+<ul>
+<li>COLITE CRÔNICA INATIVA COM METAPLASIA DE CÉLULAS DE PANETH, EDEMA DE LÂMINA PRÓPRIA.
+<ul>
+<li>Ausência de criptite e microabscessos de cripta.</li>
+<li>Ausência de ovos, parasitas e granulomas.</li>
+<li>Ausência de sinais de malignidade.</li>
+</ul></li>
+</ul>
+</section>
+<section id="c.-biópsia-de-reto" class="level2">
+<h2 class="anchored" data-anchor-id="c.-biópsia-de-reto">C. Biópsia de reto:</h2>
+<ul>
+<li>MUCOSA RETAL COM HIPERPLASIA LINFOIDE REACIONAL E EDEMA DE LÂMINA PRÓPRIA.
+<ul>
+<li>Ausência de criptite e microabscessos de cripta.</li>
+<li>Ausência de ovos, parasitas e granulomas.</li>
+<li>Ausência de sinais de malignidade.</li>
+</ul></li>
+</ul>
+</section>
+<section id="d.-biópsia-de-lesão-plano-elevada-em-cólon-descendente" class="level2">
+<h2 class="anchored" data-anchor-id="d.-biópsia-de-lesão-plano-elevada-em-cólon-descendente">D. Biópsia de lesão plano elevada em cólon descendente:</h2>
+<ul>
+<li>MUCOSA CÓLICA COM HIPERPLASIA EPITELIAL REGENERATIVA.
+<ul>
+<li>Ausência de criptite e microabscessos de cripta.</li>
+<li>Ausência de ovos, parasitas e granulomas.</li>
+<li>Ausência de sinais de malignidade.</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="resumo-técnico-e-interpretação-clínica-dos-achados" class="level1">
+<h1>✅ <strong>Resumo Técnico e Interpretação Clínica dos Achados</strong></h1>
+<section id="a.-cólon-ascendente-normalidade-praticamente-completa" class="level2">
+<h2 class="anchored" data-anchor-id="a.-cólon-ascendente-normalidade-praticamente-completa"><strong>A. Cólon Ascendente — Normalidade Praticamente Completa</strong></h2>
+<blockquote class="blockquote">
+<p><em>“Mucosa dentro dos limites da normalidade. Discreto edema. Sem criptite, microabscesso, parasitas ou malignidade.”</em></p>
+</blockquote>
+<p><strong>Interpretação:</strong></p>
+<ul>
+<li>O cólon ascendente está <strong>basicamente normal</strong> na biópsia.</li>
+<li>“Discreto edema” é <strong>inespecífico</strong> e pode ocorrer mesmo em mucosa saudável ou em pequenas irritações.</li>
+<li><strong>Ausência de inflamação ativa e ausência de displasia/malignidade</strong>.</li>
+</ul>
+<p><strong>Conclusão clínica:</strong> → <strong>Boa notícia</strong>, pois indica ausência de inflamação ativa da colite nesse segmento.</p>
+<hr>
+</section>
+<section id="b.-cólon-descendente-e-sigmoide-colite-crônica-inativa" class="level2">
+<h2 class="anchored" data-anchor-id="b.-cólon-descendente-e-sigmoide-colite-crônica-inativa"><strong>B. Cólon Descendente e Sigmoide — Colite Crônica <em>Inativa</em></strong></h2>
+<blockquote class="blockquote">
+<p><em>“Colite crônica inativa com metaplasia de células de Paneth. Ausência de criptite e microabscessos.”</em></p>
+</blockquote>
+<p><strong>Interpretação:</strong></p>
+<ul>
+<li><p><strong>Colite crônica inativa</strong> significa:</p>
+<ul>
+<li>Você tem <strong>marcas estruturais de inflamação antiga</strong> (colite de base), compatível com <strong>pancolite</strong>.</li>
+<li><strong>Não há inflamação ativa</strong> no momento → sem neutrófilos, sem ulceração, sem atividade ressentida.</li>
+</ul></li>
+<li><p><strong>Metaplasia de células de Paneth</strong>:</p>
+<ul>
+<li>Alteração típica em pessoas com <strong>doença inflamatória intestinal crônica</strong> (sobretudo retocolite ulcerativa).</li>
+<li>Não aumenta risco imediato de câncer sozinho.</li>
+<li>Mostra apenas que houve inflamação <strong>no passado</strong>.</li>
+</ul></li>
+</ul>
+<p><strong>Conclusão clínica:</strong> → Segmento demonstra <strong>doença inflamatória cicatrizada</strong>, sem atividade no momento. → Muito coerente com <strong>RCU em remissão histológica</strong>, que é algo desejável.</p>
+<hr>
+</section>
+<section id="c.-reto-hiperplasia-linfoide-reacional" class="level2">
+<h2 class="anchored" data-anchor-id="c.-reto-hiperplasia-linfoide-reacional"><strong>C. Reto — Hiperplasia Linfoide Reacional</strong></h2>
+<blockquote class="blockquote">
+<p><em>“Mucosa retal com hiperplasia linfoide reacional e edema.”</em></p>
+</blockquote>
+<p><strong>Interpretação:</strong></p>
+<ul>
+<li><p>Hiperplasia linfoide reacional = aumento benigno de tecido linfóide, geralmente por:</p>
+<ul>
+<li>inflamação leve</li>
+<li>estímulo imune</li>
+<li>irritação local</li>
+</ul></li>
+<li><p>Não indica inflamação ativa importante.</p></li>
+<li><p>Não há criptite → ausência de atividade típica de RCU ativa.</p></li>
+</ul>
+<p><strong>Conclusão clínica:</strong> → Pode indicar <strong>estimulação imune leve</strong>, mas <strong>sem atividade de colite ulcerativa</strong> no reto no momento (ausência de proctite ativa).</p>
+<hr>
+</section>
+<section id="d.-lesão-plano-elevada-no-cólon-descendente-regeneração" class="level2">
+<h2 class="anchored" data-anchor-id="d.-lesão-plano-elevada-no-cólon-descendente-regeneração"><strong>D. Lesão Plano-Elevada no Cólon Descendente — Regeneração</strong></h2>
+<blockquote class="blockquote">
+<p><em>“Mucosa com hiperplasia epitelial regenerativa. Sem sinais de malignidade.”</em></p>
+</blockquote>
+<p><strong>Interpretação:</strong></p>
+<ul>
+<li><p>A lesão biopsiada não mostrou displasia nem câncer.</p></li>
+<li><p>“Hiperplasia regenerativa” indica:</p>
+<ul>
+<li>tecido se regenerando após irritação, trauma da mucosa, atrito, ou inflamação antiga.</li>
+</ul></li>
+<li><p>Em pacientes com RCU, isso é <strong>bastante comum</strong>.</p></li>
+</ul>
+<p><strong>Conclusão clínica:</strong> → <strong>A lesão não é pré-maligna</strong>, mas deve ter <strong>vigilância endoscópica</strong>, como qualquer lesão suspeita em paciente com pancolite de longa data.</p>
+<hr>
+</section>
+</section>
+<section id="resumo-global-em-linguagem-simples" class="level1">
+<h1>📌 <strong>Resumo Global — Em Linguagem Simples</strong></h1>
+<ul>
+<li><strong>Nenhuma biópsia mostrou inflamação ativa.</strong></li>
+<li><strong>Nenhuma biópsia mostrou displasia ou câncer.</strong></li>
+<li>O padrão é <strong>compatível com colite ulcerativa em remissão histológica</strong>, com cicatrizes típicas (“crônica inativa”).</li>
+<li>A lesão plano-elevada <strong>não é perigosa</strong>, mas precisa ser acompanhada porque você tem <strong>pancolite + PSC</strong>, o que muda o protocolo de vigilância.</li>
+<li>A presença de metaplasia e hiperplasia é <strong>esperada</strong> em quem tem doença inflamatória de longa data.</li>
+</ul>
+<hr>
+</section>
+<section id="ponto-importante-pancolite-colangite-esclerosante-primária-psccep" class="level1">
+<h1>⚠️ <strong>Ponto Importante: Pancolite + Colangite Esclerosante Primária (PSC/CEP)</strong></h1>
+<p>Pacientes com <strong>PSC + colite ulcerativa</strong> têm <strong>risco aumentado de câncer de cólon</strong>, independentemente da atividade inflamatória.</p>
+<p>Isso significa:</p>
+<section id="mesmo-em-remissão-histológica-a-vigilância-endoscópica-deve-ser-anual-com" class="level3">
+<h3 class="anchored" data-anchor-id="mesmo-em-remissão-histológica-a-vigilância-endoscópica-deve-ser-anual-com">➤ Mesmo em remissão histológica, a vigilância endoscópica deve ser <strong>anual</strong> com:</h3>
+<ul>
+<li>colonoscopia de alta definição</li>
+<li>mapeamento extensivo</li>
+<li>ou cromoscopia (ideal)</li>
+</ul>
+<p>Essa recomendação é universal em guidelines internacionais.</p>
+<hr>
+</section>
+</section>
+<section id="o-que-você-deve-discutir-com-o-seu-médico" class="level1">
+<h1>🩺 <strong>O que você deve discutir com o seu médico</strong></h1>
+<p>Aqui estão pontos diretos, objetivos, que você pode levar para a consulta:</p>
+<hr>
+<section id="vigilância-para-displasia" class="level2">
+<h2 class="anchored" data-anchor-id="vigilância-para-displasia"><strong>1. Vigilância para Displasia</strong></h2>
+<p>Pergunte:</p>
+<ul>
+<li><em>“Com base nas biópsias e na minha PSC, qual deve ser a periodicidade exata da minha colonoscopia de vigilância? Deve ser anual com cromoscopia?”</em></li>
+</ul>
+<hr>
+</section>
+<section id="interpretação-da-lesão-plano-elevada" class="level2">
+<h2 class="anchored" data-anchor-id="interpretação-da-lesão-plano-elevada"><strong>2. Interpretação da Lesão Plano-Elevada</strong></h2>
+<p>Pergunte:</p>
+<ul>
+<li><em>“A lesão plano-elevada foi apenas regenerativa. Precisa ser removida completamente? Reavaliada em 6–12 meses? Pode ser um pseudo-pólipo?”</em></li>
+</ul>
+<hr>
+</section>
+<section id="estado-global-da-colite" class="level2">
+<h2 class="anchored" data-anchor-id="estado-global-da-colite"><strong>3. Estado Global da Colite</strong></h2>
+<p>Pergunte:</p>
+<ul>
+<li><em>“Posso considerar que minha colite está em remissão histológica? Isso muda minha medicação de manutenção?”</em></li>
+</ul>
+<hr>
+</section>
+<section id="relação-entre-sintomas-e-achados" class="level2">
+<h2 class="anchored" data-anchor-id="relação-entre-sintomas-e-achados"><strong>4. Relação Entre Sintomas e Achados</strong></h2>
+<p>Se você ainda tem sintomas como diarreia, dor, urgência ou muco:</p>
+<ul>
+<li><em>“Se a histologia está inativa, meus sintomas podem ser funcionais? Devemos investigar SII pós-inflamatória ou hipersensibilidade visceral?”</em></li>
+</ul>
+<hr>
+</section>
+<section id="checar-risco-oncológico-específico-de-quem-tem-psc" class="level2">
+<h2 class="anchored" data-anchor-id="checar-risco-oncológico-específico-de-quem-tem-psc"><strong>5. Checar Risco Oncológico Específico de Quem Tem PSC</strong></h2>
+<p>Pergunta importante:</p>
+<ul>
+<li><em>“Com PSC, devo ter vigilância mais rigorosa? Há necessidade de marcadores adicionais, como CEA, ou isso não se aplica?”</em></li>
+</ul>
+<hr>
+</section>
+<section id="inflamação-de-baixa-intensidade-no-reto" class="level2">
+<h2 class="anchored" data-anchor-id="inflamação-de-baixa-intensidade-no-reto"><strong>6. Inflamação de Baixa Intensidade no Reto</strong></h2>
+<p>Pergunte:</p>
+<ul>
+<li><em>“A hiperplasia linfoide reacional no reto tem alguma implicação prática? Precisa de tratamento tópico ou posição apenas para observação?”</em></li>
+</ul>
+<hr>
+</section>
+<section id="tratamento-de-manutenção" class="level2">
+<h2 class="anchored" data-anchor-id="tratamento-de-manutenção"><strong>7. Tratamento de Manutenção</strong></h2>
+<p>Pergunte:</p>
+<ul>
+<li><em>“Dado que não há atividade inflamatória, devo manter, ajustar ou otimizar minha medicação?”</em></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="mensagem-final" class="level1">
+<h1>🎯 <strong>Mensagem Final</strong></h1>
+<p>Seu exame é <strong>globalmente tranquilizador</strong>:</p>
+<ul>
+<li>Não há inflamação ativa.</li>
+<li>Não há displasia.</li>
+<li>Não há sinais de câncer.</li>
+<li>Há marcas típicas da sua doença de base — o que é esperado.</li>
+<li>A lesão suspeita é <strong>benigna</strong>.</li>
+</ul>
+<p>O ponto mais importante da consulta será definir <strong>o protocolo de vigilância</strong>, já que seu risco é determinado principalmente por: ✔ histórico de pancolite extensa ✔ PSC</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/maladie\.ronaldo\.tech");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

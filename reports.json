@@ -86,5 +86,24 @@
       }
     ],
     "body_md_file": "reports/20250925_TB_Interferon.html"
+  },
+  {
+    "id": "20251112_Biopsia_Colon",
+    "datetime": "12/11/25",
+    "modality": "Colonoscopia",
+    "title": "Biópsia de Cólon",
+    "summary": "Conclusão: Biópsia de cólon ascendente: Mucosa cólica dentro dos limites da normalidade. Biópsia de cólon descendente e sigmoide: Colite crônica inativa com metaplasia de células de Paneth. Biópsia de reto: Mucosa retal com hiperplasia linfoide reacional.",
+    "tags": [
+      "colonoscopia",
+      "biópsia",
+      "anatomopatológico"
+    ],
+    "attachments": [
+      {
+        "type": "pdf",
+        "href": "https://media.githubusercontent.com/media/ronaldokun/maladie/refs/heads/main/reports/20251112_Colonoscopia.pdf"
+      }
+    ],
+    "body_md_file": "reports/20251112_Biopsia_Colon.html"
   }
 ]
